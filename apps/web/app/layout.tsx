@@ -1,15 +1,15 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { DM_Sans } from 'next/font/google';
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '700'],
+});
 
 export default function RootLayout({
   children,
@@ -20,9 +20,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
+      className={cn("antialiased", dmSans.className)}
     >
-      <body>
+      <body className="tracking-tighter ">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

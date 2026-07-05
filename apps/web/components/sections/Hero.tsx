@@ -1,6 +1,6 @@
+
 import Container from "../ui/Container"
 import Navbar from "../ui/navbar"
-
 const HeroSection = () => {
   return (
     <Container>
