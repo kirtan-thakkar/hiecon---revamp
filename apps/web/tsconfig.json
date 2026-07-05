@@ -19,6 +19,6 @@
     "**/*.mts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "../../packages/ui/src/components/navbar.tsx"  ],
   "exclude": ["node_modules"]
 }
