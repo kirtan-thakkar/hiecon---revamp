@@ -26,6 +26,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "motion": "^12.42.2"
   }
 }
