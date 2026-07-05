@@ -22,7 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", dmSans.className)}
     >
-      <body className="tracking-tighter ">
+      <body className="tracking-tight ">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
