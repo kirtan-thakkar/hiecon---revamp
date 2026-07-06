@@ -6,7 +6,14 @@ import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/all"
 import { useRef } from "react"
 import { TextAnimate } from "@workspace/ui/components/text-animate"
-import path from "path/win32"
+import { Button } from "@workspace/ui/components/button"
+import Link from "next/link"
+import ContactSection from "../home/ContactSection"
+import Gallery from "../home/Gallery"
+import WhyChooseUs from "../home/WhyChooseUs"
+import ProductFamilies from "../home/ProductFamilies"
+import StatsSection from "../home/StatsSection"
+import TechnologyPartners from "../home/TechnologyPartners"
 const HeroSection = () => {
   const videoRef = useRef<HTMLImageElement>(null)
 
@@ -20,7 +27,7 @@ const HeroSection = () => {
         markers: true,
       },
     })
-    t1.fromTo(videoRef.current, { scale: 0.95 }, { scale: 1.2,  duration: 1.5 })
+    t1.fromTo(videoRef.current, { scale: 0.95 }, { scale: 1.2, duration: 1.5 })
   }, [videoRef])
 
   return (
@@ -33,7 +40,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{
               opacity: 0,
-              y: 20,
+              y: 10,
               filter: "blur(10px)",
             }}
             animate={{
@@ -44,44 +51,65 @@ const HeroSection = () => {
 
             transition={{
               duration: 0.6,
-              delay: 0.2,
+              delay: 0.3,
               ease: "easeOut",
             }}
             className="bg-linear-to-b from-neutral-700 to-neutral-100 bg-clip-text text-7xl font-bold tracking-tight text-transparent dark:bg-linear-to-b dark:from-neutral-100 dark:to-neutral-700 dark:text-transparent"
           >
             Delivering Intelligent Industrial Automation Solutions
           </motion.h1>
-          <motion.p
-            initial={{
-              opacity: 0,
-              y: 20,
-              filter: "blur(10px)",
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-            }}
 
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              ease: "easeOut",
-            }}
+          <TextAnimate
+            animation="blurIn"
+            as="p"
+            delay={0.7}
             className="max-w-lg text-base text-neutral-700 dark:text-neutral-300"
           >
             We provide state-of-the-art automation solutions, seamless system
             integration, and dependable technical support to help industries
             improve productivity, reliability, and operational efficiency.
-          </motion.p>
+          </TextAnimate>
         </div>
+        <motion.div
+        initial={{
+          opacity: 0,
+          y: 10,
+          filter: "blur(10px)",
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.9,
+          ease: "easeOut",
+        }}
+         className="mt-14 flex w-full items-center justify-center gap-3">
+          <Link href="/products">
+            <Button>View Products</Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="outline">Contact Us</Button>
+          </Link>
+        </motion.div>
         {/* video */}
         <div
           ref={videoRef}
-          className="mt-20 min-h-screen bg-violet-100 dark:bg-violet-900 rounded-[30px]"
+          className="mt-20 min-h-screen rounded-[30px] bg-violet-100 dark:bg-violet-900"
         >
           <h2>Placeholder image</h2>
         </div>
+        <div>
+          <TechnologyPartners />
+          <StatsSection />
+          <ProductFamilies />
+          <WhyChooseUs />
+          <Gallery />
+          <ContactSection />
+        </div>
+       
       </div>
     </Container>
   )
