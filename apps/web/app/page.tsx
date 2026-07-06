@@ -21,7 +21,7 @@ export default function Page() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <HeroSection />
-          <div className="min-h-screen w-full bg-red-500"></div>
+          <div className="min-h-screen w-full z-10 bg-red-500"></div>
         </div>
       </div>
     </div>
