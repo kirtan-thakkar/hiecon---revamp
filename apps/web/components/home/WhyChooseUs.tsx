@@ -31,96 +31,74 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Content Column */}
+          {/* Content Column (Editorial Storytelling) */}
           <div className="md:col-span-6 md:col-start-7 flex flex-col gap-16 md:gap-24">
             
-            {/* Large Highlight */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="border-t border-border pt-8"
+              className="flex flex-col gap-8 border-t border-border pt-8"
             >
-              <h3 className="text-7xl md:text-8xl lg:text-9xl font-medium text-foreground tracking-tighter mb-4 leading-none">
-                27+
-              </h3>
-              <p className="text-2xl md:text-3xl text-foreground font-medium mb-4">
-                Years of Industry Experience
-              </p>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-                Decades of hands-on expertise navigating complex industrial environments and evolving manufacturing technologies.
-              </p>
+              <div className="w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden bg-muted">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="https://placehold.co/1200x800/e5e5e5/a3a3a3?text=Custom+PLC+Cabinets" 
+                  alt="Custom PLC Cabinets"
+                  className="w-full h-full object-cover mix-blend-multiply opacity-90"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-medium text-foreground mb-4">
+                  Custom Automation Architecture
+                </h3>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  Every manufacturing line is unique. We design tailor-made automation architectures targeting your specific operational bottlenecks. From custom PLC cabinet assembly to full-scale SCADA deployments, our solutions are engineered for precise integration.
+                </p>
+              </div>
             </motion.div>
 
-            {/* Medium Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-16">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="border-t border-border pt-6"
-              >
-                <h3 className="text-5xl md:text-6xl font-medium text-foreground tracking-tighter mb-4">
-                  750+
-                </h3>
-                <p className="text-xl text-foreground font-medium mb-3">
-                  Valued Customers
-                </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Delivering continuous value and system reliability to manufacturing leaders globally.
-                </p>
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="border-t border-border pt-6"
-              >
-                <h3 className="text-5xl md:text-6xl font-medium text-foreground tracking-tighter mb-4">
-                  36+
-                </h3>
-                <p className="text-xl text-foreground font-medium mb-3">
-                  Expert Engineers
-                </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  A dedicated team of domain experts ready to design, deploy, and scale your operations.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Small Highlights */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="border-t border-border pt-8 grid grid-cols-1 gap-8"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col gap-8 border-t border-border pt-8"
             >
-               <div className="flex items-start gap-5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
-                  <div>
-                    <p className="text-lg font-medium text-foreground mb-1">Trusted Global Technology Partners</p>
-                    <p className="text-muted-foreground leading-relaxed">Authorized alliances with the world&apos;s leading automation hardware brands.</p>
-                  </div>
-               </div>
-               <div className="flex items-start gap-5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
-                  <div>
-                    <p className="text-lg font-medium text-foreground mb-1">Customized Automation Solutions</p>
-                    <p className="text-muted-foreground leading-relaxed">Tailor-made architectures for highly specific operational requirements.</p>
-                  </div>
-               </div>
-               <div className="flex items-start gap-5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
-                  <div>
-                    <p className="text-lg font-medium text-foreground mb-1">Fast & Reliable Technical Support</p>
-                    <p className="text-muted-foreground leading-relaxed">Comprehensive after-sales assistance and proactive system maintenance.</p>
-                  </div>
-               </div>
+              <div className="w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden bg-muted">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="https://placehold.co/1200x800/e5e5e5/a3a3a3?text=Precision+Servo+Drives" 
+                  alt="Precision Servo Drives"
+                  className="w-full h-full object-cover mix-blend-multiply opacity-90"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-medium text-foreground mb-4">
+                  Uncompromising Component Quality
+                </h3>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  We maintain authorized alliances with the world&apos;s most trusted automation hardware brands. By sourcing industrial-grade servo drives, ruggedized PCs, and advanced motion controllers, we guarantee system longevity in the harshest industrial environments.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col gap-8 border-t border-border pt-8"
+            >
+              <div>
+                <h3 className="text-2xl md:text-3xl font-medium text-foreground mb-4">
+                  Proactive Technical Support
+                </h3>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  Our commitment doesn&apos;t end at deployment. We provide comprehensive after-sales assistance, proactive system maintenance, and rapid troubleshooting to ensure your production lines experience absolute minimum downtime.
+                </p>
+              </div>
             </motion.div>
 
           </div>

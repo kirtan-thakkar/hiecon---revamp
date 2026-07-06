@@ -2,65 +2,122 @@
 
 import { motion } from "motion/react";
 import Container from "../ui/Container";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Badge } from "@workspace/ui/components/badge";
 
 const partners = [
-  "Siemens",
-  "Rockwell Automation",
-  "ABB",
-  "Schneider Electric",
-  "Mitsubishi Electric",
-  "Omron",
-  "Fanuc",
-  "Yaskawa",
+  {
+    name: "ABB",
+    description: "Global leader in power and automation technologies.",
+    solutions: ["AC Drives", "AC Motors", "PLC"],
+  },
+  {
+    name: "Omron",
+    description: "Advanced sensing and control technology for factory automation.",
+    solutions: ["Automation Components", "Motion Controllers", "Industrial Robots", "Vision Systems"],
+  },
+  {
+    name: "Weintek",
+    description: "Specialized human-machine interfaces for industrial environments.",
+    solutions: ["Standard HMI", "Advanced HMI", "Remote I/O", "IIoT Products"],
+  },
+  {
+    name: "SERAD",
+    description: "Precision motion control and high-performance servo systems.",
+    solutions: ["Servo Drives & Motors"],
+  },
+  {
+    name: "Golden Age",
+    description: "Reliable servo motor solutions for dynamic industrial applications.",
+    solutions: ["Servo Motors"],
+  },
+  {
+    name: "WEG",
+    description: "Leading manufacturer of robust electric motors and drive technology.",
+    solutions: ["AC Motors"],
+  },
 ];
 
 export default function TechnologyPartners() {
-  // Duplicate the array to create a seamless infinite loop
-  const duplicatedPartners = [...partners, ...partners];
-
   return (
-    <section className="py-24 bg-white dark:bg-neutral-950 overflow-hidden">
+    <section className="py-24 md:py-32 bg-background">
       <Container>
-        <div className="text-center mb-12">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-semibold tracking-widest text-neutral-600 dark:text-neutral-300 uppercase"
-          >
-            Trusted Technology Partners
-          </motion.h2>
-        </div>
-      </Container>
-      
-      <div className="relative flex overflow-hidden group">
-        {/* Left and Right Fade Gradients */}
-        <div className="absolute top-0 bottom-0 left-0 w-32 z-10 bg-linear-to-r from-white to-transparent dark:from-neutral-950" />
-        <div className="absolute top-0 bottom-0 right-0 w-32 z-10 bg-linear-to-l from-white to-transparent dark:from-neutral-950" />
-
-        <motion.div
-          className="flex whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            ease: "linear",
-            duration: 20,
-            repeat: Infinity,
-          }}
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
-          {duplicatedPartners.map((partner, index) => (
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-6">
+              Our Network
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground leading-[1.05]">
+              Technology Partners
+            </h2>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-md pb-2">
+            Authorized integrations with the world's most trusted manufacturing brands.
+          </p>
+        </motion.div>
+        
+        {/* Consistent Structural Grid */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+        >
+          {partners.map((partner) => (
             <div 
-              key={index}
-              className="flex items-center justify-center px-12 md:px-24"
+              key={partner.name}
+              className="group flex flex-col h-full border-t border-border pt-8"
             >
-              {/* Placeholder for Logo */}
-              <span className="text-xl md:text-3xl font-bold text-neutral-600 dark:text-neutral-500">
-                {partner}
-              </span>
+              {/* 1. Fixed Logo Area */}
+              <div className="h-16 flex items-center justify-start mb-8 transition-transform duration-500 group-hover:scale-[1.02] origin-left">
+                <span className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
+                  {partner.name}
+                </span>
+              </div>
+
+              {/* 2. Fixed Description Area (Clamped to 2 lines, exact 3.5rem height for text-lg) */}
+              <div className="min-h-[3.5rem] mb-10">
+                <p className="text-lg text-muted-foreground leading-relaxed line-clamp-2">
+                  {partner.description}
+                </p>
+              </div>
+              
+              {/* 3. Solutions Area (flex-1 pushes CTA down, top aligns perfectly) */}
+              <div className="flex flex-col flex-1 gap-5 mb-10">
+                <p className="text-[10px] font-bold tracking-widest uppercase text-foreground">
+                  Supported Solutions
+                </p>
+                <div className="flex flex-wrap gap-x-3 gap-y-3">
+                  {partner.solutions.map((solution, i) => (
+                    <Badge key={i} variant="technology">
+                      {solution}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. CTA Pinned to bottom */}
+              <div className="mt-auto flex justify-start">
+                <Link 
+                  href={`/partners/${partner.name.toLowerCase().replace(/\s+/g, '-')}`} 
+                  className="inline-flex items-center text-sm font-medium text-foreground transition-opacity hover:opacity-70"
+                >
+                  Explore Products <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
           ))}
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }
