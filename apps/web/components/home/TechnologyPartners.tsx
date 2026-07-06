@@ -27,7 +27,7 @@ export default function TechnologyPartners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-sm font-semibold tracking-widest text-neutral-500 uppercase"
+            className="text-sm font-semibold tracking-widest text-neutral-600 dark:text-neutral-300 uppercase"
           >
             Trusted Technology Partners
           </motion.h2>
@@ -40,7 +40,7 @@ export default function TechnologyPartners() {
         <div className="absolute top-0 bottom-0 right-0 w-32 z-10 bg-linear-to-l from-white to-transparent dark:from-neutral-950" />
 
         <motion.div
-          className="flex whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             ease: "linear",
@@ -54,7 +54,7 @@ export default function TechnologyPartners() {
               className="flex items-center justify-center px-12 md:px-24"
             >
               {/* Placeholder for Logo */}
-              <span className="text-xl md:text-3xl font-bold text-neutral-300 dark:text-neutral-600">
+              <span className="text-xl md:text-3xl font-bold text-neutral-600 dark:text-neutral-500">
                 {partner}
               </span>
             </div>

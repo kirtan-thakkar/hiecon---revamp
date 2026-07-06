@@ -4,8 +4,11 @@ import { motion } from "motion/react";
 import Container from "../ui/Container";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@workspace/ui/components/button";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
 export const productFamilies = [
   {
@@ -124,33 +127,57 @@ export const productFamilies = [
 
 export default function ProductFamilies() {
   const [visibleCount, setVisibleCount] = useState(4);
+  const containerRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 85%",
+        end: "center 50%",
+        scrub: 1,
+      }
+    });
+
+    tl.fromTo(
+      titleRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    ).fromTo(
+      descRef.current,
+      { opacity: 0, filter: "blur(4px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" },
+      "-=0.6"
+    );
+
+  }, { scope: containerRef });
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 4);
   };
 
   return (
-    <section className="py-24 bg-white dark:bg-neutral-950">
+    <section ref={containerRef} className="py-24 bg-white dark:bg-neutral-950">
       <Container>
         <div className="flex flex-col items-center justify-center mb-16 text-center max-w-3xl mx-auto">
-          <motion.h2 
-            initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-6"
-          >
-            Explore Our Industrial Automation Product Families
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-neutral-600 dark:text-neutral-400"
+          <div className="overflow-hidden mb-6">
+            <h2 
+              ref={titleRef}
+              className="text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
+            >
+              Automation, Simplified
+            </h2>
+          </div>
+          <p 
+            ref={descRef}
+            className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400"
           >
             Discover our complete range of industrial automation products engineered for performance, precision and reliability.
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -68,7 +68,7 @@ const HeroSection = () => {
             improve productivity, reliability, and operational efficiency.
           </TextAnimate>
         </div>
-        
+
         <motion.div
           initial={{
             opacity: 0,
@@ -88,36 +88,54 @@ const HeroSection = () => {
           className="mt-12 flex w-full items-center justify-center gap-4"
         >
           <Link href="/products">
-            <Button size="lg" className="rounded-full px-8 h-12 text-base">View Products</Button>
+            <Button size="lg" className="h-12 rounded-full px-8 text-base">
+              View Products
+            </Button>
           </Link>
           <Link href="/contact">
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base">Contact Us</Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 rounded-full px-8 text-base"
+            >
+              Contact Us
+            </Button>
           </Link>
         </motion.div>
-        
+
         {/* video */}
-        <div className="mt-24 md:mt-32 w-full flex justify-center perspective-[1200px]">
+        <div className="mt-24 flex w-full justify-center perspective-[1200px] md:mt-32">
           <div
             ref={videoRef}
-            className="w-full h-[60vh] md:h-[85vh] rounded-[2rem] md:rounded-[3rem] bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center overflow-hidden relative shadow-2xl"
+            className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-neutral-200 shadow-2xl md:h-[85vh] md:rounded-[3rem] dark:bg-neutral-800"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src="https://placehold.co/1920x1080/e5e5e5/a3a3a3?text=Cinematic+Industrial+Showcase" 
-              alt="Industrial Automation Showcase" 
-              className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-overlay"
+            <img
+              src="https://placehold.co/1920x1080/e5e5e5/a3a3a3?text=Cinematic+Industrial+Showcase"
+              alt="Industrial Automation Showcase"
+              className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-overlay"
             />
-            <h2 className="z-10 text-2xl font-medium text-neutral-500 dark:text-neutral-400 mix-blend-difference">Showcase Video</h2>
+            <h2 className="z-10 text-2xl font-medium text-neutral-500 mix-blend-difference dark:text-neutral-400">
+              Showcase Video
+            </h2>
           </div>
         </div>
         <div>
-          <TechnologyPartners />
-          <StatsSection />
-          <ProductFamilies />
-          <WhyChooseUs />
-          <ContactSection />
+          <div className="-mb-32 py-48">
+            <TechnologyPartners />
+          </div>
+          <div className="mt-12">
+            <StatsSection />
+          </div>
+          <div className="mt-12">
+            <ProductFamilies />
+          </div>
+          <div className="mt-12">
+            <WhyChooseUs />
+          </div>
+          <div className="mt-12">
+            <ContactSection />
+          </div>
         </div>
-       
       </div>
     </Container>
   )
