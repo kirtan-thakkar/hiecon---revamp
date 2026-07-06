@@ -1,86 +1,85 @@
 "use client";
 
+import { motion } from "motion/react";
 import Container from "../ui/Container";
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
-
-const stats = [
-  {
-    value: "27+",
-    label: "Years of Industry Experience",
-  },
-  {
-    value: "750+",
-    label: "Valued Customers",
-  },
-  {
-    value: "36+",
-    label: "Team Strength",
-  },
-];
 
 export default function StatsSection() {
-  const containerRef = useRef<HTMLElement>(null);
-  const textRefs = useRef<HTMLDivElement[]>([]);
-  const labelRefs = useRef<HTMLDivElement[]>([]);
-
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 85%",
-        end: "center 50%",
-        scrub: 1,
-      }
-    });
-
-    tl.fromTo(
-      textRefs.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }
-    ).fromTo(
-      labelRefs.current,
-      { opacity: 0, filter: "blur(4px)" },
-      { opacity: 1, filter: "blur(0px)", duration: 0.8, stagger: 0.1, ease: "power2.out" },
-      "-=0.6"
-    );
-
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="py-32 bg-background border-y border-border ">
+    <section className="py-24 md:py-40 bg-background border-t border-border">
       <Container>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-16 md:gap-8 ml-50 ">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center md:items-start flex-1 w-full text-center md:text-left"
-            >
-              <div className="overflow-hidden mb-2">
-                <div 
-                  ref={(el) => {
-                    if (el) textRefs.current[index] = el;
-                  }}
-                  className="text-5xl lg:text-7xl font-bold bg-linear-to-b from-neutral-800 to-neutral-400 dark:from-neutral-100 dark:to-neutral-600 bg-clip-text text-transparent"
-                >
-                  {stat.value}
-                </div>
-              </div>
-              <div 
-                ref={(el) => {
-                  if (el) labelRefs.current[index] = el;
-                }}
-                className="text-base lg:text-lg text-neutral-600 dark:text-neutral-400 font-medium"
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
+        {/* Top Row: Intro & Massive Primary Metric */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start relative">
+          
+          {/* Intro */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="md:col-span-5 flex flex-col pt-4"
+          >
+            <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
+              Trusted By Industry
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground leading-[1.1] mb-8">
+              Engineering Confidence<br />Since 1998.
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md">
+              For over two decades, we have partnered with manufacturing leaders to architect, deploy, and scale robust industrial automation systems that stand the test of time.
+            </p>
+          </motion.div>
+
+          {/* Massive Metric */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-start-7 md:col-span-6 border-t border-border pt-8 md:mt-24"
+          >
+            <h3 className="text-8xl md:text-9xl lg:text-[10rem] font-medium tracking-tighter text-foreground leading-none mb-6 lg:mb-8">
+              27+
+            </h3>
+            <p className="text-sm lg:text-base font-bold tracking-widest uppercase text-muted-foreground">
+              Years of Engineering Excellence
+            </p>
+          </motion.div>
+
+        </div>
+
+        {/* Bottom Row: Secondary Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mt-16 md:mt-32">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:col-span-5 border-t border-border pt-8"
+          >
+            <h3 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-foreground leading-none mb-6">
+              750+
+            </h3>
+            <p className="text-sm font-bold tracking-widest uppercase text-muted-foreground">
+              Industrial Customers Served
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="md:col-start-7 md:col-span-6 border-t border-border pt-8"
+          >
+            <h3 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-foreground leading-none mb-6">
+              36+
+            </h3>
+            <p className="text-sm font-bold tracking-widest uppercase text-muted-foreground">
+              Automation Experts
+            </p>
+          </motion.div>
+
         </div>
       </Container>
     </section>

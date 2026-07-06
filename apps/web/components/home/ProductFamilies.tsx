@@ -4,11 +4,8 @@ import { motion } from "motion/react";
 import Container from "../ui/Container";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@workspace/ui/components/button";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 
 export const productFamilies = [
   {
@@ -126,101 +123,138 @@ export const productFamilies = [
 ];
 
 export default function ProductFamilies() {
-  const [visibleCount, setVisibleCount] = useState(4);
-  const containerRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
+  // 1 large, 2 medium, rest in grid. So 3 are featured. We load 6 of the remaining at a time.
+  const [visibleRemaining, setVisibleRemaining] = useState(6);
 
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 85%",
-        end: "center 50%",
-        scrub: 1,
-      }
-    });
-
-    tl.fromTo(
-      titleRef.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-    ).fromTo(
-      descRef.current,
-      { opacity: 0, filter: "blur(4px)" },
-      { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" },
-      "-=0.6"
-    );
-
-  }, { scope: containerRef });
+  const featuredLarge = productFamilies[0];
+  const featuredMedium = productFamilies.slice(1, 3);
+  const remainingProducts = productFamilies.slice(3);
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 4);
+    setVisibleRemaining((prev) => prev + 6);
   };
 
   return (
-    <section ref={containerRef} className="py-24 bg-white dark:bg-neutral-950">
+    <section className="py-24 md:py-32 bg-background">
       <Container>
-        <div className="flex flex-col items-center justify-center mb-16 text-center max-w-3xl mx-auto">
-          <div className="overflow-hidden mb-6">
-            <h2 
-              ref={titleRef}
-              className="text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
-            >
-              Automation, Simplified
-            </h2>
-          </div>
-          <p 
-            ref={descRef}
-            className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400"
+        {/* Header */}
+        <div className="mb-16 md:mb-24 max-w-4xl">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-[1.05] mb-8"
           >
-            Discover our complete range of industrial automation products engineered for performance, precision and reliability.
-          </p>
+            Explore Our Solutions.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl"
+          >
+            From motion control and PLCs to industrial robotics and IIoT, discover automation solutions engineered for precision, reliability, and long-term performance.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {productFamilies.slice(0, visibleCount).map((product, index) => (
-            <Link key={product.id} href={`/products/${product.slug}`} className="group block h-full">
+        <div className="flex flex-col gap-24 md:gap-32">
+          
+          {/* Large Featured Solution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Link href={`/products/${featuredLarge.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+              <div className="lg:col-span-7 h-[400px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-muted">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={featuredLarge.image} alt={featuredLarge.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div className="lg:col-span-5 flex flex-col justify-center">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground tracking-tight mb-6">
+                  {featuredLarge.title}
+                </h3>
+                <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-md">
+                  {featuredLarge.description}
+                </p>
+                <div className="flex items-center text-lg font-medium text-foreground group-hover:text-muted-foreground transition-colors w-fit">
+                  Explore Solution <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Medium Featured Solutions */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {featuredMedium.map((product, index) => (
               <motion.div
+                key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: (index % 4) * 0.1, // Stagger rows correctly
-                  ease: "easeOut",
-                }}
-                className="h-full flex flex-col p-6 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 transition-all duration-300 hover:shadow-lg hover:border-neutral-300 dark:hover:border-neutral-700"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-full h-40 rounded-2xl bg-neutral-200 dark:bg-neutral-800 mb-6 flex items-center justify-center overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 flex-grow mb-6">
-                  {product.description}
-                </p>
-                <div className="flex items-center text-sm font-medium text-neutral-900 dark:text-neutral-100 transition-colors group-hover:text-violet-600 dark:group-hover:text-violet-400 mt-auto">
-                  Learn more 
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
+                <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
+                  <div className="w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden bg-muted mb-8">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <h3 className="text-3xl font-medium text-foreground mb-4">
+                    {product.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-8 flex-grow">
+                    {product.description}
+                  </p>
+                  <div className="flex items-center text-base font-medium text-foreground group-hover:text-muted-foreground transition-colors mt-auto w-fit">
+                    Explore Solution <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               </motion.div>
-            </Link>
-          ))}
+            ))}
+          </div>
+
+          {/* Remaining Solutions Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+            {remainingProducts.slice(0, visibleRemaining).map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+              >
+                <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
+                  <div className="w-full h-[240px] rounded-3xl overflow-hidden bg-muted mb-6">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <h3 className="text-2xl font-medium text-foreground mb-3">
+                    {product.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
+                    {product.description}
+                  </p>
+                  <div className="flex items-center text-sm font-medium text-foreground group-hover:text-muted-foreground transition-colors mt-auto w-fit">
+                    Explore Solution <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
 
-        {visibleCount < productFamilies.length && (
+        {visibleRemaining < remainingProducts.length && (
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex justify-center mt-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center mt-20"
           >
-            <Button size="lg" onClick={handleLoadMore} className="rounded-full px-8">
-              Load More Products
+            <Button size="lg" variant="outline" onClick={handleLoadMore} className="rounded-full px-8 h-12 text-base font-medium">
+              Load More Solutions
             </Button>
           </motion.div>
         )}

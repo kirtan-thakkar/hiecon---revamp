@@ -1,78 +1,129 @@
 "use client";
 
+import { motion } from "motion/react";
 import Container from "../ui/Container";
-import { 
-  Award, 
-  Users, 
-  Handshake, 
-  Wrench, 
-  Settings, 
-  Zap 
-} from "lucide-react";
-
-const reasons = [
-  {
-    title: "27 Years Experience",
-    description: "Decades of proven expertise delivering reliable industrial automation.",
-    icon: Award,
-  },
-  {
-    title: "Experienced Engineers",
-    description: "A dedicated team of highly skilled technical professionals.",
-    icon: Users,
-  },
-  {
-    title: "Trusted Technology Partners",
-    description: "Collaborating with global leaders like Siemens, ABB, and Rockwell.",
-    icon: Handshake,
-  },
-  {
-    title: "Reliable After Sales Support",
-    description: "Comprehensive maintenance and troubleshooting whenever you need it.",
-    icon: Wrench,
-  },
-  {
-    title: "Customized Solutions",
-    description: "Tailor-made automation architectures designed for your specific needs.",
-    icon: Settings,
-  },
-  {
-    title: "Fast Technical Assistance",
-    description: "Rapid response times to minimize downtime and keep you running.",
-    icon: Zap,
-  },
-];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-white dark:bg-neutral-950">
+    <section className="py-24 md:py-32 bg-background border-t border-border">
       <Container>
-        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-6">
-            Why Choose Us
-          </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            We bring decades of expertise and a commitment to excellence, ensuring your industrial automation systems are reliable, efficient, and future-proof.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="group flex flex-col p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800/60 transition-all hover:bg-neutral-100 dark:hover:bg-neutral-800/80"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                <reason.icon className="w-6 h-6 text-neutral-800 dark:text-neutral-200" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
-                {reason.title}
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                {reason.description}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
+          
+          {/* Header Column */}
+          <div className="md:col-span-5">
+            <div className="sticky top-32 flex flex-col justify-start">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-6">
+                  Why Hiecon
+                </p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground leading-[1.1] mb-8">
+                  Engineering confidence,<br />built over 27 years.
+                </h2>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md">
+                  We don&apos;t just supply components&mdash;we architect complete industrial automation systems that drive manufacturing efficiency, reliability, and scale.
+                </p>
+              </motion.div>
             </div>
-          ))}
+          </div>
+
+          {/* Content Column */}
+          <div className="md:col-span-6 md:col-start-7 flex flex-col gap-16 md:gap-24">
+            
+            {/* Large Highlight */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="border-t border-border pt-8"
+            >
+              <h3 className="text-7xl md:text-8xl lg:text-9xl font-medium text-foreground tracking-tighter mb-4 leading-none">
+                27+
+              </h3>
+              <p className="text-2xl md:text-3xl text-foreground font-medium mb-4">
+                Years of Industry Experience
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
+                Decades of hands-on expertise navigating complex industrial environments and evolving manufacturing technologies.
+              </p>
+            </motion.div>
+
+            {/* Medium Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-16">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="border-t border-border pt-6"
+              >
+                <h3 className="text-5xl md:text-6xl font-medium text-foreground tracking-tighter mb-4">
+                  750+
+                </h3>
+                <p className="text-xl text-foreground font-medium mb-3">
+                  Valued Customers
+                </p>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  Delivering continuous value and system reliability to manufacturing leaders globally.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="border-t border-border pt-6"
+              >
+                <h3 className="text-5xl md:text-6xl font-medium text-foreground tracking-tighter mb-4">
+                  36+
+                </h3>
+                <p className="text-xl text-foreground font-medium mb-3">
+                  Expert Engineers
+                </p>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  A dedicated team of domain experts ready to design, deploy, and scale your operations.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Small Highlights */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="border-t border-border pt-8 grid grid-cols-1 gap-8"
+            >
+               <div className="flex items-start gap-5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
+                  <div>
+                    <p className="text-lg font-medium text-foreground mb-1">Trusted Global Technology Partners</p>
+                    <p className="text-muted-foreground leading-relaxed">Authorized alliances with the world&apos;s leading automation hardware brands.</p>
+                  </div>
+               </div>
+               <div className="flex items-start gap-5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
+                  <div>
+                    <p className="text-lg font-medium text-foreground mb-1">Customized Automation Solutions</p>
+                    <p className="text-muted-foreground leading-relaxed">Tailor-made architectures for highly specific operational requirements.</p>
+                  </div>
+               </div>
+               <div className="flex items-start gap-5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
+                  <div>
+                    <p className="text-lg font-medium text-foreground mb-1">Fast & Reliable Technical Support</p>
+                    <p className="text-muted-foreground leading-relaxed">Comprehensive after-sales assistance and proactive system maintenance.</p>
+                  </div>
+               </div>
+            </motion.div>
+
+          </div>
         </div>
       </Container>
     </section>
