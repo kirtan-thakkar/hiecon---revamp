@@ -1,7 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
 import Container from "../ui/Container";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
 const stats = [
   {
@@ -19,20 +22,44 @@ const stats = [
 ];
 
 export default function StatsSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Animate the cards with clip-path and y-transform
+    gsap.fromTo(
+      cardsRef.current,
+      {
+        clipPath: "inset(100% 0 0 0)",
+        y: 50,
+      },
+      {
+        clipPath: "inset(0% 0 0 0)",
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 60%",
+          scrub: 1,
+        }
+      }
+    );
+  }, { scope: containerRef });
+
   return (
-    <section className="py-24 bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-neutral-800">
+    <section ref={containerRef} className="py-24  border-y border-neutral-200 dark:border-neutral-700">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.2,
-                ease: "easeOut",
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el;
               }}
               className="flex flex-col items-center justify-center p-8 rounded-3xl bg-white dark:bg-neutral-950 shadow-sm border border-neutral-100 dark:border-neutral-800"
             >
@@ -42,7 +69,7 @@ export default function StatsSection() {
               <div className="text-base lg:text-lg text-neutral-600 dark:text-neutral-400 font-medium">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Container>

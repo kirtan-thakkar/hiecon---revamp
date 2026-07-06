@@ -9,7 +9,6 @@ import { TextAnimate } from "@workspace/ui/components/text-animate"
 import { Button } from "@workspace/ui/components/button"
 import Link from "next/link"
 import ContactSection from "../home/ContactSection"
-import Gallery from "../home/Gallery"
 import WhyChooseUs from "../home/WhyChooseUs"
 import ProductFamilies from "../home/ProductFamilies"
 import StatsSection from "../home/StatsSection"
@@ -106,7 +105,6 @@ const HeroSection = () => {
           <StatsSection />
           <ProductFamilies />
           <WhyChooseUs />
-          <Gallery />
           <ContactSection />
         </div>
        

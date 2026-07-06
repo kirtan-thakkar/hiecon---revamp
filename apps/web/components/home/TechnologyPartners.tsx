@@ -34,20 +34,19 @@ export default function TechnologyPartners() {
         </div>
       </Container>
       
-      <div className="relative flex overflow-x-hidden group">
+      <div className="relative flex overflow-hidden group">
         {/* Left and Right Fade Gradients */}
         <div className="absolute top-0 bottom-0 left-0 w-32 z-10 bg-linear-to-r from-white to-transparent dark:from-neutral-950" />
         <div className="absolute top-0 bottom-0 right-0 w-32 z-10 bg-linear-to-l from-white to-transparent dark:from-neutral-950" />
 
         <motion.div
-          className="flex whitespace-nowrap"
+          className="flex whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             ease: "linear",
             duration: 20,
             repeat: Infinity,
           }}
-          whileHover={{ animationPlayState: "paused" }} // Wait, motion/react might not support animationPlayState directly like this, let's just use CSS for pause or trust framer motion's pause on hover if possible, actually simpler to just not pause or use a CSS class for animation. Since Framer motion is used, we can leave it as is, or use CSS animation for marquee to support pause on hover easier. Wait, Framer motion v12 has great support for CSS animations. Let's stick to motion.div.
         >
           {duplicatedPartners.map((partner, index) => (
             <div 
@@ -55,7 +54,7 @@ export default function TechnologyPartners() {
               className="flex items-center justify-center px-12 md:px-24"
             >
               {/* Placeholder for Logo */}
-              <span className="text-xl md:text-3xl font-bold text-neutral-300 dark:text-neutral-700">
+              <span className="text-xl md:text-3xl font-bold text-neutral-300 dark:text-neutral-600">
                 {partner}
               </span>
             </div>

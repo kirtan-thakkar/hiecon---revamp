@@ -1,93 +1,108 @@
 "use client";
 
-import { motion } from "motion/react";
 import Container from "../ui/Container";
-import { Phone, Mail, MessageSquare, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@workspace/ui/components/button";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
 export default function ContactSection() {
-  return (
-    <section className="py-24 bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-6"
-            >
-              Get in Touch
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg text-neutral-600 dark:text-neutral-400 mb-12"
-            >
-              Our team of experts is ready to help you optimize your industrial automation processes.
-            </motion.p>
+  const sectionRef = useRef<HTMLElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
+  
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.fromTo(
+      leftColRef.current,
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "center 50%",
+          scrub: 1,
+        }
+      }
+    );
 
-            <div className="space-y-6">
+    gsap.fromTo(
+      rightColRef.current,
+      {
+        clipPath: "inset(0 0 0 100%)",
+      },
+      {
+        clipPath: "inset(0 0% 0 0)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          end: "center 50%",
+          scrub: 1,
+        }
+      }
+    );
+
+  }, { scope: sectionRef });
+
+  return (
+    <section ref={sectionRef} className="py-32 bg-background overflow-hidden relative">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          
+          <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-center">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-8">
+              Start the <br/> conversation.
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-16 max-w-lg">
+              Partner with our engineers to design, deploy, and scale your next industrial automation system.
+            </p>
+
+            <div className="flex flex-col gap-12">
               {[
-                { icon: Phone, title: "Call Us", detail: "+1 (555) 123-4567", href: "tel:+15551234567" },
-                { icon: Mail, title: "Email Us", detail: "contact@hiecon.com", href: "mailto:contact@hiecon.com" },
-                { icon: MessageSquare, title: "WhatsApp", detail: "Chat with an expert", href: "https://wa.me/15551234567" },
+                { icon: Phone, title: "Sales & Technical", detail: "+1 (555) 123-4567", href: "tel:+15551234567" },
+                { icon: Mail, title: "General Inquiries", detail: "contact@hiecon.com", href: "mailto:contact@hiecon.com" },
               ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                >
-                  <Link href={item.href} className="group flex items-center p-4 rounded-2xl bg-white dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-800 transition-all hover:shadow-md hover:border-violet-200 dark:hover:border-violet-900">
-                    <div className="w-12 h-12 rounded-full bg-violet-50 dark:bg-violet-900/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                      <item.icon className="w-5 h-5 text-violet-600 dark:text-violet-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400">{item.title}</h4>
-                      <p className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">{item.detail}</p>
-                    </div>
+                <div key={index} className="group flex flex-col gap-2">
+                  <div className="flex items-center gap-3 text-muted-foreground mb-1">
+                    <item.icon className="w-5 h-5" strokeWidth={1.5} />
+                    <span className="text-sm font-medium tracking-wide uppercase">{item.title}</span>
+                  </div>
+                  <Link href={item.href} className="text-2xl md:text-3xl font-medium text-foreground hover:text-muted-foreground transition-colors">
+                    {item.detail}
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
-            
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.6, delay: 0.5 }}
-               className="mt-12 flex gap-4"
-            >
-                <Button size="lg" className="rounded-full px-8">Request Quote</Button>
-                <Button size="lg" variant="outline" className="rounded-full px-8">Support</Button>
-            </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full h-[400px] lg:h-auto rounded-3xl overflow-hidden relative bg-neutral-200 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800"
+          <div
+            ref={rightColRef}
+            className="lg:col-span-7 w-full h-[600px] bg-card rounded-[2rem] overflow-hidden relative flex items-center justify-center"
           >
             {/* Map Placeholder */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-white/50 dark:bg-neutral-950/50 backdrop-blur-sm z-10">
-                <MapPin className="w-12 h-12 text-violet-600 dark:text-violet-400 mb-4" />
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Global Headquarters</h3>
-                <p className="text-neutral-600 dark:text-neutral-400 max-w-sm">
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-12 text-center bg-background/40 backdrop-blur-md">
+                <MapPin className="w-16 h-16 text-foreground mb-6 opacity-80" strokeWidth={1} />
+                <h3 className="text-3xl font-bold text-foreground mb-4">Global Headquarters</h3>
+                <p className="text-lg text-muted-foreground max-w-sm mb-8 leading-relaxed">
                   123 Automation Blvd, Tech District<br/>
                   Innovation City, TX 75001
                 </p>
-                <Button variant="link" className="mt-4 text-violet-600 dark:text-violet-400">View on Google Maps</Button>
+                <Button size="lg" className="rounded-full px-8 text-sm uppercase tracking-widest font-semibold">Get Directions</Button>
             </div>
-            <div className="absolute inset-0 bg-[url('https://placehold.co/800x800/e5e5e5/a3a3a3?text=Map+View')] bg-cover bg-center opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-overlay" />
-          </motion.div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://placehold.co/1200x800/e5e5e5/a3a3a3?text=Map+View" alt="Map View" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply" />
+          </div>
         </div>
       </Container>
     </section>
