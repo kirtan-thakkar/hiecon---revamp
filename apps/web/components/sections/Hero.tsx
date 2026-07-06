@@ -47,7 +47,6 @@ const HeroSection = () => {
               y: 0,
               filter: "blur(0px)",
             }}
-
             transition={{
               duration: 0.6,
               delay: 0.3,
@@ -69,36 +68,47 @@ const HeroSection = () => {
             improve productivity, reliability, and operational efficiency.
           </TextAnimate>
         </div>
+        
         <motion.div
-        initial={{
-          opacity: 0,
-          y: 10,
-          filter: "blur(10px)",
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-        }}
-        transition={{
-          duration: 0.6,
-          delay: 0.9,
-          ease: "easeOut",
-        }}
-         className="mt-14 flex w-full items-center justify-center gap-3">
+          initial={{
+            opacity: 0,
+            y: 10,
+            filter: "blur(10px)",
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.9,
+            ease: "easeOut",
+          }}
+          className="mt-12 flex w-full items-center justify-center gap-4"
+        >
           <Link href="/products">
-            <Button>View Products</Button>
+            <Button size="lg" className="rounded-full px-8 h-12 text-base">View Products</Button>
           </Link>
           <Link href="/contact">
-            <Button variant="outline">Contact Us</Button>
+            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base">Contact Us</Button>
           </Link>
         </motion.div>
+        
         {/* video */}
-        <div
-          ref={videoRef}
-          className="mt-20 min-h-screen rounded-[30px] bg-violet-100 dark:bg-violet-900"
-        >
-          <h2>Placeholder image</h2>
+        <div className="mt-24 md:mt-32 w-full flex justify-center perspective-[1200px]">
+          <div
+            ref={videoRef}
+            className="w-full h-[60vh] md:h-[85vh] rounded-[2rem] md:rounded-[3rem] bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center overflow-hidden relative shadow-2xl"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="https://placehold.co/1920x1080/e5e5e5/a3a3a3?text=Cinematic+Industrial+Showcase" 
+              alt="Industrial Automation Showcase" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-overlay"
+            />
+            <h2 className="z-10 text-2xl font-medium text-neutral-500 dark:text-neutral-400 mix-blend-difference">Showcase Video</h2>
+          </div>
         </div>
         <div>
           <TechnologyPartners />
