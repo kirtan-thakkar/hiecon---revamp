@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Container from "../../../components/ui/Container";
-import Link from "next/link";
+import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react";
 import { IndustryHero as IndustryHeroType } from "../types";
 

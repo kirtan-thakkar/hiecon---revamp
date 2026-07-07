@@ -14,25 +14,29 @@ const dmSans = DM_Sans({
   weight: ['400', '500', '700'],
 });
 
+import { ViewTransitions } from 'next-view-transitions'
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", dmSans.className)}
-    >
-      <body className="tracking-tight bg-transparent text-neutral-700 dark:bg-transparent dark:text-neutral-50">
-        <ThemeProvider>
-          <Navbar />
-          <SmoothScrollProvider>
-            {children}
-          </SmoothScrollProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className={cn("antialiased", dmSans.className)}
+      >
+        <body className="tracking-tight bg-transparent text-neutral-700 dark:bg-transparent dark:text-neutral-50">
+          <ThemeProvider>
+            <Navbar />
+            <SmoothScrollProvider>
+              {children}
+            </SmoothScrollProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

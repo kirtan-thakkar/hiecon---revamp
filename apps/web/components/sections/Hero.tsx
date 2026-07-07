@@ -5,7 +5,7 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/all"
 import { useRef } from "react"
-import Link from "next/link"
+import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react"
 
 const HeroSection = () => {

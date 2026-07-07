@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Link } from 'next-view-transitions';
 import Image from "next/image"
 import { useTheme } from "next-themes"
 import { Sun, Moon, Menu, X } from "lucide-react"
