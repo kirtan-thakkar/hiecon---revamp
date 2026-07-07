@@ -64,59 +64,50 @@ export default function TechnologyPartners() {
           </p>
         </motion.div>
         
-        {/* Consistent Structural Grid */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
-        >
-          {partners.map((partner) => (
-            <div 
+        {/* Immersive List Layout */}
+        <div className="flex flex-col border-t border-border">
+          {partners.map((partner, index) => (
+            <motion.div 
               key={partner.name}
-              className="group flex flex-col h-full border-t border-border pt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-b border-border items-start hover:bg-muted/20 transition-colors duration-500 -mx-4 px-4 sm:mx-0 sm:px-0"
             >
-              {/* 1. Fixed Logo Area */}
-              <div className="h-16 flex items-center justify-start mb-8 transition-transform duration-500 group-hover:scale-[1.02] origin-left">
-                <span className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
+              {/* Logo Area (Monochrome to Color) */}
+              <div className="lg:col-span-4 flex items-center">
+                <span className="text-5xl md:text-6xl font-bold tracking-tighter text-muted-foreground group-hover:text-foreground transition-colors duration-500">
                   {partner.name}
                 </span>
               </div>
-
-              {/* 2. Fixed Description Area (Clamped to 2 lines, exact 3.5rem height for text-lg) */}
-              <div className="min-h-[3.5rem] mb-10">
-                <p className="text-lg text-muted-foreground leading-relaxed line-clamp-2">
+              
+              {/* Description */}
+              <div className="lg:col-span-4 flex flex-col justify-center pt-2 lg:pt-0">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   {partner.description}
                 </p>
               </div>
               
-              {/* 3. Solutions Area (flex-1 pushes CTA down, top aligns perfectly) */}
-              <div className="flex flex-col flex-1 gap-5 mb-10">
-                <p className="text-[10px] font-bold tracking-widest uppercase text-foreground">
-                  Supported Solutions
-                </p>
-                <div className="flex flex-wrap gap-x-3 gap-y-3">
+              {/* Solutions & CTA */}
+              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center pt-4 lg:pt-0">
+                <div className="flex flex-wrap gap-2 justify-start lg:justify-end mb-8 lg:mb-6">
                   {partner.solutions.map((solution, i) => (
                     <Badge key={i} variant="technology">
                       {solution}
                     </Badge>
                   ))}
                 </div>
-              </div>
-
-              {/* 4. CTA Pinned to bottom */}
-              <div className="mt-auto flex justify-start">
                 <Link 
                   href={`/partners/${partner.name.toLowerCase().replace(/\s+/g, '-')}`} 
-                  className="inline-flex items-center text-sm font-medium text-foreground transition-opacity hover:opacity-70"
+                  className="inline-flex items-center text-sm font-medium text-foreground transition-opacity lg:opacity-0 lg:group-hover:opacity-100"
                 >
                   Explore Products <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
