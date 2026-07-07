@@ -3,6 +3,7 @@ import { DM_Sans } from 'next/font/google';
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/ui/navbar"
+import Footer from "@/components/ui/footer"
 import { cn } from "@workspace/ui/lib/utils";
 
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
@@ -33,6 +34,7 @@ export default function RootLayout({
             <Navbar />
             <SmoothScrollProvider>
               {children}
+              <Footer />
             </SmoothScrollProvider>
           </ThemeProvider>
         </body>

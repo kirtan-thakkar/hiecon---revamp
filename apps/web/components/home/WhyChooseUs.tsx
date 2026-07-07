@@ -3,190 +3,231 @@
 import { useRef } from "react";
 import { motion } from "motion/react";
 import Container from "../ui/Container";
-import { TextAnimate } from "@workspace/ui/components/text-animate";
-import { cn } from "@workspace/ui/lib/utils";
 
-const Section = ({ 
-  label, 
-  title, 
-  description, 
-  image, 
-  reverse = false,
-}: {
-  label: string;
-  title: string;
-  description: string;
-  image?: string;
-  reverse?: boolean;
-}) => {
-  return (
-    <div className="relative py-24 md:py-32 lg:py-48 min-h-screen flex items-center">
-      <Container className="w-full">
-        <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center", reverse && "lg:flex-row-reverse")}>
-          
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
-            className={cn("flex flex-col", reverse ? "lg:pl-12" : "lg:pr-12")}
-          >
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: false }}
-              className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
-            >
-              {label}
-            </motion.p>
-            
-            <div className="mb-6">
-              <TextAnimate 
-                animation="blurInUp" 
-                as="h3" 
-                by="line"
-                once={false}
-                className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight text-foreground leading-[1.05]"
-              >
-                {title}
-              </TextAnimate>
-            </div>
-            
-            <motion.p 
-              initial={{ opacity: 0, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(4px)" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: false }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg"
-            >
-              {description}
-            </motion.p>
-          </motion.div>
+const Label = ({ children }: { children: React.ReactNode }) => (
+  <div 
+    className="text-[11px] uppercase tracking-[0.15em] font-mono mb-6" 
+    style={{ color: "var(--text-label)" }}
+  >
+    {children}
+  </div>
+);
 
-          {/* Media Content */}
-          {image && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
-              className="relative aspect-square md:aspect-[4/5] w-full bg-muted overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-background/5 z-10" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <motion.img 
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                exit={{ scale: 1.1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-                viewport={{ once: false }}
-                src={image} 
-                alt={title.replace(/\n/g, ' ')}
-                className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
-              />
-            </motion.div>
-          )}
-        </div>
-      </Container>
-    </div>
-  );
+const panelReveal: any = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+  viewport: { once: true }
 };
 
 export default function WhyChooseUs() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <section ref={containerRef} className="relative bg-background overflow-hidden border-t border-border/50">
-      <Section 
-        label="01 / The Challenge"
-        title={"Every factory has\na bottleneck."}
-        description="Before we write a single line of PLC code, we analyze your production line to find the exact point of friction costing you throughput."
-        image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
-      />
-      
-      <Section 
-        label="02 / Engineering"
-        title={"Architecting\nthe solution."}
-        description="We engineer complete hardware topologies. From specifying high-torque servo drives to designing distributed I/O networks that guarantee microsecond synchronization."
-        image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop"
-        reverse
-      />
+    <section 
+      ref={containerRef} 
+      className="why-choose-us-wrapper relative border-t border-border/50"
+    >
+      <Container className="relative py-24 md:py-32">
+        
+        {/* The Vertical Spine */}
+        <div className="absolute left-4 md:left-8 top-0 bottom-0 z-20 hidden md:block" style={{ width: '1px' }}>
+          <div className="wcu-spine-track h-full">
+            <div className="wcu-spine-fill"></div>
+          </div>
+        </div>
 
-      <Section 
-        label="03 / Partners"
-        title={"Global hardware.\nCustom integrated."}
-        description="We are not tied to a single vendor. Our engineers select the exact combination of ABB, Siemens, Yaskawa, and Weintek components required to solve your specific manufacturing challenge."
-        image="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop"
-      />
-
-      <Section 
-        label="04 / Deployment"
-        title={"Commissioned on\nthe factory floor."}
-        description="Our involvement doesn't end with a schematic. Our engineers deploy to your facility, wiring cabinets, tuning servo loops, and rigorously testing safety zones until the line runs flawlessly."
-        image="https://images.unsplash.com/photo-1581092921461-7031e4bfb314?q=80&w=1200&auto=format&fit=crop"
-        reverse
-      />
-
-      <div className="relative py-32 md:py-48 flex items-center justify-center text-center">
-        <Container className="w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
-          >
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: false }}
-              className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-12"
-            >
-              05 / Support
-            </motion.p>
-            <div className="max-w-4xl mx-auto mb-24">
-              <TextAnimate 
-                animation="blurInUp" 
-                as="h2" 
-                by="word"
-                once={false}
-                className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-[1.05]"
+        {/* Content Wrapper offset for spine */}
+        <div className="md:pl-16 lg:pl-24 flex flex-col gap-32 md:gap-48">
+          
+          {/* PANEL 01 - The Challenge */}
+          <motion.div {...panelReveal} className="overflow-hidden grid grid-cols-1 lg:grid-cols-[42%_58%] items-center min-h-[70vh]">
+            <div className="pr-8 flex flex-col justify-center">
+              <Label>— 01  CHALLENGE</Label>
+              <h3 
+                className="font-medium tracking-tight leading-[1.05] mb-6"
+                style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)", color: "var(--text-primary)" }}
               >
-                27 years of keeping production lines moving.
-              </TextAnimate>
+                Most factories don't know where they're losing time.
+              </h3>
+              <p 
+                className="text-lg md:text-xl leading-relaxed"
+                style={{ maxWidth: "52ch", color: "var(--text-body)" }}
+              >
+                Before we write a single line of PLC code, we analyze your production line to find the exact point of friction costing you throughput.
+              </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 border-t border-border/50 pt-16 max-w-4xl mx-auto">
-              {[
-                { v: "27", l: "Years" },
-                { v: "750+", l: "Facilities" },
-                { v: "36", l: "Engineers" }
-              ].map((m, i) => (
-                <motion.div 
-                  key={m.l}
-                  initial={{ opacity: 0, filter: "blur(8px)", y: 20 }}
-                  whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                  exit={{ opacity: 0, filter: "blur(8px)", y: -20 }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                  viewport={{ once: false }}
-                  className="flex flex-col"
-                >
-                  <span className="text-6xl md:text-7xl font-medium text-foreground mb-4">{m.v}</span>
-                  <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">{m.l}</span>
-                </motion.div>
-              ))}
+            <div className="relative w-full h-full mt-12 lg:mt-0 right-0 group">
+              <div className="aspect-[4/5] lg:absolute lg:right-[-50vw] lg:w-[calc(100%+50vw)] lg:top-1/2 lg:-translate-y-1/2 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" 
+                  alt="Factory Challenge"
+                  className="w-full h-full object-cover group-hover:scale-[1.03]"
+                  style={{ 
+                    filter: "grayscale(1) contrast(1.12) brightness(0.88)",
+                    transition: "transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1)"
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
+
+          {/* PANEL 02 - Engineering */}
+          <motion.div {...panelReveal} className="overflow-hidden grid grid-cols-1 lg:grid-cols-[58%_42%] items-center min-h-[70vh]">
+            <div className="relative w-full h-full mb-12 lg:mb-0 order-2 lg:order-1 left-0 group">
+              <div className="aspect-[4/5] lg:absolute lg:left-[-50vw] lg:w-[calc(100%+50vw)] lg:top-1/2 lg:-translate-y-1/2 overflow-hidden relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop" 
+                  alt="Engineering Architecture"
+                  className="w-full h-full object-cover group-hover:scale-[1.03]"
+                  style={{ 
+                    filter: "grayscale(1) contrast(1.12) brightness(0.88)",
+                    transition: "transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1)"
+                  }}
+                />
+                
+                {/* Technical Annotation Overlay */}
+                <div className="absolute bottom-8 right-8 lg:right-[50vw] lg:mr-8 flex items-end">
+                  <div className="w-4 h-4 border-b border-l mb-1 mr-2" style={{ borderColor: "var(--annotation)" }}></div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest" style={{ color: "var(--text-label)" }}>
+                    Distributed I/O topology
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="lg:pl-16 flex flex-col justify-center order-1 lg:order-2 z-10">
+              <Label>— 02  ENGINEERING</Label>
+              <h3 
+                className="font-medium tracking-tight leading-[1.05] mb-6"
+                style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", color: "var(--text-primary)" }}
+              >
+                Architecting the solution.
+              </h3>
+              <p 
+                className="text-lg md:text-xl leading-relaxed"
+                style={{ maxWidth: "52ch", color: "var(--text-body)" }}
+              >
+                We engineer complete hardware topologies. From specifying high-torque servo drives to designing distributed I/O networks that guarantee microsecond synchronization.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+
+      {/* PANEL 03 - Process */}
+      <motion.div {...panelReveal} className="overflow-hidden w-full py-32 md:py-48 my-12" style={{ backgroundColor: "var(--bg-panel-alt)", transition: "background-color 400ms ease" }}>
+        <Container>
+          <div className="md:pl-16 lg:pl-24">
+            <div className="w-full text-center mb-24">
+              <Label>— 03  PROCESS</Label>
+              <h3 
+                className="font-medium tracking-tight leading-[1.05] mb-6"
+                style={{ fontSize: "clamp(3.5rem, 5.5vw, 5rem)", color: "var(--text-primary)" }}
+              >
+                Global hardware. Custom integrated.
+              </h3>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0">
+              <div className="md:pr-12 md:border-r" style={{ borderColor: "var(--divider)" }}>
+                <p className="text-lg leading-relaxed mx-auto" style={{ maxWidth: "52ch", color: "var(--text-body)" }}>
+                  We are not tied to a single vendor. Our engineers select the exact combination of hardware required.
+                </p>
+              </div>
+              <div className="md:px-12 md:border-r" style={{ borderColor: "var(--divider)" }}>
+                <p className="text-lg leading-relaxed mx-auto" style={{ maxWidth: "52ch", color: "var(--text-body)" }}>
+                  ABB, Siemens, Yaskawa, and Weintek components are integrated into a single, unified nervous system for your facility.
+                </p>
+              </div>
+              <div className="md:pl-12">
+                <p className="text-lg leading-relaxed mx-auto" style={{ maxWidth: "52ch", color: "var(--text-body)" }}>
+                  The result is a production line that operates seamlessly, without the vendor lock-in that plagues modern manufacturing.
+                </p>
+              </div>
+            </div>
+          </div>
         </Container>
-      </div>
+      </motion.div>
+
+      <Container className="relative pb-24 md:pb-32">
+        <div className="md:pl-16 lg:pl-24 flex flex-col gap-32 md:gap-48">
+          
+          {/* PANEL 04 - Delivery */}
+          <motion.div {...panelReveal} className="overflow-hidden flex flex-col items-center">
+            <div className="w-full flex justify-center gap-[10px] mb-16">
+              <div className="aspect-[3/2] w-[45%] overflow-hidden relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1581092921461-7031e4bfb314?q=80&w=1200&auto=format&fit=crop" 
+                  alt="Deployment Phase"
+                  className="w-full h-full object-cover group-hover:scale-[1.03]"
+                  style={{ 
+                    filter: "grayscale(1) contrast(1.12) brightness(0.88)",
+                    transition: "transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1)"
+                  }}
+                />
+              </div>
+              <div className="aspect-[3/2] w-[45%] overflow-hidden relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop" 
+                  alt="Commissioning"
+                  className="w-full h-full object-cover group-hover:scale-[1.03]"
+                  style={{ 
+                    filter: "grayscale(1) contrast(1.12) brightness(0.88)",
+                    transition: "transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1)"
+                  }}
+                />
+              </div>
+            </div>
+            
+            <div className="max-w-2xl text-center flex flex-col items-center">
+              <Label>— 04  RESULTS</Label>
+              <h3 
+                className="font-medium tracking-tight leading-[1.05] mb-6"
+                style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--text-primary)" }}
+              >
+                Commissioned and live within 6 weeks. Every project since 2019.
+              </h3>
+              <p 
+                className="text-lg md:text-xl leading-relaxed"
+                style={{ maxWidth: "52ch", color: "var(--text-body)" }}
+              >
+                Our involvement doesn't end with a schematic. Our engineers deploy to your facility, wiring cabinets, tuning servo loops, and rigorously testing safety zones until the line runs flawlessly.
+              </p>
+            </div>
+          </motion.div>
+          
+        </div>
+      </Container>
+
+      {/* PANEL 05 - Support (Stats Component) */}
+      <motion.div {...panelReveal} className="overflow-hidden w-full py-32 md:py-48 bg-[#0d0d0d] dark:bg-[#0a0a0a]">
+        <Container>
+          <div className="md:pl-16 lg:pl-24">
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {[
+                { v: "27", l: "Years active" },
+                { v: "750+", l: "Projects delivered" },
+                { v: "36", l: "Cities" },
+                { v: "4hr", l: "Avg. response time" }
+              ].map((m) => (
+                <div key={m.l} className="flex flex-col">
+                  <span className="text-[11px] font-mono tracking-widest uppercase mb-4" style={{ color: "var(--text-label)" }}>
+                    {m.l}
+                  </span>
+                  <span className="font-medium text-[#ffffff]" style={{ fontSize: "clamp(4rem, 7vw, 7rem)" }}>
+                    {m.v}
+                  </span>
+                </div>
+              ))}
+            </div>
+            
+          </div>
+        </Container>
+      </motion.div>
+      
     </section>
   );
 }

@@ -199,5 +199,86 @@
     }
   body {
     @apply bg-background text-foreground;
-    }
+  }
+}
+
+/* Why Choose Us Redesign Tokens */
+.why-choose-us-wrapper {
+  --bg-base: #f4f4f2;
+  --bg-panel-alt: #ebebea;
+  --text-primary: #0d0d0d;
+  --text-body: #1a1a1a;
+  --text-label: #888888;
+  --spine-track: #d4d4d0;
+  --spine-fill: #0d0d0d;
+  --divider: #e0e0dc;
+  --annotation: #c8c8c4;
+  --img-filter: contrast(1.05) brightness(0.97);
+
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+.dark .why-choose-us-wrapper {
+  --bg-base: #0a0a0a;
+  --bg-panel-alt: #111111;
+  --text-primary: #ffffff;
+  --text-body: #a3a3a3;
+  --text-label: #555555;
+  --spine-track: #2a2a2a;
+  --spine-fill: #ffffff;
+  --divider: #1f1f1f;
+  --annotation: #3a3a3a;
+  --img-filter: contrast(1.12) brightness(0.88);
+}
+
+.wcu-img-wrapper {
+  transition: filter 400ms ease;
+}
+
+.wcu-img {
+  filter: var(--img-filter);
+}
+
+.wcu-spine-track {
+  width: 1px;
+  background: var(--spine-track);
+  position: relative;
+  transition: background 400ms ease;
+}
+
+.wcu-spine-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--spine-fill);
+  transform-origin: top center;
+  transform: scaleY(0);
+}
+
+@supports (animation-timeline: scroll()) {
+  .wcu-spine-fill {
+    animation: fillSpine linear;
+    animation-timeline: scroll(root);
+    animation-range: entry 5% exit 95%;
+  }
+}
+
+@keyframes fillSpine {
+  to { transform: scaleY(1); }
+}
+
+.wcu-img-container {
+  overflow: hidden;
+}
+
+.wcu-hover-img {
+  transition: transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.wcu-img-container:hover .wcu-hover-img {
+  transform: scale(1.03);
 }
