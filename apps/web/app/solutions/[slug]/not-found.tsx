@@ -1,0 +1,18 @@
+import Link from "next/link";
+import Container from "@/components/ui/Container";
+
+export default function NotFound() {
+  return (
+    <main className="min-h-screen bg-background pt-48 pb-24 flex items-center justify-center">
+      <Container className="text-center flex flex-col items-center">
+        <h1 className="text-5xl font-medium mb-6">Solution Not Found</h1>
+        <p className="text-xl text-muted-foreground mb-8">
+          The solution you are looking for does not exist or has been moved.
+        </p>
+        <Link href="/solutions" className="px-6 py-3 bg-foreground text-background rounded-full font-medium inline-flex">
+          View All Solutions
+        </Link>
+      </Container>
+    </main>
+  );
+}

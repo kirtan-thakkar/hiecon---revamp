@@ -16,12 +16,13 @@ import {
 } from "@workspace/ui/components/navigation-menu"
 
 const Navbar = () => {
+  // update this items whenver you want to add any new item in the navbar
   const navItems = [
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "Products", href: "/products" },
-    { name: "Technology Partners", href: "/technology-partners" },
+    { name: "Solutions", href: "/solutions" },
   ]
 
   const [mounted, setMounted] = useState(false)
