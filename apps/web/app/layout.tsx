@@ -7,6 +7,7 @@ import Footer from "@/components/ui/footer"
 import { cn } from "@workspace/ui/lib/utils";
 
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import BackToTop from "@/components/ui/BackToTop";
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
             <SmoothScrollProvider>
               {children}
               <Footer />
+              <BackToTop />
             </SmoothScrollProvider>
           </ThemeProvider>
         </body>

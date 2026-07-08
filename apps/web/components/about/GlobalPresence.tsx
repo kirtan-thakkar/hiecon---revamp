@@ -7,7 +7,7 @@ import { TextAnimate } from "@workspace/ui/components/text-animate";
 
 export default function GlobalPresence() {
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#111111] overflow-hidden text-[#FAFAF8]">
+    <section className="relative w-full py-24 md:py-32 bg-background overflow-hidden text-foreground">
       <Container className="relative z-10 flex flex-col gap-16 md:gap-24">
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
@@ -31,7 +31,7 @@ export default function GlobalPresence() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg md:text-xl text-[#A0A0A5] leading-relaxed max-w-md"
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md"
           >
             With strategically located engineering hubs and rapid-response teams, we ensure that no matter where your facility is, Hiecon expertise is always within reach.
           </motion.p>
@@ -43,14 +43,14 @@ export default function GlobalPresence() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-[#222222]"
+          className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-muted"
         >
           <Image 
             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop"
             alt="Global operations"
             fill
             loading="lazy"
-            className="object-cover opacity-60 mix-blend-luminosity hover:opacity-80 transition-opacity duration-700"
+            className="object-cover opacity-30 dark:opacity-60 mix-blend-luminosity hover:opacity-80 transition-opacity duration-700"
           />
           
           {/* Faux map nodes */}
@@ -61,7 +61,7 @@ export default function GlobalPresence() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-[#333333] pt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-border pt-16">
           {[
             { label: "Installations", value: "10,000+" },
             { label: "Support Centers", value: "24" },
@@ -77,7 +77,7 @@ export default function GlobalPresence() {
               className="flex flex-col gap-2"
             >
               <h3 className="text-4xl md:text-5xl font-medium">{stat.value}</h3>
-              <p className="text-sm font-medium tracking-wider uppercase text-[#A0A0A5]">{stat.label}</p>
+              <p className="text-sm font-medium tracking-wider uppercase text-muted-foreground">{stat.label}</p>
             </motion.div>
           ))}
         </div>

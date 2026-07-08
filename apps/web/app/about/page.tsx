@@ -1,5 +1,3 @@
-import Navbar from "../../components/ui/navbar";
-import Footer from "../../components/ui/footer";
 import AboutHero from "../../components/about/AboutHero";
 import OurStory from "../../components/about/OurStory";
 import CoreValues from "../../components/about/CoreValues";
@@ -14,8 +12,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background selection:bg-brand-primary selection:text-primary-foreground">
-      <Navbar />
-      <div className="relative pt-[120px]">
+      <div className="relative pt-[80px]">
         <AboutHero />
         <OurStory />
         <CoreValues />
