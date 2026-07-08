@@ -27,14 +27,14 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-14 overflow-hidden font-sans">
+    <footer className="dark:bg-neutral-950/15 bg-neutral-100/10 text-black dark:text-white pt-14 overflow-hidden font-sans">
       <Container>
         
         {/* Navigation Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mb-12">
           {footerLinks.map((column) => (
             <div key={column.title} className="flex flex-col">
-              <h3 className="text-sm font-medium text-white mb-2">
+              <h3 className="text-sm font-medium text-black dark:text-white mb-2">
                 {column.title}
               </h3>
               <ul className="flex flex-col space-y-1">
@@ -42,7 +42,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link 
                       href={link.href}
-                      className="text-sm text-[#888888] hover:text-white transition-colors duration-200"
+                      className="text-sm text-neutral-500 dark:text-[#888888]  hover:text-neutral-900 dark:hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </Link>
@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="w-full flex items-center justify-center mb-8 relative">
           <h2 
-            className="text-[18vw] leading-none font-medium tracking-tighter text-neutral-300 select-none"
+            className="text-[18vw] leading-none font-medium tracking-tighter dark:text-neutral-300 text-neutral-700 hover:text-neutral-950 dark:hover:text-neutral-500 transition-all duration-400 select-none"
             style={{ WebkitFontSmoothing: "antialiased" }}
           >
             Hiecon<span className="text-[10vw] align-super">&reg;</span>
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#1f1f1f] text-xs text-[#888888] mb-4">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t  text-xs text-[#888888] mb-4">
           <p>&copy;2026 Hiecon. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link href="/legal" className="hover:text-white transition-colors">

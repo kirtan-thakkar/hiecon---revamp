@@ -2,8 +2,11 @@
 
 import { useRef } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import Container from "../ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
+
+const MotionImage = motion.create(Image);
 import { cn } from "@workspace/ui/lib/utils";
 
 const Section = ({ 
@@ -79,7 +82,7 @@ const Section = ({
               className="relative aspect-square md:aspect-5/5 w-full bg-muted overflow-hidden -mb-20 rounded-2xl"
             >
               <div className="absolute inset-0 bg-background/5 z-10 "  />
-              <motion.img 
+              <MotionImage 
                 initial={{ scale: 1.1 }}
                 whileInView={{ scale: 1 }}
                 exit={{ scale: 1.1 }}
@@ -87,7 +90,9 @@ const Section = ({
                 viewport={{ once: false }}
                 src={image} 
                 alt={title.replace(/\n/g, ' ')}
-                className="absolute inset-0 w-full h-full rounded-2xl  object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                fill
+                loading="lazy"
+                className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000 rounded-2xl"
               />
             </motion.div>
           )}

@@ -6,6 +6,7 @@ import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@workspace/ui/components/button";
+import Image from "next/image";
 
 export const productFamilies = [
   {
@@ -171,9 +172,9 @@ export default function ProductFamilies() {
             transition={{ duration: 0.8 }}
           >
             <Link href={`/products/${featuredLarge.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-              <div className="lg:col-span-7 h-[400px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-muted">
+              <div className="relative lg:col-span-7 h-[400px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-muted">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={featuredLarge.image} alt={featuredLarge.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src={featuredLarge.image} alt={featuredLarge.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground tracking-tight mb-6">
@@ -200,9 +201,9 @@ export default function ProductFamilies() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
-                  <div className="w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden bg-muted mb-8">
+                  <div className="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden bg-muted mb-8">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image src={product.image} alt={product.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <h3 className="text-3xl font-medium text-foreground mb-4">
                     {product.title}
@@ -229,9 +230,9 @@ export default function ProductFamilies() {
                 transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               >
                 <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
-                  <div className="w-full h-[240px] rounded-3xl overflow-hidden bg-muted mb-6">
+                  <div className="relative w-full h-[240px] rounded-3xl overflow-hidden bg-muted mb-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image src={product.image} alt={product.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <h3 className="text-2xl font-medium text-foreground mb-3">
                     {product.title}
