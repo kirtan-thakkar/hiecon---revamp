@@ -114,15 +114,14 @@ const HeroSection = () => {
             className="relative flex h-[60vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] bg-muted shadow-[0_0_40px_rgba(0,0,0,0.05)] md:h-[80vh] md:rounded-[3rem] after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]"
           >
         
-            <Image
-              src="https://placehold.co/1920x1080/e5e5e5/a3a3a3?text=Cinematic+Industrial+Showcase"
-              alt="Industrial Automation Showcase"
-              fill
-              loading="lazy"
-              className="object-cover mix-blend-multiply opacity-80"
+            <video
+              src="/heicon-main.mov"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
             />
-            {/* Subtle Gradient Overlay purely via CSS */}
-            <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
         
