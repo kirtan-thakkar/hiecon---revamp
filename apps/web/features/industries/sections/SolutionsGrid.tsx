@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Container from "../../../components/ui/Container";
 import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { MachineSolution } from "../types";
 
 interface SolutionsGridProps {
@@ -50,11 +51,12 @@ export default function SolutionsGrid({ solutions, industrySlug }: SolutionsGrid
               >
                 {/* Image Reveal */}
                 <div className="w-full aspect-[4/3] mb-8 overflow-hidden rounded-2xl bg-muted relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
+                  <Image 
                     src={solution.heroImage}
                     alt={solution.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 mix-blend-multiply opacity-90 grayscale group-hover:grayscale-0"
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-[1.5s] group-hover:scale-105 mix-blend-multiply opacity-90 grayscale group-hover:grayscale-0"
                   />
                 </div>
 

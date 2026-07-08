@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Container from "../../../components/ui/Container";
 import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { IndustryHero as IndustryHeroType } from "../types";
 
 interface IndustryHeroProps {
@@ -64,11 +65,12 @@ export default function IndustryHero({ hero, title }: IndustryHeroProps) {
         className="w-full px-4 md:px-8"
       >
         <div className="w-full h-[50vh] md:h-[70vh] rounded-[2rem] overflow-hidden bg-muted relative mx-auto max-w-[1400px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <Image 
             src={hero.heroImage} 
             alt={title}
-            className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80"
+            fill
+            loading="lazy"
+            className="object-cover mix-blend-multiply opacity-80"
           />
           {/* Subtle gradient overlay to ensure text/UI above it pops if needed, or just industrial vignette */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />

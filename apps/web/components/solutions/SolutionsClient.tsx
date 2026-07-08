@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Link } from 'next-view-transitions';
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import { solutions } from "@/data/solutions";
@@ -77,11 +78,12 @@ export default function SolutionsClient() {
                   className={`relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-muted ${!isEven ? "lg:order-1" : ""}`}
                 >
                   <div className="absolute inset-0 bg-background/5 z-10" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
+                  <Image 
                     src={solution.image} 
                     alt={solution.title}
-                    className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+                    fill
+                    loading="lazy"
+                    className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
                   />
                 </motion.div>
 

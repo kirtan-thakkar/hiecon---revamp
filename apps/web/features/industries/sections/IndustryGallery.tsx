@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Container from "../../../components/ui/Container";
 import { GalleryItem } from "../types";
 import { cn } from "@workspace/ui/lib/utils";
+import Image from "next/image";
 
 interface IndustryGalleryProps {
   gallery: GalleryItem[];
@@ -43,11 +44,12 @@ export default function IndustryGallery({ gallery }: IndustryGalleryProps) {
               )}
             >
               <div className="w-full rounded-[2rem] overflow-hidden bg-muted relative aspect-[4/3] md:aspect-auto md:min-h-[400px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
+                <Image 
                   src={item.src}
                   alt={item.alt}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 mix-blend-multiply opacity-90 grayscale group-hover:grayscale-0"
+                  fill
+                  loading="lazy"
+                  className="object-cover transition-transform duration-[2s] group-hover:scale-105 mix-blend-multiply opacity-90 grayscale group-hover:grayscale-0"
                 />
               </div>
               {item.caption && (

@@ -44,7 +44,7 @@ const HeroSection = () => {
             src="https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?q=80&w=2000&auto=format&fit=crop" 
             alt="Industrial Machinery" 
             fill
-            loading="lazy"
+            priority
             className="object-cover mix-blend-luminosity grayscale -ml-10 -mt-15"
           />
         </motion.div>

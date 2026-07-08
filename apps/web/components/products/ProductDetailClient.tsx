@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
+import Image from "next/image";
 
 type ProductData = {
   title: string;
@@ -49,11 +50,12 @@ export default function ProductDetailClient({ data }: { data: ProductData }) {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="relative aspect-video w-full rounded-3xl overflow-hidden bg-muted mb-24"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <Image 
             src={data.image} 
             alt={data.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            loading="lazy"
+            className="object-cover"
           />
         </motion.div>
 
