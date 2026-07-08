@@ -256,7 +256,7 @@ export default function ProductFamilies() {
             animate={{ opacity: 1 }}
             className="flex justify-center mt-20"
           >
-            <Button size="lg" variant="outline" onClick={handleLoadMore} className="rounded-full px-8 h-12 text-base font-medium">
+            <Button size="lg" variant="default" onClick={handleLoadMore} className="rounded-full px-8 h-12 text-base font-medium">
               Load More Solutions
             </Button>
           </motion.div>

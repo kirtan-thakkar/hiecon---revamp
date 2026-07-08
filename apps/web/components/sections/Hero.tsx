@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "motion/react"
+import { TextAnimate } from "@workspace/ui/components/text-animate"
 import Image from "next/image"
 import Container from "../ui/Container"
 import gsap from "gsap"
@@ -61,21 +62,20 @@ const HeroSection = () => {
             <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">
               Industrial Automation
             </p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+            <TextAnimate 
+              animation="blurInUp" 
+              as="h1" 
+              by="word"
+              once={false}
               className="text-6xl md:text-8xl lg:text-[6.5rem] font-medium tracking-tighter text-foreground leading-[1.02]"
             >
-              Engineering Smarter<br />
-              <span className="text-muted-foreground">Industrial</span><br />
-              Automation Systems
-            </motion.h1>
+              Engineering Smarter Industrial Automation Systems
+            </TextAnimate>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="max-w-[60ch] text-lg md:text-xl text-muted-foreground leading-relaxed mt-4"
             >
               We architect, deploy, and scale state-of-the-art automation solutions for modern manufacturing&mdash;driving precision, reliability, and long-term performance.
@@ -90,10 +90,10 @@ const HeroSection = () => {
             className="mt-16 flex w-full flex-col items-start justify-center gap-12"
           >
             <div className="flex items-center gap-10">
-              <Link href="/products" className="group flex items-center text-lg font-medium text-foreground transition-opacity hover:opacity-70">
+              <Link href="/products" className="group flex items-center justify-center rounded-full bg-primary text-primary-foreground px-8 py-4 text-lg font-medium transition-transform hover:scale-105">
                 Explore Solutions <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/contact" className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">
+              <Link href="/contact" className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary">
                 Talk to an Engineer
               </Link>
             </div>
