@@ -18,7 +18,6 @@ import {
 const Navbar = () => {
   // update this items whenver you want to add any new item in the navbar
   const navItems = [
-    { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "Products", href: "/products" },

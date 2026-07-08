@@ -91,8 +91,8 @@
     --accent: #F0F0F0;
     --accent-foreground: #111111;
     
-    --brand-primary: #111111;
-    --brand-primary-hover: #333333;
+    --brand-primary: #EC4624;
+    --brand-primary-hover: #D63E1F;
     --brand-secondary: #666666;
     --brand-accent: #FA9835;
 
@@ -100,12 +100,12 @@
     --card-foreground: #111111;
     --popover: #FFFFFF;
     --popover-foreground: #111111;
-    --primary: #111111;
-    --primary-foreground: #FAFAF8;
+    --primary: #EC4624;
+    --primary-foreground: #FFFFFF;
     --secondary: #F0F0F0;
     --secondary-foreground: #111111;
     --destructive: #E30613;
-    --ring: #FA9835;
+    --ring: #EC4624;
     --input: #E8E8E8;
 
     --success: #22C55E;
@@ -156,8 +156,8 @@
     --accent: #222222;
     --accent-foreground: #FAFAF8;
     
-    --brand-primary: #FAFAF8;
-    --brand-primary-hover: #DDDDDD;
+    --brand-primary: #EC4624;
+    --brand-primary-hover: #D63E1F;
     --brand-secondary: #A0A0A5;
     --brand-accent: #FA9835;
 
@@ -165,12 +165,12 @@
     --card-foreground: #FAFAF8;
     --popover: #1A1A1A;
     --popover-foreground: #FAFAF8;
-    --primary: #FAFAF8;
-    --primary-foreground: #111111;
+    --primary: #EC4624;
+    --primary-foreground: #FFFFFF;
     --secondary: #222222;
     --secondary-foreground: #FAFAF8;
     --destructive: #E30613;
-    --ring: #FA9835;
+    --ring: #EC4624;
     --input: #333333;
 
     --hero-overlay: rgb(17 17 17 / 40%);
