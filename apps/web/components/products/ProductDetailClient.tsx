@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
+import Lightbox from "@/components/ui/Lightbox";
 
 type ProductData = {
   title: string;
@@ -14,6 +16,8 @@ type ProductData = {
 };
 
 export default function ProductDetailClient({ data }: { data: ProductData }) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
     <div className="w-full">
       <Container>
@@ -48,14 +52,16 @@ export default function ProductDetailClient({ data }: { data: ProductData }) {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-video w-full rounded-3xl overflow-hidden bg-muted mb-24"
+          className="relative aspect-video w-full rounded-3xl overflow-hidden bg-muted mb-24 cursor-pointer group"
+          onClick={() => setLightboxOpen(true)}
         >
           <Image 
             src={data.image} 
             alt={data.title}
             fill
-            loading="lazy"
-            className="object-cover"
+            sizes="100vw"
+            priority
+            className="object-cover group-hover:scale-105 transition-transform duration-700"
           />
         </motion.div>
 
@@ -79,6 +85,13 @@ export default function ProductDetailClient({ data }: { data: ProductData }) {
           </div>
         </div>
       </Container>
+      
+      <Lightbox 
+        isOpen={lightboxOpen} 
+        onClose={() => setLightboxOpen(false)} 
+        src={data.image} 
+        alt={data.title} 
+      />
     </div>
   );
 }

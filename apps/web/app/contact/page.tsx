@@ -1,6 +1,5 @@
-import ContactHero from "../../components/contact/ContactHero";
-import ContactInfo from "../../components/contact/ContactInfo";
-import OfficeLocations from "../../components/contact/OfficeLocations";
+import ContactSection from "../../components/home/ContactSection";
+import CTASection from "../../components/about/CTASection";
 
 export const metadata = {
   title: "Contact Us | Hiecon",
@@ -9,12 +8,12 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background selection:bg-brand-primary selection:text-primary-foreground">
-      <div className="relative pt-[80px]">
-        <ContactHero />
-        <ContactInfo />
-        <OfficeLocations />
-      </div>
+    <main className="min-h-screen bg-background pt-32 pb-0">
+      <ContactSection 
+        title="Let's Engineer the Future Together." 
+        subtitle="Contact Us" 
+      />
+      <CTASection />
     </main>
   );
 }

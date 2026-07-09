@@ -1,15 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from 'next-view-transitions';
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Lightbox from "@/components/ui/Lightbox";
 
 import { products } from "@/data/products";
 
 export default function ProductsClient() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <div className="w-full">
       <Container>
@@ -75,15 +79,17 @@ export default function ProductsClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10%" }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`relative aspect-square w-full rounded-2xl overflow-hidden bg-muted ${!isEven ? "lg:order-1" : ""}`}
+                  className={`relative aspect-square w-full rounded-2xl overflow-hidden bg-muted cursor-pointer group ${!isEven ? "lg:order-1" : ""}`}
+                  onClick={() => setLightbox({ src: product.image, alt: product.title })}
                 >
-                  <div className="absolute inset-0 bg-background/5 z-10" />
+                  <div className="absolute inset-0 bg-background/5 z-10 group-hover:bg-transparent transition-colors duration-300" />
                   <Image 
                     src={product.image} 
                     alt={product.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     loading="lazy"
-                    className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+                    className="object-cover group-hover:scale-105 transition-all duration-700"
                   />
                 </motion.div>
 
@@ -92,6 +98,13 @@ export default function ProductsClient() {
           })}
         </div>
       </Container>
+      
+      <Lightbox 
+        isOpen={!!lightbox} 
+        onClose={() => setLightbox(null)} 
+        src={lightbox?.src || ""} 
+        alt={lightbox?.alt || ""} 
+      />
     </div>
   );
 }

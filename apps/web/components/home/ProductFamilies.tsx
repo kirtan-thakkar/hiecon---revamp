@@ -15,7 +15,7 @@ export const productFamilies = [
     slug: "ac-drives",
     description:
       "Variable frequency AC drives engineered for precise motor speed control, energy efficiency, and reliable industrial automation.",
-    image: "/products/ac-drives.webp",
+    image: "/ac-drive-hero.jpg",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const productFamilies = [
     slug: "ac-motors",
     description:
       "High-performance industrial AC motors designed for durability, efficiency, and demanding manufacturing environments.",
-    image: "/products/ac-motors.webp",
+    image: "/ac-motos-hero.jpg",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const productFamilies = [
     slug: "servo-drives-motors",
     description:
       "Precision servo drive and motor solutions delivering high-speed, accurate motion control for modern automation systems.",
-    image: "/products/servo-drives.webp",
+    image: "/serad-servo-hero.png",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const productFamilies = [
     slug: "golden-age-servo-motors",
     description:
       "Reliable servo motor solutions for high-performance motion control applications across multiple industries.",
-    image: "/products/golden-age-servo.webp",
+    image: "/golden-age-hero.png",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const productFamilies = [
     slug: "plc",
     description:
       "Industrial programmable logic controllers for machine automation, process control, and factory integration.",
-    image: "/products/plc.webp",
+    image: "/plc-hero.jpg",
   },
   {
     id: 6,
@@ -55,7 +55,7 @@ export const productFamilies = [
     slug: "motion-controllers",
     description:
       "Advanced motion control systems for synchronized multi-axis automation and precision manufacturing.",
-    image: "/products/motion-controller.webp",
+    image: "/motion-controllers-hero.jpg",
   },
   {
     id: 7,
@@ -63,7 +63,7 @@ export const productFamilies = [
     slug: "hmi",
     description:
       "Human Machine Interface solutions that provide intuitive visualization, monitoring, and machine operation.",
-    image: "/products/hmi.webp",
+    image: "/Weintek-HMI-hero.png",
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const productFamilies = [
     slug: "scada",
     description:
       "Supervisory Control and Data Acquisition systems for real-time industrial monitoring and process management.",
-    image: "/products/scada.webp",
+    image: "/vision-system-hero.png",
   },
   {
     id: 9,
@@ -79,7 +79,7 @@ export const productFamilies = [
     slug: "industrial-pc",
     description:
       "Industrial-grade computing solutions built for continuous operation in harsh manufacturing environments.",
-    image: "/products/industrial-pc.webp",
+    image: "/iiot-products-hero.png",
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export const productFamilies = [
     slug: "remote-io",
     description:
       "Distributed remote I/O modules enabling flexible connectivity and scalable industrial automation systems.",
-    image: "/products/remote-io.webp",
+    image: "/weintek-remote-io-hero.png",
   },
   {
     id: 11,
@@ -95,7 +95,7 @@ export const productFamilies = [
     slug: "control-panels",
     description:
       "Custom-engineered industrial control panels designed for safe, efficient, and reliable machine operation.",
-    image: "/products/control-panel.webp",
+    image: "/control-panel-hero.jpg",
   },
   {
     id: 12,
@@ -103,7 +103,7 @@ export const productFamilies = [
     slug: "iiot-products",
     description:
       "Industrial Internet of Things solutions enabling connected factories, remote monitoring, and predictive maintenance.",
-    image: "/products/iiot.webp",
+    image: "/iiot-products-hero.png",
   },
   {
     id: 13,
@@ -111,7 +111,7 @@ export const productFamilies = [
     slug: "automation-components",
     description:
       "Comprehensive range of industrial automation components supporting modern manufacturing and machine building.",
-    image: "/products/automation-components.webp",
+    image: "/automation-component-hero.jpg",
   },
   {
     id: 14,
@@ -119,7 +119,7 @@ export const productFamilies = [
     slug: "industrial-robots",
     description:
       "Robotic automation systems designed to improve productivity, accuracy, and operational efficiency.",
-    image: "/products/industrial-robot.webp",
+    image: "/industrial-robots-hero.jpg",
   },
 ];
 
@@ -174,7 +174,7 @@ export default function ProductFamilies() {
             <Link href={`/products/${featuredLarge.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
               <div className="relative lg:col-span-7 h-[400px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-muted">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <Image src={featuredLarge.image} alt={featuredLarge.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src={featuredLarge.image} alt={featuredLarge.title} fill sizes="(max-width: 1024px) 100vw, 60vw" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground tracking-tight mb-6">
@@ -202,8 +202,8 @@ export default function ProductFamilies() {
               >
                 <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
                   <div className="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden bg-muted mb-8">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <Image src={product.image} alt={product.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                   
+                    <Image src={product.image} alt={product.title} fill sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <h3 className="text-3xl font-medium text-foreground mb-4">
                     {product.title}
@@ -232,7 +232,7 @@ export default function ProductFamilies() {
                 <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
                   <div className="relative w-full h-[240px] rounded-3xl overflow-hidden bg-muted mb-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <Image src={product.image} alt={product.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image src={product.image} alt={product.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <h3 className="text-2xl font-medium text-foreground mb-3">
                     {product.title}

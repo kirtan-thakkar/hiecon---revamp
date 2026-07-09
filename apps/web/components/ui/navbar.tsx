@@ -5,7 +5,8 @@ import { useState, useEffect } from "react"
 import { Link } from 'next-view-transitions';
 import Image from "next/image"
 import { useTheme } from "next-themes"
-import { Sun, Moon, Menu, X } from "lucide-react"
+import { Sun, Moon, Menu, X, Search } from "lucide-react"
+import GlobalSearch from "./GlobalSearch"
 
 import {
   NavigationMenu,
@@ -26,6 +27,7 @@ const Navbar = () => {
 
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const { setTheme, resolvedTheme } = useTheme()
 
   useEffect(() => {
@@ -80,11 +82,19 @@ const Navbar = () => {
         </div>
 
         {/* Right: Desktop Actions & Theme Toggle */}
-        <div className="hidden items-center justify-end gap-4 pr-2 md:flex">
+        <div className="hidden items-center justify-end gap-2 pr-2 md:flex">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
+            aria-label="Open search"
+          >
+            <Search className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
+          </button>
+
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-colors duration-200 hover:bg-white/20 dark:hover:bg-white/10"
+            className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
             aria-label="Toggle dark mode"
           >
             {resolvedTheme === "dark" ? (
@@ -102,7 +112,15 @@ const Navbar = () => {
         </div>
 
         {/* Mobile View Toggle & Menu Button */}
-        <div className="flex items-center gap-2 pr-2 md:hidden">
+        <div className="flex items-center gap-1 pr-2 md:hidden">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
+            aria-label="Open search"
+          >
+            <Search className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
+          </button>
+
           {/* Mobile Theme Toggle */}
           <button
             onClick={toggleTheme}
@@ -155,6 +173,8 @@ const Navbar = () => {
           </Link>
         </div>
       )}
+
+      <GlobalSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   )
 }

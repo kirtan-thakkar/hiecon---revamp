@@ -91,8 +91,9 @@ const Section = ({
                 src={image} 
                 alt={title.replace(/\n/g, ' ')}
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
-                className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000 rounded-2xl"
+                className="object-cover transition-all duration-1000 rounded-2xl"
               />
             </motion.div>
           )}
@@ -133,7 +134,7 @@ export default function WhyChooseUs() {
         label="04 / Deployment"
         title={"Commission on\nthe factory floor"}
         description="Our involvement doesn't end with a schematic. Our engineers deploy to your facility, wiring cabinets, tuning servo loops, and rigorously testing safety zones until the line runs flawlessly."
-        image="https://images.unsplash.com/photo-1581092921461-7031e4bfb314?q=80&w=1200&auto=format&fit=crop"
+        image="/factory_commissioning.jpg"
         reverse
       />
 

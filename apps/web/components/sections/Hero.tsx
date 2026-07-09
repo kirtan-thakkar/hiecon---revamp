@@ -14,17 +14,35 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const t1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: videoRef.current,
-        start: "top 60%",
-        end: "bottom center",
-        scrub: true,
-      },
-    })
-    t1.fromTo(videoRef.current, { scale: 0.95 }, { scale: 1.15, duration: 1.5 })
-  }, [videoRef])
+    gsap.registerPlugin(ScrollTrigger);
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      const t1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: videoRef.current,
+          start: "top 60%",
+          end: "bottom center",
+          scrub: true,
+        },
+      });
+      t1.fromTo(videoRef.current, { scale: 0.95 }, { scale: 1.15, duration: 1.5 });
+    });
+
+    mm.add("(max-width: 767px)", () => {
+      const t1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: videoRef.current,
+          start: "top 70%",
+          end: "center center",
+          scrub: true,
+        },
+      });
+      t1.fromTo(videoRef.current, { scale: 0.95 }, { scale: 1.02, duration: 1.5 });
+    });
+
+    return () => mm.revert();
+  }, [videoRef]);
 
   return (
     <div className="relative overflow-hidden pt-24 pb-16">
@@ -42,11 +60,12 @@ const HeroSection = () => {
           style={{ WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 20%, transparent 80%)', maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 20%, transparent 80%)' }}
         >
           <Image 
-            src="https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?q=80&w=2000&auto=format&fit=crop" 
-            alt="Industrial Machinery" 
+            src="/industrial-robots-hero.jpg" 
+            alt="Industrial Automation" 
             fill
+            sizes="100vw"
             priority
-            className="object-cover mix-blend-luminosity grayscale -ml-10 -mt-15"
+            className="object-cover -ml-10 -mt-15"
           />
         </motion.div>
 

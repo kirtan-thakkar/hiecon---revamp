@@ -12,13 +12,13 @@ export default function ContactInfo() {
     },
     {
       label: "Global Support Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+91 98765 43210",
+      link: "tel:+919876543210"
     },
     {
       label: "WhatsApp Business",
       value: "Chat with an Engineer",
-      link: "https://wa.me/15551234567"
+      link: "https://wa.me/919876543210"
     }
   ];
 

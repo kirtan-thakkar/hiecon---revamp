@@ -49,8 +49,9 @@ export default function GlobalPresence() {
             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop"
             alt="Global operations"
             fill
+            sizes="100vw"
             loading="lazy"
-            className="object-cover opacity-30 dark:opacity-60 mix-blend-luminosity hover:opacity-80 transition-opacity duration-700"
+            className="object-cover opacity-30 dark:opacity-60 hover:opacity-80 transition-opacity duration-700"
           />
           
           {/* Faux map nodes */}
