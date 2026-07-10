@@ -73,13 +73,16 @@ export default function OurStory() {
           {/* Right Column: Sticky Image */}
           <div className="hidden md:block h-full relative">
             <div className="sticky top-32 w-full aspect-[3/4] rounded-[2rem] overflow-hidden bg-muted">
-              <Image 
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000&auto=format&fit=crop"
-                alt="Hiecon engineering team"
-                fill
-                loading="lazy"
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-              />
+              <div className="relative w-full h-full">
+                <Image 
+                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000&auto=format&fit=crop"
+                  alt="Hiecon engineering team"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                />
+              </div>
               <div className="absolute inset-0 bg-brand-primary/10 mix-blend-overlay"></div>
             </div>
           </div>
