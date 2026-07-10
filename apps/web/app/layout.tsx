@@ -30,14 +30,18 @@ export default function RootLayout({
         suppressHydrationWarning
         className={cn("antialiased", dmSans.className)}
       >
-        <body className="tracking-tight bg-transparent text-neutral-700 dark:bg-transparent dark:text-neutral-50">
+        <body className="tracking-tight bg-transparent text-neutral-700 dark:bg-transparent dark:text-neutral-50 min-h-screen">
           <ThemeProvider>
             <Navbar />
             <SmoothScrollProvider>
-              {children}
-              <Footer />
-              <BackToTop />
+              <div className="flex flex-col min-h-screen">
+                <main className="flex-grow flex flex-col">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </SmoothScrollProvider>
+            <BackToTop />
           </ThemeProvider>
         </body>
       </html>

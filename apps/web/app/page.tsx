@@ -7,7 +7,7 @@ import CTASection from "@/components/about/CTASection";
 
 export default function Page() {
   return (
-    <div className="mt-2">
+    <div className="-mt-20">
       <HeroSection />
       <ProductFamilies />
       <WhyChooseUs />

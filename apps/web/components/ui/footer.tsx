@@ -1,5 +1,6 @@
 import { Link } from 'next-view-transitions';
 import Container from './Container';
+import { FooterStarsBackground } from './FooterStarsBackground';
 
 const footerLinks = [
   {
@@ -27,8 +28,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="dark:bg-neutral-950/15 bg-neutral-100/10 text-black dark:text-white pt-14 overflow-hidden font-sans">
-      <Container>
+    <footer className="relative dark:bg-neutral-950/15 bg-neutral-100/10 text-black dark:text-white pt-14 pb-8 overflow-hidden font-sans">
+      <FooterStarsBackground />
+      <Container className="relative z-10">
         
         {/* Navigation Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mb-12">
@@ -63,7 +65,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t  text-xs text-[#888888] mb-4">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t text-xs text-[#888888]">
           <p>&copy;2026 Hiecon. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link href="/legal" className="hover:text-white transition-colors">

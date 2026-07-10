@@ -16,9 +16,10 @@ export default function ProductsClient() {
 
   return (
     <div className="w-full">
-      <Container>
-        {/* Header Section */}
-        <div className="max-w-4xl pt-12 pb-24">
+      {/* Header Section */}
+      <div className="relative pt-12 pb-24 mb-16 overflow-hidden border-b border-border/20 rounded-b-[2rem] md:rounded-b-[4rem]">
+        <Container className="relative z-10">
+          <div className="max-w-4xl pt-12">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,8 +44,11 @@ export default function ProductsClient() {
           >
             From edge controllers to heavy-duty servo motors. We partner with the world's leading manufacturers to provide reliable, scalable hardware for your factory.
           </motion.p>
-        </div>
+          </div>
+        </Container>
+      </div>
 
+      <Container>
         {/* Products List */}
         <div className="flex flex-col gap-32 pb-32">
           {products.map((product, index) => {

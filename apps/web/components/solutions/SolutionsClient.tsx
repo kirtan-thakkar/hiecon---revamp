@@ -16,9 +16,10 @@ export default function SolutionsClient() {
 
   return (
     <div className="w-full">
-      <Container>
-        {/* Header Section */}
-        <div className="max-w-4xl pt-12 pb-24">
+      {/* Header Section */}
+      <div className="relative pt-12 pb-24 mb-16 overflow-hidden border-b border-border/20 rounded-b-[2rem] md:rounded-b-[4rem]">
+        <Container className="relative z-10">
+          <div className="max-w-4xl pt-12">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,8 +44,11 @@ export default function SolutionsClient() {
           >
             We don't build generic systems. We engineer deep, domain-specific automation architectures tailored to the physics of your production line.
           </motion.p>
-        </div>
+          </div>
+        </Container>
+      </div>
 
+      <Container>
         {/* Solutions List */}
         <div className="flex flex-col gap-32 pb-32">
           {solutions.map((solution, index) => {
