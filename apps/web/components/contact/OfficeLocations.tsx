@@ -21,7 +21,7 @@ export default function OfficeLocations() {
     }
   ];
 
-  const [activeOffice, setActiveOffice] = useState(offices[0]);
+  const [activeOffice, setActiveOffice] = useState<(typeof offices)[number]>(offices[0]!);
 
   return (
     <section className="relative w-full py-24 md:py-32 bg-card border-t border-border mt-12">

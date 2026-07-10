@@ -31,7 +31,7 @@ export default function ContactSection({
   title?: string;
   subtitle?: string;
 }) {
-  const [activeOffice, setActiveOffice] = useState(offices[0]);
+  const [activeOffice, setActiveOffice] = useState<(typeof offices)[number]>(offices[0]!);
   const mapRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -114,7 +114,7 @@ export default function ContactSection({
         </div>
 
         {/* Map Centerpiece with GSAP */}
-        <div className="mt-12 mb-16 md:mb-24 flex w-full justify-center perspective-[1200px]">
+        <div className="mt-12 mb-16 md:mb-24 flex w-full justify-center perspective-distant">
           <div
             ref={mapRef}
             className="relative flex h-[50vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] bg-muted shadow-[0_0_40px_rgba(0,0,0,0.05)] md:h-[70vh] md:rounded-[3rem] after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_0_100px_rgba(0,0,0,0.1)] after:pointer-events-none"
