@@ -60,7 +60,7 @@ export default function OfficeLocations() {
             <p className="text-lg text-muted-foreground leading-relaxed">{activeOffice.address}</p>
           </div>
           
-          <div className="lg:col-span-8 w-full aspect-video md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-muted relative transition-all duration-700 shadow-xl border border-border/50">
+          <div className="lg:col-span-8 w-full aspect-video md:aspect-21/9 rounded-[2rem] overflow-hidden bg-muted relative transition-all duration-700 shadow-xl border border-border/50">
             <iframe
               key={activeOffice.id}
               src={activeOffice.mapSrc}

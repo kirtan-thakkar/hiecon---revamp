@@ -35,7 +35,7 @@ export default function RootLayout({
             <Navbar />
             <SmoothScrollProvider>
               <div className="flex flex-col min-h-screen">
-                <main className="flex-grow flex flex-col">
+                <main className="grow flex flex-col">
                   {children}
                 </main>
                 <Footer />
