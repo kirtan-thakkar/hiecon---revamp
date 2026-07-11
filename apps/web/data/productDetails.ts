@@ -8,7 +8,7 @@ export interface ProductSpecTable {
 export interface IndividualProduct {
   id: string;
   slug: string;
-  categorySlug: string;
+  categorySlug: string | string[];
   name: string;
   tagline: string;
   shortDescription?: string;
@@ -911,7 +911,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt2158x",
     slug: "cmt2158x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT2158X",
     tagline: "Weintek 15\" Advance HMI",
     heroImage: "/hmi/4.0-cmt2158x.webp",
@@ -990,7 +990,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt1106x",
     slug: "cmt1106x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT1106X",
     tagline: "Weintek 10.1\" Advance HMI",
     heroImage: "/hmi/4.0-cmt1106x.webp",
@@ -1075,7 +1075,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt3102x",
     slug: "cmt3102x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT3102X",
     tagline: "Weintek 10.1\" Advance HMI",
     heroImage: "/hmi/4.0-cmt3102x.webp",
@@ -1120,7 +1120,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt3152x",
     slug: "cmt3152x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT3152X",
     tagline: "Weintek 15\" Advance HMI",
     heroImage: "/hmi/4.0-cmt3152x.webp",
@@ -1208,7 +1208,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt2078x",
     slug: "cmt2078x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT2078X",
     tagline: "Weintek 7\" Advance HMI",
     heroImage: "/hmi/4.0-cmt2078x.webp",
@@ -1293,7 +1293,7 @@ export const individualProductsData: IndividualProduct[] = [
   {
     id: "cmt3092x",
     slug: "cmt3092x",
-    categorySlug: "weintek-hmi",
+    categorySlug: ["weintek-hmi", "iiot-products"],
     name: "cMT3092X",
     tagline: "Weintek 9.7\" Advance HMI",
     heroImage: "/hmi/4.0-cmt3092x.webp",
@@ -1334,15 +1334,93 @@ export const individualProductsData: IndividualProduct[] = [
       { title: "Installation Instructions", type: "PDF" },
       { title: "Software Manual", type: "PDF" }
     ]
+  },
+  {
+    id: "cmt-g01",
+    slug: "cmt-g01",
+    categorySlug: "iiot-products",
+    name: "cMT-G01",
+    tagline: "Weintek IIoT Gateway",
+    heroImage: "/iiot-products/cmt-g01.webp",
+    features: [
+      { title: "Integration with major industry cloud" },
+      { title: "Supports OPC UA Server, MQTT, TCP/IP Gateway" },
+      { title: "Database connectivity with MySQL and MS SQL" },
+      { title: "SSL/TSL Encryption" },
+      { title: "Industrial Standard Protocol" },
+      { title: "Optional Easy Access (Remote Access)" },
+      { title: "Event / Alarm Notification" },
+      { title: "Data log" },
+      { title: "Email" }
+    ],
+    technicalHighlights: [
+      { label: "Memory", value: "Built-in 256 MB Flash Memory & 256 MB RAM" },
+      { label: "Design", value: "Compact Design and DIN-rail Mountable" },
+      { label: "COM Ports", value: "One COM Port for RS-232 and RS-485(2W/4W)" },
+      { label: "Ethernet Ports", value: "Two Ethernet Ports" },
+      { label: "Supported Protocols", value: "Supports MPI 187.5K" },
+      { label: "Isolation", value: "Built-in Power Isolator" },
+      { label: "Protection", value: "PCB coating protection" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
+  },
+  {
+    id: "cmt-g02",
+    slug: "cmt-g02",
+    categorySlug: "iiot-products",
+    name: "cMT-G02",
+    tagline: "Weintek IIoT Gateway",
+    heroImage: "/iiot-products/cmt-g02.webp",
+    features: [
+      { title: "Integration with major industry cloud" },
+      { title: "Supports OPC UA Server, MQTT, TCP/IP Gateway" },
+      { title: "Database connectivity with MySQL and MS SQL" },
+      { title: "SSL/TSL Encryption" },
+      { title: "Industrial Standard Protocol" },
+      { title: "Optional Easy Access (Remote Access)" },
+      { title: "Event / Alarm Notification" },
+      { title: "Data log" },
+      { title: "Email" }
+    ],
+    technicalHighlights: [
+      { label: "Memory", value: "Built-In 256 MB Flash Memory & 256 MB RAM" },
+      { label: "Design", value: "Compact Design and DIN-rail Mountable" },
+      { label: "COM Ports", value: "One COM Port for RS-232 and RS-485(2W/4W)" },
+      { label: "Ethernet Ports", value: "One Ethernet Ports" },
+      { label: "Wi-Fi", value: "Wi-Fi compatible with 802.11 b/g/n" },
+      { label: "Input Voltage", value: "Wide input voltage range: 10.5~28VDC" },
+      { label: "Supported Protocols", value: "Supports MPI 187.5K" },
+      { label: "Isolation", value: "Built-in Power Isolator" },
+      { label: "Protection", value: "PCB coating protection" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
   }
 ];
 
 export const getProductsByCategory = (categorySlug: string) => {
-  return individualProductsData.filter(product => product.categorySlug === categorySlug);
+  return individualProductsData.filter(product => {
+    if (Array.isArray(product.categorySlug)) {
+      return product.categorySlug.includes(categorySlug);
+    }
+    return product.categorySlug === categorySlug;
+  });
 };
 
 export const getProduct = (categorySlug: string, productSlug: string) => {
-  return individualProductsData.find(
-    product => product.categorySlug === categorySlug && product.slug === productSlug
-  );
+  return individualProductsData.find(product => {
+    const matchCategory = Array.isArray(product.categorySlug)
+      ? product.categorySlug.includes(categorySlug)
+      : product.categorySlug === categorySlug;
+    return matchCategory && product.slug === productSlug;
+  });
 };

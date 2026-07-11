@@ -17,10 +17,10 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const product = getProduct(resolvedParams.slug, resolvedParams.productSlug);
+  const category = productsData[resolvedParams.slug];
   if (!product) return { title: "Product Not Found" };
-  
   return {
-    title: `${product.name} | ${product.categorySlug} | Hiecon`,
+    title: `${product.name} | ${category ? category.title : resolvedParams.slug} | Hiecon`,
     description: product.shortDescription || product.tagline,
   };
 }
@@ -243,7 +243,7 @@ export default async function IndividualProductPage({ params }: Props) {
                 return (
                   <Link
                     key={related.id}
-                    href={`/products/${related.categorySlug}/${related.slug}`}
+                    href={`/products/${slug}/${related.slug}`}
                     className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
                   >
                     {innerContent}
