@@ -16,6 +16,11 @@ type ProductData = {
   specs: { label: string; value: string }[];
   documents?: { title: string; type: string; fileUrl?: string; externalUrl?: string }[];
   specificationGroups?: ProductSpecTable[];
+  linkGroups?: {
+    title: string;
+    image: string;
+    links: { label: string; url: string }[];
+  }[];
 };
 
 import { IndividualProduct, ProductSpecTable } from "@/data/productDetails";
@@ -159,55 +164,104 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
           </div>
         )}
 
-        {familyProducts && familyProducts.length > 0 && (
+        {data.linkGroups && data.linkGroups.length > 0 && (
           <div className="max-w-6xl mb-32 border-t border-border/50 pt-16">
-            <h2 className="text-3xl font-medium mb-12 text-center">Product Family</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {familyProducts.map((product) => {
-                const innerContent = (
-                  <>
-                    <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
+            <div className="space-y-16">
+              {data.linkGroups.map((group, idx) => (
+                <div key={idx} className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-12 items-start">
+                  <div className="flex flex-col gap-4">
+                    <h3 className="text-3xl font-medium text-brand-primary">{group.title}</h3>
+                    <div className="relative w-full aspect-square rounded-2xl bg-white border border-border/50 p-4">
                       <Image 
-                        src={product.heroImage} 
-                        alt={product.name}
+                        src={group.image} 
+                        alt={group.title}
                         fill
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, 20vw"
-                        className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
+                        className="object-contain mix-blend-multiply p-4"
                       />
                     </div>
-                    <div className="text-center">
-                      <h3 className="font-semibold text-lg text-foreground mb-1">{product.name}</h3>
-                      <p className="text-sm text-muted-foreground">{product.tagline}</p>
-                    </div>
-                  </>
-                );
-
-                if (product.externalUrl) {
-                  return (
-                    <a
-                      key={product.id}
-                      href={product.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                    >
-                      {innerContent}
-                    </a>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={product.id}
-                    href={`/products/${product.categorySlug}/${product.slug}`}
-                    className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                  >
-                    {innerContent}
-                  </Link>
-                );
-              })}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 pt-2">
+                    {group.links.map((link, lIdx) => (
+                      <a 
+                        key={lIdx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start gap-3 p-3 -ml-3 rounded-lg hover:bg-muted/50 transition-colors"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground group-hover:text-foreground transition-colors leading-snug">
+                          {link.label}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
+        )}
+
+        {familyProducts && familyProducts.length > 0 && (
+          <div className="max-w-6xl mb-32 border-t border-border/50 pt-16 space-y-24">
+            {Object.entries(
+              familyProducts.reduce((acc, product) => {
+                const group = product.groupName || "Product Family";
+                if (!acc[group]) acc[group] = [];
+                acc[group].push(product);
+                return acc;
+              }, {} as Record<string, typeof familyProducts>)
+            ).map(([groupName, products]) => (
+              <div key={groupName}>
+                <h2 className="text-3xl font-medium mb-12 text-center">{groupName}</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {products.map((product) => {
+                    const innerContent = (
+                      <>
+                        <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
+                          <Image 
+                            src={product.heroImage} 
+                            alt={product.name}
+                            fill
+                            quality={100}
+                            sizes="(max-width: 768px) 100vw, 25vw"
+                            className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
+                          />
+                        </div>
+                        <div className="text-center">
+                          <h3 className="font-semibold text-lg text-foreground mb-1">{product.name}</h3>
+                          {product.tagline && <p className="text-sm text-muted-foreground">{product.tagline}</p>}
+                        </div>
+                      </>
+                    );
+
+                    if (product.externalUrl) {
+                      return (
+                        <a
+                          key={product.id}
+                          href={product.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
+                        >
+                          {innerContent}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={product.id}
+                        href={`/products/${product.categorySlug}/${product.slug}`}
+                        className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
+                      >
+                        {innerContent}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </Container>

@@ -11,6 +11,7 @@ export interface IndividualProduct {
   categorySlug: string | string[];
   name: string;
   tagline: string;
+  groupName?: string;
   shortDescription?: string;
   heroImage: string;
   externalUrl?: string;
@@ -1404,6 +1405,118 @@ export const individualProductsData: IndividualProduct[] = [
       { title: "Installation Instructions", type: "PDF" },
       { title: "Software Manual", type: "PDF" }
     ]
+  },
+  // Vision System
+  {
+    id: "fh-series",
+    slug: "fh-series",
+    categorySlug: "vision-system",
+    groupName: "Product Family",
+    name: "FH Series",
+    tagline: "AI-based automated visual inspection",
+    heroImage: "/vision-system/fh-series.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "fz5-series",
+    slug: "fz5-series",
+    categorySlug: "vision-system",
+    groupName: "Product Family",
+    name: "FZ5 Series",
+    tagline: "A range of processing items for positioning and inspection",
+    heroImage: "/vision-system/fz5-series.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "fhv7-series",
+    slug: "fhv7-series",
+    categorySlug: "vision-system",
+    groupName: "Smart Cameras",
+    name: "FHV7 Series",
+    tagline: "Ultimate flexibility to fit ever-changing production scene",
+    heroImage: "/vision-system/smart-camera-fhv7.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "microhawk-f430",
+    slug: "microhawk-f430",
+    categorySlug: "vision-system",
+    groupName: "Smart Cameras",
+    name: "MicroHAWK F430-F / F420-F / ...",
+    tagline: "World's smallest fully-integrated vision system.",
+    heroImage: "/vision-system/smart-camera-micro-hawk-f430.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "fq2",
+    slug: "fq2",
+    categorySlug: "vision-system",
+    groupName: "Smart Cameras",
+    name: "FQ2",
+    tagline: "Advanced inspection in a compact housing. Expanded performance and functionality.",
+    heroImage: "/vision-system/smart-camera-fq2.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "fq-m-series",
+    slug: "fq-m-series",
+    categorySlug: "vision-system",
+    groupName: "Smart Cameras",
+    name: "FQ-M Series",
+    tagline: "Designed for motion tracking",
+    heroImage: "/vision-system/smart-camera-fq-m.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  // Industrial Robots
+  {
+    id: "tm-series",
+    slug: "tm-series",
+    categorySlug: "industrial-robots",
+    groupName: "Product Family",
+    name: "Collaborative Robots : TM Series",
+    tagline: "For assembly, packaging, inspection and logistics",
+    heroImage: "/industrail-robots/colllaborative robots-tmseries.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "ld-hd-series",
+    slug: "ld-hd-series",
+    categorySlug: "industrial-robots",
+    groupName: "Product Family",
+    name: "Mobile Robots : LD HD Series",
+    tagline: "Designed to automate material transport tasks in factories and indoor facilities",
+    heroImage: "/industrail-robots/mobile-robots-ld-hdseries.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "parallel-robots",
+    slug: "parallel-robots",
+    categorySlug: "industrial-robots",
+    groupName: "Industrial Robots",
+    name: "Parallel Robots",
+    tagline: "Parallel Robots for high-speed pick & place applications.",
+    heroImage: "/industrail-robots/parallel-robots.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "scara-robots",
+    slug: "scara-robots",
+    categorySlug: "industrial-robots",
+    groupName: "Industrial Robots",
+    name: "SCARA Robots",
+    tagline: "High-performance 4-axis SCARA Robots ideal for mechanical assembly.",
+    heroImage: "/industrail-robots/scara-robots.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
+  },
+  {
+    id: "articulated-robots",
+    slug: "articulated-robots",
+    categorySlug: "industrial-robots",
+    groupName: "Industrial Robots",
+    name: "Articulated Robots",
+    tagline: "Articulated robot for machining, assembly, and material handling.",
+    heroImage: "/industrail-robots/articulated-robots.webp",
+    externalUrl: "https://www.omron-ap.co.in/products/family/"
   }
 ];
 

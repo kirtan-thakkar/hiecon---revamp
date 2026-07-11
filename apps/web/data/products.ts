@@ -1,5 +1,11 @@
 import { ProductSpecTable } from "./productDetails";
 
+export interface LinkGroup {
+  title: string;
+  image: string;
+  links: { label: string; url: string }[];
+}
+
 export type Product = {
   title: string;
   slug: string;
@@ -9,6 +15,7 @@ export type Product = {
   specs: { label: string; value: string }[];
   documents?: { title: string; type: string; fileUrl?: string; externalUrl?: string }[];
   specificationGroups?: ProductSpecTable[];
+  linkGroups?: LinkGroup[];
 };
 
 export const products: Product[] = [
@@ -219,6 +226,99 @@ export const products: Product[] = [
       { label: "Partner", value: "OMRON Authorized" },
       { label: "Sensors & Switches", value: "Vision, Fiber, Proximity, Limit, Level" },
       { label: "Safety & Control", value: "Light Curtains, Relays, Temp Controllers, UPS" }
+    ],
+    linkGroups: [
+      {
+        title: "Sensors",
+        image: "/automation-components/sensors.webp",
+        links: [
+          { label: "Fiber Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Photoelectric Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Displacement Sensors / Measurement Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Vision Sensors / Machine Vision Systems", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Code Readers / OCR", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Proximity Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Photomicro Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Rotary Encoders", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Ultrasonic Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Pressure Sensors / Flow Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Contact Sensors / Liquid Leakage Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Condition Monitoring Sensors", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      },
+      {
+        title: "Switches",
+        image: "/automation-components/switches.webp",
+        links: [
+          { label: "Level Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Basic Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Limit Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Push Buttons / Indicator Lamps", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Thumbwheel Switches", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      },
+      {
+        title: "Safety Components",
+        image: "/automation-components/safety-componenets.webp",
+        links: [
+          { label: "Safety Light Curtains / Safety Multi-Light Beams / Single-beam Safety Sensors", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Laser Scanners", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Door Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Limit Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Mats", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Edges", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Emergency Stop Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Key Selector Switches / Enabling Grip Switches", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Controllers", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Units / Safety Relay Units", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Drives", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      },
+      {
+        title: "Relays",
+        image: "/automation-components/relays.webp",
+        links: [
+          { label: "General Purpose Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Safety Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Terminal Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "I/O Relay Terminals", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Solid-state Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Power Controllers", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Low Voltage Switching Gears", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      },
+      {
+        title: "Control Components",
+        image: "/automation-components/control-components.webp",
+        links: [
+          { label: "Temperature Controllers", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Timers", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Counters", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Cam Positioners", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Digital Panel Indicators", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Signal Converters", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Programmable Relays", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      },
+      {
+        title: "Power Supplies",
+        image: "/automation-components/power-supplies.webp",
+        links: [
+          { label: "Power Supplies", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Condition Monitoring Device", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Uninterruptible Power Supply (UPS)", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Axial Fans", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "UV-Light Curing Systems", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Static Electricity Components", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Measuring / Motor Protective Relays", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Laser marker", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Wiring Systems", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Sensor I/O Connectors / Sensor Controllers", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Inspection System", url: "https://www.omron-ap.co.in/products/family/" },
+          { label: "Common Accessories", url: "https://www.omron-ap.co.in/products/family/" }
+        ]
+      }
     ]
   },
   {
