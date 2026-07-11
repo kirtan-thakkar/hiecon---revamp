@@ -1245,6 +1245,95 @@ export const individualProductsData: IndividualProduct[] = [
       { title: "Installation Instructions", type: "PDF" },
       { title: "Software Manual", type: "PDF" }
     ]
+  },
+  {
+    id: "cmt3072xht",
+    slug: "cmt3072xht",
+    categorySlug: "weintek-hmi",
+    name: "cMT3072XHT",
+    tagline: "Weintek 7\" Advance HMI",
+    heroImage: "/hmi/4.0-cmt3072xht.webp",
+    features: [
+      { title: "Optional EasyAccess 2.0 License (Remote access)" },
+      { title: "Database connectivity with MySQL and MS SQL" },
+      { title: "Barcode Scanner" },
+      { title: "PLC Web Browser" },
+      { title: "Optional CODESYS" },
+      { title: "IIoT protocol : MQTT, MQTT cloud service integration" },
+      { title: "JS Object" },
+      { title: "USB/IP Camera" },
+      { title: "VNC Server & Viewer" },
+      { title: "USB Tethering" },
+      { title: "3G/4G dongle support" },
+      { title: "Email" },
+      { title: "OPC UA Client & Server" },
+      { title: "FTP File transfer" },
+      { title: "PDF viewer & Media Player" },
+      { title: "Ethernet printer" },
+      { title: "Web View" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "7\" 1024 x 600 Wide Viewing Angle LCD" },
+      { label: "Processor", value: "Quad-core 32-bit RISC 1.6 GHz Processor" },
+      { label: "Touch Screen", value: "4-wire Resistive Type Touchscreen" },
+      { label: "Memory", value: "Built-in 4GB Flash Memory and 1 GB RAM" },
+      { label: "Bus", value: "CAN Bus Supports CANopen Protocol" },
+      { label: "COM Ports", value: "Two COM Ports for RS-232 and RS-485(2W/4W)" },
+      { label: "Ports", value: "Two Ethernet Ports and One USB Host" },
+      { label: "Isolation", value: "Built-in Power Isolator" },
+      { label: "Protection", value: "PCB coating protection" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
+  },
+  {
+    id: "cmt3092x",
+    slug: "cmt3092x",
+    categorySlug: "weintek-hmi",
+    name: "cMT3092X",
+    tagline: "Weintek 9.7\" Advance HMI",
+    heroImage: "/hmi/4.0-cmt3092x.webp",
+    features: [
+      { title: "Built-in EasyAccess 2.0 License (Remote access)" },
+      { title: "Database connectivity with MySQL and MS SQL" },
+      { title: "Barcode Scanner" },
+      { title: "PLC Web Browser" },
+      { title: "Optional CODESYS" },
+      { title: "IIoT protocol : MQTT, MQTT cloud service integration" },
+      { title: "JS Object" },
+      { title: "USB/IP Camera" },
+      { title: "VNC Server & Viewer" },
+      { title: "USB Tethering" },
+      { title: "3G/4G dongle support" },
+      { title: "Email" },
+      { title: "OPC UA Client & Server" },
+      { title: "FTP File transfer" },
+      { title: "PDF Viewer & Media Player" },
+      { title: "Ethernet printer" },
+      { title: "Web View" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "9.7\" 1024 x 768 TFT LCD" },
+      { label: "Processor", value: "Quad-core Cortex-A17 CPU with High Performance Processor" },
+      { label: "Touch Screen", value: "4-wire Resistive Type Touchscreen" },
+      { label: "Memory", value: "Built-in 4GB Flash Memory and 1 GB RAM" },
+      { label: "Bus", value: "CAN Bus Supports CANopen Protocol" },
+      { label: "COM Ports", value: "Two COM Ports for RS-232 and RS-485(2W/4W)" },
+      { label: "Ports", value: "One USB Host and Two Ethernet Ports" },
+      { label: "Audio", value: "Built-in Mono Speaker" },
+      { label: "Isolation", value: "Built-in Power Isolator" },
+      { label: "Protection", value: "PCB coating protection" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
   }
 ];
 
