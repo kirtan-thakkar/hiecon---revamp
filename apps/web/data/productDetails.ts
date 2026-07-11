@@ -761,6 +761,152 @@ export const individualProductsData: IndividualProduct[] = [
     tagline: "Motion, Logic, Safety, Vision and HMI in one",
     heroImage: "/motion-controllers/nj-series.webp",
     externalUrl: "https://industrial.omron.us/en/products/nj"
+  },
+  {
+    id: "mt8052ip",
+    slug: "mt8052ip",
+    categorySlug: "weintek-hmi",
+    name: "MT8052iP",
+    tagline: "Weintek 4.3\" Basic HMI",
+    heroImage: "/hmi/standard-mt8052ip.webp",
+    features: [
+      { title: "Recipe: Import/Export, Database, View" },
+      { title: "Data logging & Trends" },
+      { title: "Operation Data log" },
+      { title: "Alarm Display & History" },
+      { title: "Enhance Security mode" },
+      { title: "VNC server" },
+      { title: "OPC UA Client" },
+      { title: "File browser & picture viewer" },
+      { title: "Optional Easy Access (Remote Support Feature)" },
+      { title: "3G/4G Dongle Support" },
+      { title: "Time synchronization" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "4.3\" 480x272 TFT LCD" },
+      { label: "Colors & Backlight", value: "16M Colours with LED Back Light" },
+      { label: "Touch Screen", value: "4-wire Resistive type" },
+      { label: "Memory", value: "256 MB Flash and 128 MB RAM Memory" },
+      { label: "Processor", value: "Dual-core RISC Processor" },
+      { label: "Ports", value: "One USB Host and Ethernet Port" },
+      { label: "COM Ports", value: "COM1: RS-232/RS-485 2W/4W, COM3: RS-485 2W" },
+      { label: "RTC", value: "Built-in RTC" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
+  },
+  {
+    id: "mt8102ip",
+    slug: "mt8102ip",
+    categorySlug: "weintek-hmi",
+    name: "MT8102iP",
+    tagline: "Weintek 10.1\" Basic HMI",
+    heroImage: "/hmi/standard-mt8102ip.webp",
+    features: [
+      { title: "Recipe: Import/Export, Database, View" },
+      { title: "Data logging & Trends" },
+      { title: "Operation Data log" },
+      { title: "Alarm Display & History" },
+      { title: "Enhance Security mode" },
+      { title: "VNC server" },
+      { title: "OPC UA Client" },
+      { title: "File browser & picture viewer" },
+      { title: "Optional Easy Access (Remote Support Feature)" },
+      { title: "3G/4G Dongle Support" },
+      { title: "Time synchronization" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "10.1\" 1024x600 TFT LCD" },
+      { label: "Colors & Backlight", value: "16M Colours with LED Back Light" },
+      { label: "Touch Screen", value: "4-wire Resistive type" },
+      { label: "Memory", value: "128 MB Flash and 128 MB RAM Memory" },
+      { label: "Processor", value: "32-bit RISC Cortex-A8 600MHz Processor" },
+      { label: "Ports", value: "One USB Host and Ethernet Port" },
+      { label: "COM Ports", value: "COM1: RS-232/RS-485 2W/4W, COM3: RS-485 2W" },
+      { label: "RTC", value: "Built-in RTC" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
+  },
+  {
+    id: "mt8106ip",
+    slug: "mt8106ip",
+    categorySlug: "weintek-hmi",
+    name: "MT8106iP",
+    tagline: "Weintek 10.1\" Basic HMI",
+    heroImage: "/hmi/standard-mt8106iP.webp",
+    features: [
+      { title: "Recipe: Import/Export, Database, View" },
+      { title: "Data logging & Trends" },
+      { title: "Operation Data log" },
+      { title: "Alarm Display & History" },
+      { title: "Enhance Security mode" },
+      { title: "VNC server" },
+      { title: "OPC UA Client" },
+      { title: "File browser & picture viewer" },
+      { title: "Optional Easy Access (Remote Support Feature)" },
+      { title: "3G/4G Dongle Support" },
+      { title: "Time synchronization" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "10.1\" 1024 x 600 Wide Viewing Angle LCD, LED Backlight" },
+      { label: "Cooling", value: "Fan-less Cooling System" },
+      { label: "Memory & RTC", value: "Built-in flash memory and RTC" },
+      { label: "COM Ports", value: "COM2 RS-485 2W supports MPI 187.5K" },
+      { label: "Isolation", value: "Built-in power isolation" },
+      { label: "Protection", value: "NEMA4 / IP65 Compliant Front Panel" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
+  },
+  {
+    id: "mt8072ip",
+    slug: "mt8072ip",
+    categorySlug: "weintek-hmi",
+    name: "MT8072iP",
+    tagline: "Weintek 7\" Basic HMI",
+    heroImage: "/hmi/standard-mt8072iP.webp",
+    features: [
+      { title: "Recipe: Import/Export, Database, View" },
+      { title: "Data logging & Trends" },
+      { title: "Operation Data log" },
+      { title: "Alarm Display & History" },
+      { title: "Enhance Security mode" },
+      { title: "VNC server" },
+      { title: "OPC UA Client" },
+      { title: "File browser & picture viewer" },
+      { title: "Optional Easy Access (Remote Support Feature)" },
+      { title: "3G/4G Dongle Support" },
+      { title: "Time synchronization" }
+    ],
+    technicalHighlights: [
+      { label: "Display", value: "7\" 800x480 TFT LCD" },
+      { label: "Colors & Backlight", value: "16M Colours with LED Back Light" },
+      { label: "Touch Screen", value: "4-wire Resistive type" },
+      { label: "Memory", value: "256 MB Flash and 128 MB RAM Memory" },
+      { label: "Processor", value: "Dual-core RISC Processor" },
+      { label: "Ports", value: "One USB Host and Ethernet Port" },
+      { label: "COM Ports", value: "COM1: RS-232 4W, COM2: RS-485 2W/4W" },
+      { label: "RTC", value: "Built-in RTC" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" },
+      { title: "Software Manual", type: "PDF" }
+    ]
   }
 ];
 
