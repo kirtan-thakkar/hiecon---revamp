@@ -6,6 +6,7 @@ import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
 import Lightbox from "@/components/ui/Lightbox";
+import { FileText, ExternalLink, Download } from "lucide-react";
 
 type ProductData = {
   title: string;
@@ -13,9 +14,11 @@ type ProductData = {
   content: string;
   image: string;
   specs: { label: string; value: string }[];
+  documents?: { title: string; type: string; fileUrl?: string; externalUrl?: string }[];
+  specificationGroups?: ProductSpecTable[];
 };
 
-import { IndividualProduct } from "@/data/productDetails";
+import { IndividualProduct, ProductSpecTable } from "@/data/productDetails";
 import { Link } from "next-view-transitions";
 
 export default function ProductDetailClient({ data, familyProducts }: { data: ProductData, familyProducts?: IndividualProduct[] }) {
@@ -87,6 +90,75 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
             </div>
           </div>
         </div>
+
+        {data.specificationGroups && data.specificationGroups.length > 0 && (
+          <div className="max-w-6xl mb-32 border-t border-border/50 pt-16">
+            <h2 className="text-3xl font-medium mb-12">Technical Specifications</h2>
+            <div className="space-y-16">
+              {data.specificationGroups.map((group, idx) => (
+                <div key={idx} className="flex flex-col">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-foreground">{group.title}</h3>
+                    {group.subtitle && <p className="text-muted-foreground mt-1">{group.subtitle}</p>}
+                  </div>
+                  <div className="w-full overflow-x-auto rounded-xl border border-border bg-card">
+                    <table className="w-full text-left text-sm whitespace-nowrap">
+                      <thead className="bg-muted/50 text-muted-foreground">
+                        <tr>
+                          {group.columns.map((col) => (
+                            <th key={col.key} className="px-6 py-4 font-medium border-b border-border">
+                              {col.label}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border">
+                        {group.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className="hover:bg-muted/30 transition-colors">
+                            {group.columns.map((col) => (
+                              <td key={col.key} className="px-6 py-4 text-foreground">
+                                {row[col.key]}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {data.documents && data.documents.length > 0 && (
+          <div id="documents" className="max-w-6xl mb-32 border-t border-border/50 pt-16">
+            <h2 className="text-3xl font-medium mb-10">Technical Documents</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.documents.map((doc, idx) => (
+                <a 
+                  key={idx}
+                  href={doc.fileUrl || doc.externalUrl || "#"}
+                  target={doc.externalUrl ? "_blank" : undefined}
+                  rel={doc.externalUrl ? "noopener noreferrer" : undefined}
+                  className="group flex items-center justify-between p-6 rounded-2xl border border-border/50 bg-card hover:border-brand-primary/50 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-primary-foreground transition-colors">
+                      <FileText className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-foreground">{doc.title}</span>
+                      <span className="text-xs text-muted-foreground uppercase tracking-wider">{doc.type}</span>
+                    </div>
+                  </div>
+                  {doc.externalUrl ? <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-brand-primary transition-colors" /> : <Download className="w-5 h-5 text-muted-foreground group-hover:text-brand-primary transition-colors" />}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         {familyProducts && familyProducts.length > 0 && (
           <div className="max-w-6xl mb-32 border-t border-border/50 pt-16">
             <h2 className="text-3xl font-medium mb-12 text-center">Product Family</h2>

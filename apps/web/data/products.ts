@@ -1,3 +1,5 @@
+import { ProductSpecTable } from "./productDetails";
+
 export type Product = {
   title: string;
   slug: string;
@@ -5,6 +7,8 @@ export type Product = {
   content: string;
   image: string;
   specs: { label: string; value: string }[];
+  documents?: { title: string; type: string; fileUrl?: string; externalUrl?: string }[];
+  specificationGroups?: ProductSpecTable[];
 };
 
 export const products: Product[] = [
@@ -119,6 +123,66 @@ export const products: Product[] = [
       { label: "Coupler Protocols", value: "CANopen, Modbus TCP, EtherNet/IP, EtherCAT" },
       { label: "Digital I/O", value: "Up to 16 Channels (Sink/Source/Relay)" },
       { label: "Analog I/O", value: "Voltage/Current, RTD, Thermocouple" }
+    ],
+    documents: [
+      { title: "Broucher", type: "PDF" },
+      { title: "Datasheet", type: "PDF" },
+      { title: "Installation Instructions", type: "PDF" }
+    ],
+    specificationGroups: [
+      {
+        title: "Couplers",
+        columns: [
+          { key: "coupler", label: "Coupler" },
+          { key: "fieldbus", label: "Fieldbus" }
+        ],
+        rows: [
+          { coupler: "IR-COP", fieldbus: "CANopen Slave" },
+          { coupler: "IR-ETN", fieldbus: "Modbus TCP/IP Server, EtherNet/IP Adapter" },
+          { coupler: "IR-ECAT", fieldbus: "EtherCAT® Slave" }
+        ]
+      },
+      {
+        title: "Digital I/O",
+        columns: [
+          { key: "partNo", label: "Part No" },
+          { key: "description", label: "Description" }
+        ],
+        rows: [
+          { partNo: "IR-DI16-K", description: "16 DI (Sink/Source)" },
+          { partNo: "IR-DM16-P", description: "8 DI (Sink/Source), 8 DO (Source)" },
+          { partNo: "IR-DM16-N", description: "8 DI (Sink/Source), 8 DO (Sink)" },
+          { partNo: "IR-DQ16-P", description: "16 DO (Source)" },
+          { partNo: "IR-DQ16-N", description: "16 DO (Sink)" },
+          { partNo: "IR-DQ08-R", description: "8 DO (Relay)" }
+        ]
+      },
+      {
+        title: "Analog I/O",
+        columns: [
+          { key: "partNo", label: "Part No" },
+          { key: "description", label: "Description" }
+        ],
+        rows: [
+          { partNo: "IR-AI04-VI", description: "4 AI, ±10V ±20mA" },
+          { partNo: "IR-AM06-VI", description: "4 AI, 2 AO, ±10V ±20mA" },
+          { partNo: "IR-AQ04-VI", description: "4 AO, ±10V ±20mA" },
+          { partNo: "IR-AI04-TR", description: "4 AI, RTD Thermocouple" }
+        ]
+      },
+      {
+        title: "Motion List",
+        columns: [
+          { key: "partNo", label: "Part No" },
+          { key: "irpu01p", label: "IR-PU01-P" }
+        ],
+        rows: [
+          { partNo: "Differential Output", irpu01p: "2 (A/B)" },
+          { partNo: "Differential Input", irpu01p: "3 (A/B/Z)" },
+          { partNo: "Input Point", irpu01p: "4" },
+          { partNo: "Output Point", irpu01p: "4" }
+        ]
+      }
     ]
   },
   {
