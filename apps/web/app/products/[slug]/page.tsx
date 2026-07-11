@@ -18,14 +18,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+import { getProductsByCategory } from "@/data/productDetails";
+
 export default async function ProductPage({ params }: Props) {
   const resolvedParams = await params;
   const data = productsData[resolvedParams.slug];
   if (!data) notFound();
 
+  const familyProducts = getProductsByCategory(resolvedParams.slug);
+
   return (
     <main className="min-h-screen bg-background pt-32 pb-24">
-      <ProductDetailClient data={data} />
+      <ProductDetailClient data={data} familyProducts={familyProducts} />
     </main>
   );
 }
