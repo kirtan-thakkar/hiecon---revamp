@@ -205,19 +205,8 @@ export default async function IndividualProductPage({ params }: Props) {
             <h2 className="text-3xl font-medium mb-10">Related Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {relatedProducts.slice(0, 4).map((related) => {
-                const isExternal = !!(related as any).externalUrl;
-                const Wrapper = isExternal ? 'a' : Link;
-                const props = isExternal 
-                  ? { href: (related as any).externalUrl, target: "_blank", rel: "noopener noreferrer" } 
-                  : { href: `/products/${related.categorySlug}/${related.slug}` };
-
-                return (
-                  // @ts-ignore
-                  <Wrapper 
-                    {...props}
-                    key={related.id}
-                    className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                  >
+                const innerContent = (
+                  <>
                     <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
                       <Image 
                         src={related.heroImage} 
@@ -232,7 +221,33 @@ export default async function IndividualProductPage({ params }: Props) {
                       <h3 className="font-semibold text-lg text-foreground mb-1">{related.name}</h3>
                       <p className="text-sm text-muted-foreground">{related.tagline}</p>
                     </div>
-                  </Wrapper>
+                  </>
+                );
+
+                const externalUrl = (related as any).externalUrl;
+
+                if (externalUrl) {
+                  return (
+                    <a
+                      key={related.id}
+                      href={externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
+                    >
+                      {innerContent}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={related.id}
+                    href={`/products/${related.categorySlug}/${related.slug}`}
+                    className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
+                  >
+                    {innerContent}
+                  </Link>
                 );
               })}
             </div>
