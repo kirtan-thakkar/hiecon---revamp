@@ -247,7 +247,7 @@ export const individualProductsData: IndividualProduct[] = [
     name: "ACS 580",
     tagline: "General Purpose Drives",
     shortDescription: "A fully compatible general purpose drive, designed to control a wide range of variable and basic constant torque applications.",
-    heroImage: "/ac drives/ac580.webp",
+    heroImage: "/ac drives/acs580.webp", 
     features: [
       { title: "Part of ABB's all-compatible drives portfolio" },
       { title: "Wide availability and support" },
@@ -317,7 +317,66 @@ export const individualProductsData: IndividualProduct[] = [
     categorySlug: "ac-drives",
     name: "ACS 880",
     tagline: "Industrial Drives",
+    shortDescription: "Uncompromised productivity. Simplify your world and open all possibilities with our all-compatible industrial drives.",
     heroImage: "/ac drives/acs880.webp",
+    features: [
+      { title: "Direct torque control (DTC) for precise open and closed loop control" },
+      { title: "Removable memory unit for easy drive commissioning and replacement" },
+      { title: "Built-in safety features for simplified configuration" },
+      { title: "Communication with all major automation networks" },
+      { title: "Designed for easy service" },
+      { title: "Intuitive control panel and PC tool" },
+      { title: "Energy optimizer and energy efficiency information for monitoring and saving energy" }
+    ],
+    technicalHighlights: [
+      { label: "Voltage", value: "380 to 415 V" },
+      { label: "Control", value: "Direct Torque Control (DTC)" }
+    ],
+    documents: [
+      { title: "Technical Catalogue", type: "PDF" },
+      { title: "Hardware Manual", type: "PDF" },
+      { title: "Firmware Manual", type: "PDF" }
+    ],
+    specificationGroups: [
+      {
+        title: "ACS880 AC Drives",
+        subtitle: "380 to 415V",
+        columns: [
+          { key: "model", label: "Model No" },
+          { key: "frame", label: "Frame Size" },
+          { key: "nd_current", label: "N.D. Current (Amp)" },
+          { key: "nd_power", label: "N.D. Power (KW)" },
+          { key: "hd_current", label: "H.D. Current (Amp)" },
+          { key: "hd_power", label: "H.D. Power (KW)" },
+          { key: "max_current", label: "Max. O/P Current (Amp)" }
+        ],
+        rows: [
+          { model: "ACS880-01-02A4-3", frame: "R1", nd_current: "2.4", nd_power: "0.75", hd_current: "1.8", hd_power: "0.55", max_current: "3.1" },
+          { model: "ACS880-01-03A3-3", frame: "R1", nd_current: "3.3", nd_power: "1.1", hd_current: "2.4", hd_power: "0.75", max_current: "4.1" },
+          { model: "ACS880-01-04A0-3", frame: "R1", nd_current: "4", nd_power: "1.5", hd_current: "3.3", hd_power: "1.1", max_current: "5.6" },
+          { model: "ACS880-01-05A6-3", frame: "R1", nd_current: "5.6", nd_power: "2.2", hd_current: "4", hd_power: "1.5", max_current: "6.8" },
+          { model: "ACS880-01-07A2-3", frame: "R1", nd_current: "8", nd_power: "3", hd_current: "5.6", hd_power: "2.2", max_current: "9.5" },
+          { model: "ACS880-01-09A4-3", frame: "R1", nd_current: "10", nd_power: "4", hd_current: "8", hd_power: "3", max_current: "12.2" },
+          { model: "ACS880-01-12A6-3", frame: "R1", nd_current: "12.9", nd_power: "5.5", hd_current: "10", hd_power: "4", max_current: "16" },
+          { model: "ACS880-01-017A-3", frame: "R2", nd_current: "17", nd_power: "7.5", hd_current: "12.6", hd_power: "5.5", max_current: "21" },
+          { model: "ACS880-01-025A-3", frame: "R2", nd_current: "25", nd_power: "11", hd_current: "17", hd_power: "7.5", max_current: "29" },
+          { model: "ACS880-01-032A-3", frame: "R3", nd_current: "32", nd_power: "15", hd_current: "25", hd_power: "11", max_current: "42" },
+          { model: "ACS880-01-038A-3", frame: "R3", nd_current: "38", nd_power: "18.5", hd_current: "32", hd_power: "15", max_current: "54" },
+          { model: "ACS880-01-045A-3", frame: "R4", nd_current: "45", nd_power: "22", hd_current: "38", hd_power: "18.5", max_current: "64" },
+          { model: "ACS880-01-061A-3", frame: "R4", nd_current: "61", nd_power: "30", hd_current: "45", hd_power: "22", max_current: "76" },
+          { model: "ACS880-01-072A-3", frame: "R5", nd_current: "72", nd_power: "37", hd_current: "61", hd_power: "30", max_current: "104" },
+          { model: "ACS880-01-087A-3", frame: "R5", nd_current: "87", nd_power: "45", hd_current: "72", hd_power: "37", max_current: "122" },
+          { model: "ACS880-01-105A-3", frame: "R6", nd_current: "105", nd_power: "55", hd_current: "87", hd_power: "45", max_current: "148" },
+          { model: "ACS880-01-145A-3", frame: "R6", nd_current: "145", nd_power: "75", hd_current: "105", hd_power: "55", max_current: "178" },
+          { model: "ACS880-01-169A-3", frame: "R7", nd_current: "169", nd_power: "90", hd_current: "145", hd_power: "75", max_current: "247" },
+          { model: "ACS880-01-206A-3", frame: "R7", nd_current: "206", nd_power: "110", hd_current: "168", hd_power: "90", max_current: "287" },
+          { model: "ACS880-01-246A-3", frame: "R8", nd_current: "246", nd_power: "132", hd_current: "206", hd_power: "110", max_current: "350" },
+          { model: "ACS880-01-293A-3", frame: "R8", nd_current: "293", nd_power: "160", hd_current: "246", hd_power: "132", max_current: "418" },
+          { model: "ACS880-01-363A-3", frame: "R9", nd_current: "363", nd_power: "200", hd_current: "293", hd_power: "160", max_current: "498" },
+          { model: "ACS880-01-430A-3", frame: "R9", nd_current: "430", nd_power: "250", hd_current: "363", hd_power: "200", max_current: "545" }
+        ]
+      }
+    ]
   }
 ];
 
