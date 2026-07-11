@@ -91,28 +91,37 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
           <div className="max-w-6xl mb-32 border-t border-border/50 pt-16">
             <h2 className="text-3xl font-medium mb-12 text-center">Product Family</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {familyProducts.map((product) => (
-                <Link 
-                  href={`/products/${product.categorySlug}/${product.slug}`} 
-                  key={product.id}
-                  className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                >
-                  <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
-                    <Image 
-                      src={product.heroImage} 
-                      alt={product.name}
-                      fill
-                      quality={100}
-                      sizes="(max-width: 768px) 100vw, 20vw"
-                      className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="font-semibold text-lg text-foreground mb-1">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground">{product.tagline}</p>
-                  </div>
-                </Link>
-              ))}
+              {familyProducts.map((product) => {
+                const isExternal = !!product.externalUrl;
+                const Wrapper = isExternal ? 'a' : Link;
+                const props = isExternal 
+                  ? { href: product.externalUrl, target: "_blank", rel: "noopener noreferrer" } 
+                  : { href: `/products/${product.categorySlug}/${product.slug}` };
+
+                return (
+                  // @ts-ignore
+                  <Wrapper 
+                    {...props}
+                    key={product.id}
+                    className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
+                  >
+                    <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
+                      <Image 
+                        src={product.heroImage} 
+                        alt={product.name}
+                        fill
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, 20vw"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="font-semibold text-lg text-foreground mb-1">{product.name}</h3>
+                      <p className="text-sm text-muted-foreground">{product.tagline}</p>
+                    </div>
+                  </Wrapper>
+                );
+              })}
             </div>
           </div>
         )}
