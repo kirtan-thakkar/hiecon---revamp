@@ -180,7 +180,65 @@ export const individualProductsData: IndividualProduct[] = [
     categorySlug: "ac-drives",
     name: "ACS 560",
     tagline: "General Purpose Drives",
+    shortDescription: "Engineered as ABB's all-compatible drives portfolio, suitable for a wide range of general purpose applications.",
     heroImage: "/ac drives/acs560.webp",
+    features: [
+      { title: "Engineered as ABB's all-compatible drives portfolio." },
+      { title: "Connect to any automation system with a single parameter." },
+      { title: "The intuitive icon-based basic panel as part of standard delivery." },
+      { title: "Energy efficiency features." },
+      { title: "Built-in macros for the application-specific requirement for faster commissioning." }
+    ],
+    technicalHighlights: [
+      { label: "Power Range", value: "0.75 to 160 kW" },
+      { label: "Voltage", value: "380 to 480 V" },
+      { label: "Phase", value: "3 Phase" },
+      { label: "Enclosure", value: "IP20" },
+    ],
+    documents: [
+      { title: "Flyer", type: "PDF" },
+      { title: "Technical Catalogue", type: "PDF" },
+      { title: "Hardware Manual", type: "PDF" },
+      { title: "Firmware Manual", type: "PDF" }
+    ],
+    specificationGroups: [
+      {
+        title: "ACS560 AC Drives",
+        subtitle: "0.75 to 160 KW, 380 to 480V, 3 Phase, 48 to 63 Hz Frequency with IP20 Enclosure",
+        columns: [
+          { key: "model", label: "Model No" },
+          { key: "frame", label: "Frame Size" },
+          { key: "nd_current", label: "N.D. Current (Amp)" },
+          { key: "nd_power", label: "N.D. Power (KW)" },
+          { key: "hd_current", label: "H.D. Current (Amp)" },
+          { key: "hd_power", label: "H.D. Power (KW)" },
+          { key: "max_current", label: "Max. O/P Current (Amp)" }
+        ],
+        rows: [
+          { model: "ACS560-01-02A6-4", frame: "R0", nd_current: "2.6", nd_power: "0.75", hd_current: "1.7", hd_power: "0.55", max_current: "3.2" },
+          { model: "ACS560-01-03A3-4", frame: "R0", nd_current: "3.3", nd_power: "1.1", hd_current: "2.6", hd_power: "0.75", max_current: "4.7" },
+          { model: "ACS560-01-04A0-4", frame: "R0", nd_current: "4", nd_power: "1.5", hd_current: "3.3", hd_power: "1.1", max_current: "5.9" },
+          { model: "ACS560-01-05A6-4", frame: "R0", nd_current: "5.6", nd_power: "2.2", hd_current: "4", hd_power: "1.5", max_current: "7.2" },
+          { model: "ACS560-01-07A2-4", frame: "R0", nd_current: "7.2", nd_power: "3", hd_current: "5.6", hd_power: "2.2", max_current: "10.1" },
+          { model: "ACS560-01-09A4-4", frame: "R0", nd_current: "9.4", nd_power: "3.7", hd_current: "7.2", hd_power: "3", max_current: "13" },
+          { model: "ACS560-01-12A6-4", frame: "R1", nd_current: "12.6", nd_power: "5.5", hd_current: "9.4", hd_power: "3.7", max_current: "16.9" },
+          { model: "ACS560-01-017A-4", frame: "R2", nd_current: "17", nd_power: "7.5", hd_current: "12.6", hd_power: "5.5", max_current: "22.7" },
+          { model: "ACS560-01-025A-4", frame: "R2", nd_current: "25", nd_power: "11", hd_current: "17", hd_power: "7.5", max_current: "30.6" },
+          { model: "ACS560-01-033A-4", frame: "R3", nd_current: "33", nd_power: "15", hd_current: "24.6", hd_power: "11", max_current: "44.3" },
+          { model: "ACS560-01-039A-4", frame: "R3", nd_current: "39", nd_power: "18.5", hd_current: "31.6", hd_power: "15", max_current: "56.9" },
+          { model: "ACS560-01-046A-4", frame: "R3", nd_current: "46", nd_power: "22", hd_current: "37.7", hd_power: "18.5", max_current: "67.9" },
+          { model: "ACS560-01-062A-4", frame: "R4", nd_current: "62", nd_power: "30", hd_current: "44.6", hd_power: "22", max_current: "76" },
+          { model: "ACS560-01-073A-4", frame: "R4", nd_current: "73", nd_power: "37", hd_current: "61", hd_power: "30", max_current: "104" },
+          { model: "ACS560-01-088A-4", frame: "R5", nd_current: "88", nd_power: "45", hd_current: "72", hd_power: "37", max_current: "122" },
+          { model: "ACS560-01-106A-4", frame: "R5", nd_current: "106", nd_power: "55", hd_current: "87", hd_power: "45", max_current: "148" },
+          { model: "ACS560-01-145A-4", frame: "R6", nd_current: "145", nd_power: "75", hd_current: "105", hd_power: "55", max_current: "178" },
+          { model: "ACS560-01-169A-4", frame: "R7", nd_current: "168", nd_power: "90", hd_current: "145", hd_power: "75", max_current: "247" },
+          { model: "ACS560-01-206A-4", frame: "R7", nd_current: "206", nd_power: "110", hd_current: "169", hd_power: "90", max_current: "287" },
+          { model: "ACS560-01-246A-4", frame: "R8", nd_current: "246", nd_power: "132", hd_current: "206", hd_power: "110", max_current: "350" },
+          { model: "ACS560-01-293A-4", frame: "R8", nd_current: "293", nd_power: "160", hd_current: "246", hd_power: "132", max_current: "418.2" }
+        ]
+      }
+    ]
   },
   {
     id: "acs-580",
@@ -188,7 +246,70 @@ export const individualProductsData: IndividualProduct[] = [
     categorySlug: "ac-drives",
     name: "ACS 580",
     tagline: "General Purpose Drives",
-    heroImage: "/ac drives/acs580.webp",
+    shortDescription: "A fully compatible general purpose drive, designed to control a wide range of variable and basic constant torque applications.",
+    heroImage: "/ac drives/ac580.webp",
+    features: [
+      { title: "Part of ABB's all-compatible drives portfolio" },
+      { title: "Wide availability and support" },
+      { title: "Connect to any automation system or use stand-alone" },
+      { title: "All essential features built into the drive for minimized number of external components" },
+      { title: "Many built-in control functions for simplified automation and process control" },
+      { title: "Designed for reliability and consistent high quality" },
+      { title: "Straightforward settings menu and assistants for fast commissioning" },
+      { title: "Energy efficiency features for optimal energy use" }
+    ],
+    technicalHighlights: [
+      { label: "Power Range", value: "0.75 to 500 kW" },
+      { label: "Voltage", value: "380 to 480 V" },
+      { label: "Phase", value: "3 Phase" },
+      { label: "Enclosure", value: "IP20" },
+    ],
+    documents: [
+      { title: "Flyer", type: "PDF" },
+      { title: "Technical Catalogue", type: "PDF" },
+      { title: "Hardware Manual", type: "PDF" },
+      { title: "Firmware Manual", type: "PDF" }
+    ],
+    specificationGroups: [
+      {
+        title: "ACS580 AC Drives",
+        subtitle: "380 to 480V, 3 Phase, 48 to 63 Hz Frequency with IP20 Enclosure (0.75 to 500 KW)",
+        columns: [
+          { key: "model", label: "Model No" },
+          { key: "frame", label: "Frame Size" },
+          { key: "nd_current", label: "N.D. Current (Amp)" },
+          { key: "nd_power", label: "N.D. Power (HP)" },
+          { key: "hd_current", label: "H.D. Current (Amp)" },
+          { key: "hd_power", label: "H.D. Power (HP)" },
+          { key: "max_current", label: "Max. O/P Current (Amp)" }
+        ],
+        rows: [
+          { model: "ACS580-01-02A7-4", frame: "R1", nd_current: "2.1", nd_power: "1", hd_current: "1.6", hd_power: "0.75", max_current: "2.9" },
+          { model: "ACS580-01-03A4-4", frame: "R1", nd_current: "3", nd_power: "1.5", hd_current: "2.1", hd_power: "1", max_current: "3.6" },
+          { model: "ACS580-01-04A1-4", frame: "R1", nd_current: "3.5", nd_power: "2", hd_current: "3", hd_power: "1.5", max_current: "5.4" },
+          { model: "ACS580-01-05A7-4", frame: "R1", nd_current: "4.8", nd_power: "3", hd_current: "3.4", hd_power: "2", max_current: "6.1" },
+          { model: "ACS580-01-07A3-4", frame: "R1", nd_current: "6", nd_power: "3", hd_current: "4", hd_power: "3", max_current: "7.2" },
+          { model: "ACS580-01-09A5-4", frame: "R1", nd_current: "7.6", nd_power: "5", hd_current: "4.8", hd_power: "3", max_current: "8.6" },
+          { model: "ACS580-01-12A7-4", frame: "R1", nd_current: "12", nd_power: "7.5", hd_current: "7.6", hd_power: "5", max_current: "11.4" },
+          { model: "ACS580-01-018A-4", frame: "R2", nd_current: "14", nd_power: "10", hd_current: "11", hd_power: "7.5", max_current: "19.8" },
+          { model: "ACS580-01-026A-4", frame: "R2", nd_current: "23", nd_power: "15", hd_current: "14", hd_power: "10", max_current: "25.2" },
+          { model: "ACS580-01-033A-4", frame: "R3", nd_current: "27", nd_power: "20", hd_current: "21", hd_power: "15", max_current: "37.8" },
+          { model: "ACS580-01-039A-4", frame: "R3", nd_current: "34", nd_power: "25", hd_current: "27", hd_power: "20", max_current: "48.6" },
+          { model: "ACS580-01-046A-4", frame: "R3", nd_current: "44", nd_power: "30", hd_current: "34", hd_power: "25", max_current: "61.2" },
+          { model: "ACS580-01-062A-4", frame: "R4", nd_current: "52", nd_power: "40", hd_current: "40", hd_power: "30", max_current: "76" },
+          { model: "ACS580-01-073A-4", frame: "R4", nd_current: "65", nd_power: "50", hd_current: "52", hd_power: "40", max_current: "104" },
+          { model: "ACS580-01-088A-4", frame: "R5", nd_current: "77", nd_power: "60", hd_current: "65", hd_power: "50", max_current: "122" },
+          { model: "ACS580-01-106A-4", frame: "R5", nd_current: "96", nd_power: "75", hd_current: "77", hd_power: "60", max_current: "148" },
+          { model: "ACS580-01-145A-4", frame: "R6", nd_current: "124", nd_power: "100", hd_current: "96", hd_power: "75", max_current: "178" },
+          { model: "ACS580-01-169A-4", frame: "R7", nd_current: "156", nd_power: "125", hd_current: "124", hd_power: "100", max_current: "247" },
+          { model: "ACS580-01-206A-4", frame: "R7", nd_current: "180", nd_power: "150", hd_current: "156", hd_power: "125", max_current: "287" },
+          { model: "ACS580-01-246A-4", frame: "R8", nd_current: "240", nd_power: "200", hd_current: "180", hd_power: "150", max_current: "350" },
+          { model: "ACS580-01-293A-4", frame: "R8", nd_current: "260", nd_power: "200", hd_current: "240", hd_power: "150", max_current: "418" },
+          { model: "ACS580-01-363A-4", frame: "R9", nd_current: "361", nd_power: "300", hd_current: "302", hd_power: "250", max_current: "542" },
+          { model: "ACS580-01-430A-4", frame: "R9", nd_current: "414", nd_power: "350", hd_current: "361", hd_power: "300", max_current: "542" }
+        ]
+      }
+    ]
   },
   {
     id: "acs-880",
