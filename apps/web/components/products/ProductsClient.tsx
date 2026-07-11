@@ -77,7 +77,6 @@ export default function ProductsClient() {
                   </Link>
                 </motion.div>
 
-                {/* Image Side - Scroll Driven Pull Up */}
                 <motion.div 
                   initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}

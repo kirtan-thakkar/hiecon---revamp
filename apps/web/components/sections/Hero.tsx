@@ -48,6 +48,7 @@ const HeroSection = () => {
           }}
         >
           <Image
+          fill
             src="https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?q=80&w=2000&auto=format&fit=crop"
             alt="Industrial Machinery"
             className="h-full w-full object-cover mix-blend-luminosity grayscale md:-ml-15 md:-mt-15"
@@ -120,14 +121,17 @@ const HeroSection = () => {
           <div className="mt-20 flex w-full justify-center perspective-distant md:mt-28">
             <div
               ref={videoRef}
-              className="relative flex h-[60vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] bg-muted shadow-[0_0_40px_rgba(0,0,0,0.05)] md:h-[80vh] md:rounded-[3rem] after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]"
+              className="relative flex h-[60vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.05)] md:h-[80vh] md:rounded-[3rem] after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]"
             >
-              <img
-                src="https://placehold.co/1920x1080/e5e5e5/a3a3a3?text=Cinematic+Industrial+Showcase"
-                alt="Industrial Automation Showcase"
-                className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-multiply"
+              <video
+                src="/heicon-main.mov"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 " />
             </div>
           </div>
         </div>

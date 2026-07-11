@@ -11,7 +11,7 @@ export const textileIndustry: Industry = {
   hero: {
     heading: "Precision control for modern textiles.",
     description: "From continuous bleaching to advanced stenter control, our automation architectures maximize fabric throughput, reduce energy consumption, and guarantee uncompromising quality at every stage of textile processing.",
-    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop", // Industrial manufacturing aesthetic
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop", 
   },
   overview: {
     heading: "Engineered for Continuous Production",
