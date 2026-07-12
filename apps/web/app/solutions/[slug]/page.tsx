@@ -23,7 +23,7 @@ export default async function SolutionPage({ params }: Props) {
   if (!data) notFound();
 
   return (
-    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-24">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0">
       <SolutionDetailClient data={data} />
     </main>
   );

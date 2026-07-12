@@ -16,7 +16,6 @@ export default function SolutionsClient() {
 
   return (
     <div className="w-full">
-      {/* Header Section */}
       <div className="relative pt-12 pb-24 mb-16 overflow-hidden border-b border-border/20 rounded-b-[2rem] md:rounded-b-[4rem]">
         <Container className="relative z-10">
           <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
@@ -54,14 +53,12 @@ export default function SolutionsClient() {
       </div>
 
       <Container>
-        {/* Solutions List */}
         <div className="flex flex-col gap-32 pb-32">
           {solutions.map((solution, index) => {
             const isEven = index % 2 === 0;
             return (
               <div key={solution.slug} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center ${!isEven ? "lg:flex-row-reverse" : ""}`}>
                 
-                {/* Text Side */}
                 <motion.div 
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +79,6 @@ export default function SolutionsClient() {
                   </Link>
                 </motion.div>
 
-                {/* Image Side - Scroll Driven Pull Up */}
                 <motion.div 
                   initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}

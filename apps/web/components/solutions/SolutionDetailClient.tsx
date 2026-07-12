@@ -109,9 +109,9 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
                         key={stage.stage} 
                         className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16 py-10 border-t border-border/50 first:border-t-0 first:pt-0"
                       >
-                        {/* Left Column: Number & Stage Name */}
+                        
                         <div className="md:w-72 shrink-0 flex gap-6 items-start">
-                          <span className="text-4xl md:text-5xl font-light text-brand-primary/40 tracking-tighter">
+                          <span className="text-4xl md:text-5xl font-light text-brand-primary/90 tracking-tighter">
                             0{idx + 1}
                           </span>
                           <h4 className="text-xl md:text-2xl font-medium tracking-tight text-foreground pt-1.5 md:pt-2">
@@ -119,7 +119,7 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
                           </h4>
                         </div>
                         
-                        {/* Right Column: Machines List */}
+
                         <div className="flex-1 flex flex-wrap items-center gap-x-5 gap-y-3 pt-2 md:pt-3">
                           {stage.machines.map((machine, mIdx) => (
                             <span key={machine} className="flex items-center text-lg md:text-[22px] leading-relaxed font-light text-muted-foreground transition-colors duration-300 hover:text-foreground cursor-default">
