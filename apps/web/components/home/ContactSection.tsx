@@ -15,12 +15,12 @@ const offices = [
   {
     id: "ahmedabad",
     city: "Ahmedabad",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117506.26252906478!2d72.4988921817454!3d23.020345700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+    mapSrc: "https://maps.google.com/maps?q=Hiecon+Technologies+Pvt+Ltd,+Ahmedabad&t=&z=16&ie=UTF8&iwloc=B&output=embed"
   },
   {
     id: "coimbatore",
     city: "Coimbatore",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125322.44173167195!2d76.89719488349257!3d11.014056550000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000001!5m2!1sen!2sin"
+    mapSrc: "https://maps.google.com/maps?q=Chinnasamy+Naidu+Street,+New+Siddhapudur,+Coimbatore&t=&z=16&ie=UTF8&iwloc=B&output=embed"
   }
 ];
 
@@ -133,6 +133,7 @@ export default function ContactSection({
             <iframe
               key={activeOffice.id}
               src={activeOffice.mapSrc}
+              title={`HIECON ${activeOffice.city} Office Location`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -181,17 +182,17 @@ export default function ContactSection({
           >
             <h3 className="text-xs font-bold tracking-widest uppercase text-foreground mb-6">Headquarters</h3>
             <address className="not-italic text-lg text-muted-foreground leading-relaxed mb-8">
-              152, Azad Society,<br />
-              Ambawadi,<br />
-              Ahmedabad &ndash; 380015,<br />
-              Gujarat, India
+              Hiecon Technologies Pvt Ltd<br />
+              152, Lane 3, Azad Society, Acharya Narendradev Nagar,<br />
+              Ambawadi, Ahmedabad,<br />
+              Gujarat 380015
             </address>
             <div className="flex flex-col gap-3 text-lg text-muted-foreground mb-10">
               <p><span className="text-foreground font-medium mr-4">T</span> <a href="tel:+919974707600" className="hover:text-foreground transition-colors">+91 9974707600</a></p>
               <p><span className="text-foreground font-medium mr-4">E</span> <a href="mailto:sales@hiecon.com" className="hover:text-foreground transition-colors">sales@hiecon.com</a></p>
             </div>
             <Link 
-              href="https://www.google.com/maps/dir/?api=1&destination=152+Azad+Society+Ambawadi+Ahmedabad+380015"
+              href="https://www.google.com/maps/dir/?api=1&destination=23.0256211,72.5377989"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-lg font-medium text-foreground hover:text-muted-foreground transition-colors mt-auto w-fit group"
@@ -210,23 +211,21 @@ export default function ContactSection({
           >
             <h3 className="text-xs font-bold tracking-widest uppercase text-foreground mb-6">Branch Office</h3>
             <address className="not-italic text-lg text-muted-foreground leading-relaxed mb-8">
-              Old No. 308, New No. 99,<br />
-              SNR Chinnasamy Naidu Road,<br />
-              New Siddhapudur,<br />
-              Coimbatore &ndash; 641004,<br />
-              Tamil Nadu, India
+              Shop No. 299, Chinnasamy Naidu Street,<br />
+              C.K. Colony, B.K.R Nagar, New Siddhapudur,<br />
+              Tamil Nadu 641044, India
             </address>
             <div className="flex flex-col gap-3 text-lg text-muted-foreground mb-10">
               <p><span className="text-foreground font-medium mr-4">T</span> <a href="tel:+919787710123" className="hover:text-foreground transition-colors">+91 9787710123</a></p>
               <p><span className="text-foreground font-medium mr-4">E</span> <a href="mailto:salescbe@hiecon.com" className="hover:text-foreground transition-colors">salescbe@hiecon.com</a></p>
             </div>
             <Link 
-              href="https://www.google.com/maps/search/?api=1&query=99+SNR+Chinnasamy+Naidu+Road+New+Siddhapudur+Coimbatore+641004"
+              href="https://www.google.com/maps/dir/?api=1&destination=Shop%20No.299%2C%20Chinnasamy%20Naidu%20Street%2C%20C.K.Colony%2C%20B.K.R%20Nagar%2C%20New%20Siddhapudur%2C%20Tamil%20Nadu%20641044%2C%20India"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-lg font-medium text-foreground hover:text-muted-foreground transition-colors mt-auto w-fit group"
             >
-              View on Google Maps <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              Get Directions <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
 
