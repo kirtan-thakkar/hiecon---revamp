@@ -9,6 +9,7 @@ import { productsData } from "@/data/products";
 import Container from "@/components/ui/Container";
 import { Button } from "@workspace/ui/components/button";
 import CTASection from "@/components/about/CTASection";
+import ExpandableProductGrid from "@/components/products/ExpandableProductGrid";
 
 type Props = {
   params: Promise<{ slug: string; productSlug: string }>;
@@ -66,19 +67,19 @@ export default async function IndividualProductPage({ params }: Props) {
             </p>
           )}
 
-          <div className="flex gap-4 mt-8">
+          <div className="flex flex-wrap gap-4 mt-12">
             <Link href="/contact">
-              <Button size="lg" className="rounded-full px-8">Request Quote</Button>
+              <Button size="lg" className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 shadow-sm">Request Quote</Button>
             </Link>
             {product.documents && product.documents.length > 0 && (
               <Link href="#documents">
-                <Button size="lg" variant="outline" className="rounded-full px-8">View Documents</Button>
+                <Button size="lg" variant="outline" className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 border-border/50 bg-transparent hover:bg-muted">View Documents</Button>
               </Link>
             )}
           </div>
         </div>
 
-        <div className="relative aspect-video w-full rounded-3xl overflow-hidden bg-muted mb-24 border border-border/50 group">
+        <div className="relative aspect-video w-full rounded-3xl overflow-hidden bg-[#F8F8F8] dark:bg-[#E5E5E5] mb-24 group">
           <Image 
             src={product.heroImage} 
             alt={product.name}
@@ -202,55 +203,8 @@ export default async function IndividualProductPage({ params }: Props) {
         {/* RELATED PRODUCTS */}
         {relatedProducts.length > 0 && (
           <div className="mb-32 pt-16 border-t border-border/50">
-            <h2 className="text-3xl font-medium mb-10">Related Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              {relatedProducts.slice(0, 4).map((related) => {
-                const innerContent = (
-                  <>
-                    <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
-                      <Image 
-                        src={related.heroImage} 
-                        alt={related.name}
-                        fill
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, 20vw"
-                        className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-semibold text-lg text-foreground mb-1">{related.name}</h3>
-                      <p className="text-sm text-muted-foreground">{related.tagline}</p>
-                    </div>
-                  </>
-                );
-
-                const externalUrl = (related as any).externalUrl;
-
-                if (externalUrl) {
-                  return (
-                    <a
-                      key={related.id}
-                      href={externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                    >
-                      {innerContent}
-                    </a>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={related.id}
-                    href={`/products/${slug}/${related.slug}`}
-                    className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                  >
-                    {innerContent}
-                  </Link>
-                );
-              })}
-            </div>
+            <h2 className="text-3xl font-medium mb-10 text-foreground">Related Products</h2>
+            <ExpandableProductGrid products={relatedProducts} baseSlug={slug} initialLimit={3} />
           </div>
         )}
       </Container>

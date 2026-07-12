@@ -6,10 +6,11 @@ import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
 import Lightbox from "@/components/ui/Lightbox";
-import { FileText, ExternalLink, Download } from "lucide-react";
+import { FileText, ExternalLink, Download, ChevronRight } from "lucide-react";
 
 type ProductData = {
   title: string;
+  slug: string;
   description: string;
   content: string;
   image: string;
@@ -25,6 +26,8 @@ type ProductData = {
 
 import { IndividualProduct, ProductSpecTable } from "@/data/productDetails";
 import { Link } from "next-view-transitions";
+import { Button } from "@workspace/ui/components/button";
+import ExpandableProductGrid from "./ExpandableProductGrid";
 
 export default function ProductDetailClient({ data, familyProducts }: { data: ProductData, familyProducts?: IndividualProduct[] }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -32,7 +35,12 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
   return (
     <div className="w-full">
       <Container>
-        <div className="max-w-4xl pt-12 pb-16">
+        <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+          <Link href="/products" className="hover:text-foreground transition-colors">Products</Link>
+          <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
+          <span className="text-foreground">{data.title}</span>
+        </nav>
+        <div className="max-w-4xl pt-4 pb-16">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +71,7 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-video w-full rounded-3xl overflow-hidden bg-muted mb-24 cursor-pointer group"
+          className="relative aspect-video w-full rounded-3xl overflow-hidden bg-[#F8F8F8] dark:bg-[#E5E5E5] mb-24 cursor-pointer group"
           onClick={() => setLightboxOpen(true)}
         >
           <Image 
@@ -72,7 +80,7 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
             fill
             sizes="100vw"
             priority
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply"
           />
         </motion.div>
 
@@ -213,53 +221,10 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
               }, {} as Record<string, typeof familyProducts>)
             ).map(([groupName, products]) => (
               <div key={groupName}>
-                <h2 className="text-3xl font-medium mb-12 text-center">{groupName}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {products.map((product) => {
-                    const innerContent = (
-                      <>
-                        <div className="relative w-full aspect-[4/3] mb-6 rounded-lg bg-muted/50 p-2 overflow-hidden">
-                          <Image 
-                            src={product.heroImage} 
-                            alt={product.name}
-                            fill
-                            quality={100}
-                            sizes="(max-width: 768px) 100vw, 25vw"
-                            className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h3 className="font-semibold text-lg text-foreground mb-1">{product.name}</h3>
-                          {product.tagline && <p className="text-sm text-muted-foreground">{product.tagline}</p>}
-                        </div>
-                      </>
-                    );
-
-                    if (product.externalUrl) {
-                      return (
-                        <a
-                          key={product.id}
-                          href={product.externalUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                        >
-                          {innerContent}
-                        </a>
-                      );
-                    }
-
-                    return (
-                      <Link
-                        key={product.id}
-                        href={`/products/${product.categorySlug}/${product.slug}`}
-                        className="group flex flex-col items-center justify-between p-6 border border-border/50 bg-card rounded-2xl transition-all duration-300 hover:border-border hover:shadow-sm"
-                      >
-                        {innerContent}
-                      </Link>
-                    );
-                  })}
+                <div className="flex items-end justify-between mb-12">
+                  <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground">{groupName}</h2>
                 </div>
+                <ExpandableProductGrid products={products} baseSlug={data.slug} initialLimit={3} />
               </div>
             ))}
           </div>
