@@ -60,20 +60,6 @@ export default function AboutHero() {
           >
             For over 27 years, Hiecon has been at the forefront of industrial innovation, architecting systems that define precision and reliability.
           </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="hidden md:flex w-24 h-24 rounded-full border border-border items-center justify-center p-2"
-          >
-            <div className="w-full h-full rounded-full bg-muted flex items-center justify-center animate-[spin_10s_linear_infinite]">
-               {/* Arrow down icon rotating */}
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground animate-[spin_-10s_linear_infinite]">
-                 <path d="M12 5v14M19 12l-7 7-7-7" />
-               </svg>
-            </div>
-          </motion.div>
         </div>
       </Container>
       
