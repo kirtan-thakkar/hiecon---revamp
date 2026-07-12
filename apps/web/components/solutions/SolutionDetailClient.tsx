@@ -4,34 +4,12 @@ import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
 
-const PHARMA_STAGES = [
-  {
-    stage: "Granulation",
-    machines: ["Roll Compactor", "Octagonal Machine", "Fluid bed Dryer Machine"]
-  },
-  {
-    stage: "Compression",
-    machines: [
-      "Amplus Machine",
-      "Blitz Table Press Machine",
-      "Single Rotary Tablet Machine",
-      "Double Rotary Tablet Machine",
-      "Moxie Press Machine",
-      "Giga Press Machine",
-      "Elan Press Machine"
-    ]
-  },
-  {
-    stage: "Coating",
-    machines: ["Auto Coater"]
-  },
-  {
-    stage: "Inspection & QC",
-    machines: ["Checkweigher"]
-  }
-];
+type SolutionStage = {
+  stage: string;
+  machines: string[];
+};
 
-export default function SolutionDetailClient({ data }: { data: { title: string; description: string; content: string; image: string; implementations?: string[] } }) {
+export default function SolutionDetailClient({ data }: { data: { title: string; description: string; content: string; image: string; implementations?: string[]; implementationStages?: SolutionStage[] } }) {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -98,13 +76,13 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
             {data.content}
           </p>
 
-          {data.implementations && data.implementations.length > 0 && (
+          {(data.implementationStages && data.implementationStages.length > 0) || (data.implementations && data.implementations.length > 0) ? (
             <div>
               <h3 className="text-2xl font-medium mb-8">Solutions Implemented</h3>
-              {data.title === "Pharmaceutical" ? (
+              {data.implementationStages && data.implementationStages.length > 0 ? (
                 <div className="w-full pt-4">
                   <div className="w-full flex flex-col">
-                    {PHARMA_STAGES.map((stage, idx) => (
+                    {data.implementationStages.map((stage, idx) => (
                       <div 
                         key={stage.stage} 
                         className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16 py-10 border-t border-border/50 first:border-t-0 first:pt-0"
@@ -134,7 +112,7 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
                     ))}
                   </div>
                 </div>
-              ) : (
+              ) : data.implementations ? (
                 <motion.ul 
                   variants={containerVariants}
                   initial="hidden"
@@ -153,9 +131,9 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
                     </motion.li>
                   ))}
                 </motion.ul>
-              )}
+              ) : null}
             </div>
-          )}
+          ) : null}
         </div>
       </Container>
     </div>
