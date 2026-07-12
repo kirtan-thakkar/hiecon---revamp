@@ -52,7 +52,7 @@ export default function ExpandableProductGrid({
             initial: { opacity: 0, y: 40 },
             whileInView: { opacity: 1, y: 0 },
             viewport: { once: true, margin: "-50px" },
-            transition: { duration: 0.7, delay: (index % initialLimit) * 0.15, ease: [0.16, 1, 0.3, 1] }
+            transition: { duration: 0.7, delay: (index % initialLimit) * 0.15, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
           };
 
           if (product.externalUrl) {
