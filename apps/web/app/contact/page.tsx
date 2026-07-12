@@ -8,10 +8,11 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background pt-32 pb-0">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0">
       <ContactSection 
         title="Let's Engineer the Future Together." 
         subtitle="Contact Us" 
+        showBreadcrumb={true}
       />
       <CTASection />
     </main>

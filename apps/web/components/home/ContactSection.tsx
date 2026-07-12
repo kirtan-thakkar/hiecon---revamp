@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import Container from "../ui/Container";
 import { Link } from 'next-view-transitions';
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -24,13 +24,17 @@ const offices = [
   }
 ];
 
-export default function ContactSection({ 
-  title = "Let's Build Better Automation.",
-  subtitle = "Contact Us"
-}: { 
+interface ContactSectionProps {
   title?: string;
   subtitle?: string;
-}) {
+  showBreadcrumb?: boolean;
+}
+
+export default function ContactSection({ 
+  title = "Let's Build Better Automation.",
+  subtitle = "Contact Us",
+  showBreadcrumb = false
+}: ContactSectionProps) {
   const [activeOffice, setActiveOffice] = useState<(typeof offices)[number]>(offices[0]!);
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -66,9 +70,16 @@ export default function ContactSection({
   }, [mapRef]);
 
   return (
-    <section className="py-24 md:py-32 bg-background overflow-hidden w-full">
+    <section className={`bg-background overflow-hidden w-full ${showBreadcrumb ? "pt-12 pb-24 md:pb-32" : "py-24 md:py-32"}`}>
       <Container>
         <div className="mb-8 md:mb-12 max-w-4xl">
+          {showBreadcrumb && (
+            <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+              <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
+              <span className="text-foreground">Contact Us</span>
+            </nav>
+          )}
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

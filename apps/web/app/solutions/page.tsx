@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <main className="min-h-screen bg-background pt-32 pb-0">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0">
       <SolutionsClient />
       <CTASection />
     </main>

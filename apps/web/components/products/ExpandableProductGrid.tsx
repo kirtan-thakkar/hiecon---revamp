@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { Button } from "@workspace/ui/components/button";
@@ -25,7 +26,7 @@ export default function ExpandableProductGrid({
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {visibleProducts.map((product) => {
+        {visibleProducts.map((product, index) => {
           const innerContent = (
             <>
               <div className="relative w-full aspect-[4/3] mb-6 rounded-3xl bg-[#F8F8F8] dark:bg-[#E5E5E5] overflow-hidden transition-all duration-500 group-hover:shadow-2xl">
@@ -47,28 +48,37 @@ export default function ExpandableProductGrid({
 
           const cardClasses = "group relative flex flex-col";
 
+          const animationProps = {
+            initial: { opacity: 0, y: 40 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: "-50px" },
+            transition: { duration: 0.7, delay: (index % initialLimit) * 0.15, ease: [0.16, 1, 0.3, 1] }
+          };
+
           if (product.externalUrl) {
             return (
-              <a
+              <motion.a
                 key={product.id}
                 href={product.externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cardClasses}
+                {...animationProps}
               >
                 {innerContent}
-              </a>
+              </motion.a>
             );
           }
 
           return (
-            <Link
-              key={product.id}
-              href={`/products/${baseSlug}/${product.slug}`}
-              className={cardClasses}
-            >
-              {innerContent}
-            </Link>
+            <motion.div key={product.id} {...animationProps}>
+              <Link
+                href={`/products/${baseSlug}/${product.slug}`}
+                className={cardClasses}
+              >
+                {innerContent}
+              </Link>
+            </motion.div>
           );
         })}
       </div>

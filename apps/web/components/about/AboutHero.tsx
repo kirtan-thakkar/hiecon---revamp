@@ -38,7 +38,7 @@ export default function AboutHero() {
   return (
     <section ref={containerRef} className="relative w-full min-h-[100svh] flex flex-col justify-end pb-12 md:pb-24 pt-32 overflow-hidden bg-background">
       <Container className="relative z-10 flex flex-col gap-6">
-        <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
+        <p className="text-brand-primary text-xs font-bold tracking-widest uppercase ">
           Who We Are
         </p>
         <TextAnimate 

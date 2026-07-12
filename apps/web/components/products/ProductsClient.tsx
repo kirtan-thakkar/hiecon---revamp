@@ -6,7 +6,7 @@ import { Link } from 'next-view-transitions';
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Lightbox from "@/components/ui/Lightbox";
 
 import { products } from "@/data/products";
@@ -19,7 +19,12 @@ export default function ProductsClient() {
       {/* Header Section */}
       <div className="relative pt-12 pb-24 mb-16 overflow-hidden border-b border-border/20 rounded-b-[2rem] md:rounded-b-[4rem]">
         <Container className="relative z-10">
-          <div className="max-w-4xl pt-12">
+          <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+            <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+            <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
+            <span className="text-foreground">Products</span>
+          </nav>
+          <div className="max-w-4xl pt-4">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

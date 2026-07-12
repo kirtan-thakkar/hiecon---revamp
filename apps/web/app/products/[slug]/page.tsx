@@ -28,7 +28,7 @@ export default async function ProductPage({ params }: Props) {
   const familyProducts = getProductsByCategory(resolvedParams.slug);
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-24">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-24">
       <ProductDetailClient data={data} familyProducts={familyProducts} />
     </main>
   );

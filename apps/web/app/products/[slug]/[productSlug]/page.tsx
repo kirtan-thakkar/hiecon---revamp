@@ -40,7 +40,7 @@ export default async function IndividualProductPage({ params }: Props) {
   const relatedProducts = getProductsByCategory(slug).filter(p => p.id !== product.id);
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-0">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0 overflow-hidden">
       <Container>
 
         <nav className="flex items-center text-sm font-medium text-muted-foreground mb-12">
