@@ -56,6 +56,8 @@ export default function OurStory() {
 
   }, { scope: containerRef, dependencies: [mounted] });
 
+  const yearsOfExperience = new Date().getFullYear() - 1997;
+
   return (
     <section ref={containerRef} className="relative w-full py-24 md:py-32 bg-background border-t border-border">
       <Container>
@@ -72,7 +74,7 @@ export default function OurStory() {
                 Bridging the Gap
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Hiecon started 27 years ago with a singular vision: to bridge the gap between heavy industrial machinery and intelligent, data-driven automation. What began as a small engineering team has evolved into a global powerhouse in manufacturing technology.
+                Hiecon started {yearsOfExperience} years ago with a singular vision: to bridge the gap between heavy industrial machinery and intelligent, data-driven automation. What began as a small engineering team has evolved into a global powerhouse in manufacturing technology.
               </p>
             </div>
 

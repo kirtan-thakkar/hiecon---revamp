@@ -35,18 +35,27 @@ export default function AboutHero() {
     );
   }, { scope: containerRef });
 
+  const yearsOfExperience = new Date().getFullYear() - 1997;
+
   return (
-    <section ref={containerRef} className="relative w-full min-h-[100svh] flex flex-col justify-end pb-12 md:pb-24 pt-32 overflow-hidden bg-background">
-      <Container className="relative z-10 flex flex-col gap-6">
-        <p className="text-brand-primary text-xs font-bold tracking-widest uppercase ">
-          Who We Are
-        </p>
+    <section className="relative w-full h-[85vh] md:h-screen min-h-[600px] flex flex-col justify-end pb-12 md:pb-24 pt-32 overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/5 via-background to-background" />
+      
+      <Container className="relative z-10 w-full">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
+        >
+          About Hiecon
+        </motion.p>
+        
         <TextAnimate 
           animation="blurInUp" 
           as="h1" 
           by="word"
-          once={true}
-          className="text-6xl md:text-8xl lg:text-[8rem] font-medium tracking-tighter text-foreground leading-[0.95] max-w-[14ch]"
+          className="text-5xl md:text-7xl lg:text-[7rem] font-medium tracking-tight text-foreground leading-[1.05] max-w-5xl"
         >
           Engineering the Future of Automation
         </TextAnimate>
@@ -58,7 +67,7 @@ export default function AboutHero() {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             className="max-w-[45ch] text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            For over 27 years, Hiecon has been at the forefront of industrial innovation, architecting systems that define precision and reliability.
+            For over {yearsOfExperience} years, Hiecon has been at the forefront of industrial innovation, architecting systems that define precision and reliability.
           </motion.p>
         </div>
       </Container>

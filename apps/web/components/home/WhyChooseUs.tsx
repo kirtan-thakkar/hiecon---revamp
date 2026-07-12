@@ -106,6 +106,8 @@ const Section = ({
 export default function WhyChooseUs() {
   const containerRef = useRef<HTMLDivElement>(null);
   
+  const yearsOfExperience = new Date().getFullYear() - 1997;
+
   return (
     <section ref={containerRef} className="relative bg-background -mt-24 md:-mt-16  overflow-hidden ">
       <Section 
@@ -165,7 +167,7 @@ export default function WhyChooseUs() {
                 once={false}
                 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-[1.05] mb-8"
               >
-                27 years of keeping production lines moving
+                {`${yearsOfExperience} years of keeping production lines moving`}
               </TextAnimate>
               <motion.p
                 initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
@@ -180,7 +182,7 @@ export default function WhyChooseUs() {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-border/50 pt-16 max-w-5xl mx-auto">
               {[
-                { v: "27", l: "Years Active" },
+                { v: yearsOfExperience.toString(), l: "Years Active" },
                 { v: "750+", l: "Facilities" },
                 { v: "36", l: "Engineers" },
                 { v: "4hr", l: "Avg. Response" }
