@@ -15,7 +15,7 @@ export const productFamilies = [
     slug: "ac-drives",
     description:
       "Variable frequency AC drives engineered for precise motor speed control, energy efficiency, and reliable industrial automation.",
-    image: "/ac-drive-hero.jpg",
+    image: "/ac-drive-hero.webp",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const productFamilies = [
     slug: "ac-motors",
     description:
       "High-performance industrial AC motors designed for durability, efficiency, and demanding manufacturing environments.",
-    image: "/ac-motos-hero.jpg",
+    image: "/ac-motos-hero.webp",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const productFamilies = [
     slug: "servo-drives-motors",
     description:
       "Precision servo drive and motor solutions delivering high-speed, accurate motion control for modern automation systems.",
-    image: "/serad-servo-hero.png",
+    image: "/serad-servo-hero.webp",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const productFamilies = [
     slug: "golden-age-servo-motors",
     description:
       "Reliable servo motor solutions for high-performance motion control applications across multiple industries.",
-    image: "/golden-age-hero.png",
+    image: "/golden-age-hero.webp",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const productFamilies = [
     slug: "plc",
     description:
       "Industrial programmable logic controllers for machine automation, process control, and factory integration.",
-    image: "/plc-hero.jpg",
+    image: "/plc-hero.webp",
   },
   {
     id: 6,
@@ -55,7 +55,7 @@ export const productFamilies = [
     slug: "motion-controllers",
     description:
       "Advanced motion control systems for synchronized multi-axis automation and precision manufacturing.",
-    image: "/motion-controllers-hero.jpg",
+    image: "/motion-controllers-hero.webp",
   },
   {
     id: 7,
@@ -63,7 +63,7 @@ export const productFamilies = [
     slug: "hmi",
     description:
       "Human Machine Interface solutions that provide intuitive visualization, monitoring, and machine operation.",
-    image: "/Weintek-HMI-hero.png",
+    image: "/Weintek-HMI-hero.webp",
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const productFamilies = [
     slug: "scada",
     description:
       "Supervisory Control and Data Acquisition systems for real-time industrial monitoring and process management.",
-    image: "/vision-system-hero.png",
+    image: "/vision-system-hero.webp",
   },
   {
     id: 9,
@@ -79,7 +79,7 @@ export const productFamilies = [
     slug: "industrial-pc",
     description:
       "Industrial-grade computing solutions built for continuous operation in harsh manufacturing environments.",
-    image: "/iiot-products-hero.png",
+    image: "/iiot-products-hero.webp",
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export const productFamilies = [
     slug: "remote-io",
     description:
       "Distributed remote I/O modules enabling flexible connectivity and scalable industrial automation systems.",
-    image: "/weintek-remote-io-hero.png",
+    image: "/weintek-remote-io-hero.webp",
   },
   {
     id: 11,
@@ -95,7 +95,7 @@ export const productFamilies = [
     slug: "control-panels",
     description:
       "Custom-engineered industrial control panels designed for safe, efficient, and reliable machine operation.",
-    image: "/control-panel-hero.jpg",
+    image: "/control-panel-hero.webp",
   },
   {
     id: 12,
@@ -103,7 +103,7 @@ export const productFamilies = [
     slug: "iiot-products",
     description:
       "Industrial Internet of Things solutions enabling connected factories, remote monitoring, and predictive maintenance.",
-    image: "/iiot-products-hero.png",
+    image: "/iiot-products-hero.webp",
   },
   {
     id: 13,
@@ -111,7 +111,7 @@ export const productFamilies = [
     slug: "automation-components",
     description:
       "Comprehensive range of industrial automation components supporting modern manufacturing and machine building.",
-    image: "/automation-component-hero.jpg",
+    image: "/automation-component-hero.webp",
   },
   {
     id: 14,
@@ -119,7 +119,7 @@ export const productFamilies = [
     slug: "industrial-robots",
     description:
       "Robotic automation systems designed to improve productivity, accuracy, and operational efficiency.",
-    image: "/industrial-robots-hero.jpg",
+    image: "/industrial-robots-hero.webp",
   },
 ];
 

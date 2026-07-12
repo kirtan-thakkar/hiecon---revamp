@@ -3,7 +3,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { X } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface LightboxProps {
   isOpen: boolean;
@@ -13,6 +14,12 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ isOpen, onClose, src, alt }: LightboxProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Close on escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -30,7 +37,9 @@ export default function Lightbox({ isOpen, onClose, src, alt }: LightboxProps) {
     };
   }, [isOpen, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -38,12 +47,12 @@ export default function Lightbox({ isOpen, onClose, src, alt }: LightboxProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm p-4 md:p-8"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4 md:p-8"
           onClick={onClose}
         >
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-50 p-2 rounded-full bg-foreground/10 text-foreground hover:bg-foreground/20 transition-colors"
+            className="absolute top-6 right-6 z-[10000] p-2 rounded-full bg-foreground/10 text-foreground hover:bg-foreground/20 transition-colors"
             aria-label="Close lightbox"
           >
             <X className="w-6 h-6" />
@@ -67,6 +76,7 @@ export default function Lightbox({ isOpen, onClose, src, alt }: LightboxProps) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

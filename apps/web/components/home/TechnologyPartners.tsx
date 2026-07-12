@@ -43,7 +43,6 @@ export default function TechnologyPartners() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <Container>
-        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +62,8 @@ export default function TechnologyPartners() {
             Authorized integrations with the world's most trusted manufacturing brands.
           </p>
         </motion.div>
-        
-        {/* Immersive List Layout */}
-        <div className="flex flex-col border-t border-border">
+
+        <div className="flex flex-col">
           {partners.map((partner, index) => (
             <motion.div 
               key={partner.name}
@@ -75,21 +73,18 @@ export default function TechnologyPartners() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-b border-border items-start hover:bg-muted/20 transition-colors duration-500 -mx-4 px-4 sm:mx-0 sm:px-0"
             >
-              {/* Logo Area (Monochrome to Color) */}
               <div className="lg:col-span-4 flex items-center">
                 <span className="text-5xl md:text-6xl font-bold tracking-tighter text-muted-foreground group-hover:text-foreground transition-colors duration-500">
                   {partner.name}
                 </span>
               </div>
-              
-              {/* Description */}
+
               <div className="lg:col-span-4 flex flex-col justify-center pt-2 lg:pt-0">
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   {partner.description}
                 </p>
               </div>
               
-              {/* Solutions & CTA */}
               <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center pt-4 lg:pt-0">
                 <div className="flex flex-wrap gap-2 justify-start lg:justify-end mb-8 lg:mb-6">
                   {partner.solutions.map((solution, i) => (

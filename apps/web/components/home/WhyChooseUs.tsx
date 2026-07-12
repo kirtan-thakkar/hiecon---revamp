@@ -107,7 +107,7 @@ export default function WhyChooseUs() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <section ref={containerRef} className="relative bg-background overflow-hidden border-t border-border/50">
+    <section ref={containerRef} className="relative bg-background -mt-24 md:-mt-16  overflow-hidden ">
       <Section 
         label="01 / The Challenge"
         title={"Every factory has\na bottleneck"}
