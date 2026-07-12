@@ -10,6 +10,7 @@ import Container from "@/components/ui/Container";
 import { Button } from "@workspace/ui/components/button";
 import CTASection from "@/components/about/CTASection";
 import ExpandableProductGrid from "@/components/products/ExpandableProductGrid";
+import ProductImageWithLightbox from "@/components/products/ProductImageWithLightbox";
 
 type Props = {
   params: Promise<{ slug: string; productSlug: string }>;
@@ -79,17 +80,7 @@ export default async function IndividualProductPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="relative aspect-video w-full rounded-3xl overflow-hidden bg-[#F8F8F8] dark:bg-[#E5E5E5] mb-24 group">
-          <Image 
-            src={product.heroImage} 
-            alt={product.name}
-            fill
-            priority
-            quality={100}
-            sizes="100vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply"
-          />
-        </div>
+        <ProductImageWithLightbox src={product.heroImage} alt={product.name} />
 
         {product.technicalHighlights && product.technicalHighlights.length > 0 && (
           <div className="max-w-6xl mb-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
