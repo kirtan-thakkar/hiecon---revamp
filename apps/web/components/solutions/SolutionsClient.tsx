@@ -53,38 +53,19 @@ export default function SolutionsClient() {
       </div>
 
       <Container>
-        <div className="flex flex-col gap-32 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 pb-32">
           {solutions.map((solution, index) => {
-            const isEven = index % 2 === 0;
             return (
-              <div key={solution.slug} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center ${!isEven ? "lg:flex-row-reverse" : ""}`}>
-                
-                <motion.div 
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className={`flex flex-col gap-6 ${!isEven ? "lg:order-2 lg:pl-12" : "lg:pr-12"}`}
-                >
-                  <span className="text-sm font-medium text-muted-foreground">0{index + 1} /</span>
-                  <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground">
-                    {solution.title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {solution.description}
-                  </p>
-                  <Link href={`/solutions/${solution.slug}`} className="group inline-flex items-center gap-2 text-brand-primary font-medium mt-4">
-                    Explore Solution
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`relative aspect-square w-full rounded-2xl overflow-hidden bg-muted cursor-pointer group ${!isEven ? "lg:order-1" : ""}`}
+              <motion.div 
+                key={solution.slug}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6, delay: (index % 3) * 0.15, ease: "easeOut" }}
+                className="col-span-1 flex flex-col gap-6 group"
+              >
+                <div 
+                  className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-muted cursor-pointer"
                   onClick={() => setLightbox({ src: solution.image, alt: solution.title })}
                 >
                   <div className="absolute inset-0 bg-background/5 z-10 group-hover:bg-transparent transition-colors duration-300" />
@@ -92,13 +73,24 @@ export default function SolutionsClient() {
                     src={solution.image} 
                     alt={solution.title}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
                     className="object-cover group-hover:scale-105 transition-all duration-700"
                   />
-                </motion.div>
-
-              </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                    {solution.title}
+                  </h2>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                    {solution.description}
+                  </p>
+                  <Link href={`/solutions/${solution.slug}`} className="inline-flex items-center gap-2 text-brand-primary font-medium mt-1 text-sm">
+                    Explore Solution
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </motion.div>
             );
           })}
         </div>

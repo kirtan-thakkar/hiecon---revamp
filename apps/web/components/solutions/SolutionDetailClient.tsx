@@ -3,13 +3,14 @@ import { motion, Variants } from "motion/react";
 import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
+import AddToEnquiryButton from "@/components/products/AddToEnquiryButton";
 
 type SolutionStage = {
   stage: string;
   machines: string[];
 };
 
-export default function SolutionDetailClient({ data }: { data: { title: string; description: string; content: string; image: string; implementations?: string[]; implementationStages?: SolutionStage[] } }) {
+export default function SolutionDetailClient({ slug, data }: { slug: string; data: { title: string; description: string; content: string; image: string; implementations?: string[]; implementationStages?: SolutionStage[] } }) {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -49,10 +50,22 @@ export default function SolutionDetailClient({ data }: { data: { title: string; 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl"
+            className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mb-8"
           >
             {data.description}
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <AddToEnquiryButton product={{
+              id: slug,
+              title: data.title,
+              category: "Solution",
+              image: data.image
+            }} />
+          </motion.div>
         </div>
 
         <motion.div 
