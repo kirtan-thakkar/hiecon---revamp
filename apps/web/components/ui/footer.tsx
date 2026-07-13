@@ -23,6 +23,12 @@ const footerLinks = [
       { name: "Industrial Automation", href: "/solutions" },
       { name: "Products", href: "/products" },
     ]
+  },
+  {
+    title: "Social",
+    links: [
+      { name: "LinkedIn", href: "https://www.linkedin.com/company/hiecon/" },
+    ]
   }
 ];
 
@@ -33,7 +39,7 @@ export default function Footer() {
       <Container className="relative z-10">
         
         {/* Navigation Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mb-12">
           {footerLinks.map((column) => (
             <div key={column.title} className="flex flex-col">
               <h3 className="text-sm font-medium text-black dark:text-white mb-2">
