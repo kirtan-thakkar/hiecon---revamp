@@ -9,7 +9,10 @@ export const industrialRobots: IndividualProduct[] = [
     name: "Collaborative Robots : TM Series",
     tagline: "For assembly, packaging, inspection and logistics",
     heroImage: "/industrail-robots/colllaborative robots-tmseries.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/tm-series",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/tm-series" }
+    ]
   },
 {
     id: "ld-hd-series",
@@ -19,7 +22,10 @@ export const industrialRobots: IndividualProduct[] = [
     name: "Mobile Robots : LD HD Series",
     tagline: "Designed to automate material transport tasks in factories and indoor facilities",
     heroImage: "/industrail-robots/mobile-robots-ld-hdseries.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/mobile-robots",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/mobile-robots" }
+    ]
   },
 {
     id: "parallel-robots",
@@ -29,7 +35,10 @@ export const industrialRobots: IndividualProduct[] = [
     name: "Parallel Robots",
     tagline: "Parallel Robots for high-speed pick & place applications.",
     heroImage: "/industrail-robots/parallel-robots.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/parallel-robots",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/parallel-robots" }
+    ]
   },
 {
     id: "scara-robots",
@@ -39,7 +48,10 @@ export const industrialRobots: IndividualProduct[] = [
     name: "SCARA Robots",
     tagline: "High-performance 4-axis SCARA Robots ideal for mechanical assembly.",
     heroImage: "/industrail-robots/scara-robots.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/scara-robots",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/scara-robots" }
+    ]
   },
 {
     id: "articulated-robots",
@@ -49,6 +61,9 @@ export const industrialRobots: IndividualProduct[] = [
     name: "Articulated Robots",
     tagline: "Articulated robot for machining, assembly, and material handling.",
     heroImage: "/industrail-robots/articulated-robots.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/articulated-robots",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/articulated-robots" }
+    ]
   }
 ];

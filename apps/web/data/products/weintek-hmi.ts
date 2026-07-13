@@ -32,10 +32,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "RTC", value: "Built-in RTC" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8052ip/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8052ip/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8052ip/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8052ip/" }
     ]
   },
 {
@@ -69,10 +69,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "RTC", value: "Built-in RTC" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8102ip/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8102ip/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8102ip/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8102ip/" }
     ]
   },
 {
@@ -104,10 +104,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "NEMA4 / IP65 Compliant Front Panel" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8106ip/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8106ip/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8106ip/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8106ip/" }
     ]
   },
 {
@@ -141,10 +141,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "RTC", value: "Built-in RTC" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8072ip/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8072ip/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8072ip/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/mt8072ip/" }
     ]
   },
 {
@@ -182,10 +182,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2158x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2158x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2158x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2158x/" }
     ]
   },
 {
@@ -220,10 +220,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Expansion", value: "Compatible with M02 WiFi Expansion Module that supports wireless communication" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2108x2/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2108x2/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2108x2/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2108x2/" }
     ]
   },
 {
@@ -260,10 +260,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "RTC", value: "Built-in RTC" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt1106x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt1106x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt1106x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt1106x/" }
     ]
   },
 {
@@ -305,10 +305,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3108xh/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3108xh/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3108xh/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3108xh/" }
     ]
   },
 {
@@ -350,10 +350,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3102x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3102x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3102x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3102x/" }
     ]
   },
 {
@@ -395,10 +395,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3152x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3152x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3152x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3152x/" }
     ]
   },
 {
@@ -438,10 +438,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Panel", value: "NEMA4 / IP66 Compliant Front Panel" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xh2/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xh2/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xh2/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xh2/" }
     ]
   },
 {
@@ -479,10 +479,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "RTC", value: "Built-in RTC" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2078x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2078x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2078x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt2078x/" }
     ]
   },
 {
@@ -523,10 +523,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xht/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xht/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xht/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3072xht/" }
     ]
   },
 {
@@ -568,10 +568,10 @@ export const weintekHmiProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3092x/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3092x/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3092x/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt3092x/" }
     ]
   }
 ];

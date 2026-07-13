@@ -23,10 +23,10 @@ export const acDrives: IndividualProduct[] = [
       { label: "Enclosure", value: "IP20" },
     ],
     documents: [
-      { title: "Flyer", type: "PDF" },
-      { title: "User's Manual", type: "PDF" },
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Safety Instructions", type: "PDF" }
+      { title: "Flyer", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs310" },
+      { title: "User's Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs310" },
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs310" },
+      { title: "Safety Instructions", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs310" }
     ],
     specificationGroups: [
       {
@@ -96,10 +96,10 @@ export const acDrives: IndividualProduct[] = [
       { label: "Enclosure", value: "IP20" },
     ],
     documents: [
-      { title: "Flyer", type: "PDF" },
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" },
-      { title: "Firmware Manual", type: "PDF" }
+      { title: "Flyer", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/machinery/acs380" },
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/machinery/acs380" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/machinery/acs380" },
+      { title: "Firmware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/machinery/acs380" }
     ],
     specificationGroups: [
       {
@@ -177,10 +177,10 @@ export const acDrives: IndividualProduct[] = [
       { label: "Enclosure", value: "IP20" },
     ],
     documents: [
-      { title: "Flyer", type: "PDF" },
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" },
-      { title: "Firmware Manual", type: "PDF" }
+      { title: "Flyer", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs560" },
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs560" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs560" },
+      { title: "Firmware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs560" }
     ],
     specificationGroups: [
       {
@@ -246,10 +246,10 @@ export const acDrives: IndividualProduct[] = [
       { label: "Enclosure", value: "IP20" },
     ],
     documents: [
-      { title: "Flyer", type: "PDF" },
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" },
-      { title: "Firmware Manual", type: "PDF" }
+      { title: "Flyer", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs580" },
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs580" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs580" },
+      { title: "Firmware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/general-purpose/acs580" }
     ],
     specificationGroups: [
       {
@@ -314,9 +314,9 @@ export const acDrives: IndividualProduct[] = [
       { label: "Control", value: "Direct Torque Control (DTC)" }
     ],
     documents: [
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" },
-      { title: "Firmware Manual", type: "PDF" }
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/industrial-drives/acs880-single-drives" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/industrial-drives/acs880-single-drives" },
+      { title: "Firmware Manual", type: "PDF", externalUrl: "https://new.abb.com/drives/low-voltage-ac/industrial-drives/acs880-single-drives" }
     ],
     specificationGroups: [
       {

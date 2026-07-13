@@ -29,10 +29,10 @@ export const iiotProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g01/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g01/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g01/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g01/" }
     ]
   },
 {
@@ -65,10 +65,10 @@ export const iiotProducts: IndividualProduct[] = [
       { label: "Protection", value: "PCB coating protection" }
     ],
     documents: [
-      { title: "Broucher", type: "PDF" },
-      { title: "Datasheet", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Software Manual", type: "PDF" }
+      { title: "Broucher", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g02/" },
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g02/" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g02/" },
+      { title: "Software Manual", type: "PDF", externalUrl: "https://www.weintek.com/global/en/products/cmt-g02/" }
     ]
   }
 ];

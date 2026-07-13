@@ -11,6 +11,7 @@ import { Button } from "@workspace/ui/components/button";
 import CTASection from "@/components/about/CTASection";
 import ExpandableProductGrid from "@/components/products/ExpandableProductGrid";
 import ProductImageWithLightbox from "@/components/products/ProductImageWithLightbox";
+import ScrollToDocumentsButton from "@/components/products/ScrollToDocumentsButton";
 
 type Props = {
   params: Promise<{ slug: string; productSlug: string }>;
@@ -41,7 +42,7 @@ export default async function IndividualProductPage({ params }: Props) {
   const relatedProducts = getProductsByCategory(slug).filter(p => p.id !== product.id);
 
   return (
-    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0 overflow-hidden">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0 overflow-x-hidden">
       <Container>
 
         <nav className="flex items-center text-sm font-medium text-muted-foreground mb-12">
@@ -73,9 +74,7 @@ export default async function IndividualProductPage({ params }: Props) {
               <Button size="lg" className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 shadow-sm">Request Quote</Button>
             </Link>
             {product.documents && product.documents.length > 0 && (
-              <Link href="#documents">
-                <Button size="lg" variant="outline" className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 border-border/50 bg-transparent hover:bg-muted">View Documents</Button>
-              </Link>
+              <ScrollToDocumentsButton />
             )}
           </div>
         </div>
@@ -164,7 +163,7 @@ export default async function IndividualProductPage({ params }: Props) {
 
         {/* DOCUMENTS */}
         {product.documents && product.documents.length > 0 && (
-          <div id="documents" className="mb-24">
+          <div id="documents" className="mb-24 scroll-mt-32">
             <h2 className="text-3xl font-medium mb-10">Technical Documents</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {product.documents.map((doc, idx) => (

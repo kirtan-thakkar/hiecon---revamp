@@ -23,7 +23,7 @@ export const servoDrivesMotors: IndividualProduct[] = [
       { label: "Software", value: "Windows-based parameterization software" }
     ],
     documents: [
-      { title: "Datasheet", type: "PDF" }
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.serad.fr/en/products/smd" }
     ]
   },
 {
@@ -47,7 +47,7 @@ export const servoDrivesMotors: IndividualProduct[] = [
       { title: "IP65 protection" }
     ],
     documents: [
-      { title: "Datasheet", type: "PDF" }
+      { title: "Datasheet", type: "PDF", externalUrl: "https://www.serad.fr/en/products/sf" }
     ]
   }
 ];

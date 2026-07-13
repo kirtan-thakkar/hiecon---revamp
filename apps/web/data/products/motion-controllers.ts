@@ -8,7 +8,10 @@ export const motionControllers: IndividualProduct[] = [
     name: "NX7 Series",
     tagline: "Motion, Logic, Safety, Vision and HMI in one",
     heroImage: "/motion-controllers/nx7-series.webp",
-    externalUrl: "https://industrial.omron.us/en/products/nx7"
+    externalUrl: "https://industrial.omron.us/en/products/nx7",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/nx7" }
+    ]
   },
 {
     id: "nx1-series",
@@ -17,7 +20,10 @@ export const motionControllers: IndividualProduct[] = [
     name: "NX1 Series",
     tagline: "Improves production efficiency while optimizing information, safety, and quality",
     heroImage: "/motion-controllers/nx1-series.webp",
-    externalUrl: "https://industrial.omron.us/en/products/nx1"
+    externalUrl: "https://industrial.omron.us/en/products/nx1",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/nx1" }
+    ]
   },
 {
     id: "nx1p-series",
@@ -26,7 +32,10 @@ export const motionControllers: IndividualProduct[] = [
     name: "NX1P Series",
     tagline: "Advanced motion control and networks for onsite IoT in a compact entry model",
     heroImage: "/motion-controllers/nx1p-series.webp",
-    externalUrl: "https://industrial.omron.us/en/products/nx1p"
+    externalUrl: "https://industrial.omron.us/en/products/nx1p",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/nx1p" }
+    ]
   },
 {
     id: "nj-series",
@@ -35,6 +44,9 @@ export const motionControllers: IndividualProduct[] = [
     name: "NJ Series",
     tagline: "Motion, Logic, Safety, Vision and HMI in one",
     heroImage: "/motion-controllers/nj-series.webp",
-    externalUrl: "https://industrial.omron.us/en/products/nj"
+    externalUrl: "https://industrial.omron.us/en/products/nj",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/nj" }
+    ]
   }
 ];

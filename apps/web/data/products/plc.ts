@@ -17,9 +17,9 @@ export const plcProducts: IndividualProduct[] = [
       { title: "Built-in web server for reports, signals, and messages" }
     ],
     documents: [
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" }
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500" }
     ],
     specificationGroups: [
       {
@@ -78,9 +78,9 @@ export const plcProducts: IndividualProduct[] = [
       { title: "The modules can be mounted on the DIN rail with an easy-to-use snap-on mechanism." }
     ],
     documents: [
-      { title: "Technical Catalogue", type: "PDF" },
-      { title: "Installation Instructions", type: "PDF" },
-      { title: "Hardware Manual", type: "PDF" }
+      { title: "Technical Catalogue", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500-eco" },
+      { title: "Installation Instructions", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500-eco" },
+      { title: "Hardware Manual", type: "PDF", externalUrl: "https://new.abb.com/plc/programmable-logic-controllers-plcs/ac500-eco" }
     ],
     specificationGroups: [
       {
@@ -146,7 +146,10 @@ export const plcProducts: IndividualProduct[] = [
     name: "CP1E Series",
     tagline: "Enhanced Expandability for Analog and Temperature Control",
     heroImage: "/plc/omron-cp1e.webp",
-    externalUrl: "https://industrial.omron.us/en/products/cp1e"
+    externalUrl: "https://industrial.omron.us/en/products/cp1e",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/cp1e" }
+    ]
   },
 {
     id: "cp2e-series",
@@ -155,7 +158,10 @@ export const plcProducts: IndividualProduct[] = [
     name: "CP2E Series",
     tagline: "Designed to support data collection and Machine to Machine communication",
     heroImage: "/plc/omron-cp2e.webp",
-    externalUrl: "https://industrial.omron.us/en/products/cp2e"
+    externalUrl: "https://industrial.omron.us/en/products/cp2e",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/cp2e" }
+    ]
   },
 {
     id: "cp1l-series",
@@ -164,6 +170,9 @@ export const plcProducts: IndividualProduct[] = [
     name: "CP1L Series",
     tagline: "High Performing Programmable Controller with Embedded Ethernet",
     heroImage: "/plc/omron-cp1L.webp",
-    externalUrl: "https://industrial.omron.us/en/products/cp1l"
+    externalUrl: "https://industrial.omron.us/en/products/cp1l",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/cp1l" }
+    ]
   }
 ];

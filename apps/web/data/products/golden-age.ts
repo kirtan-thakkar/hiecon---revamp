@@ -22,6 +22,9 @@ export const goldenAgeProducts: IndividualProduct[] = [
     technicalHighlights: [
       { label: "Applications", value: "Machine Tools, Spindle, Paper winding, Synchronous spindle of Rotary knife" }
     ],
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "http://www.gkmotor.com" }
+    ],
     specificationGroups: [
       {
         title: "GM7 Series",
@@ -61,6 +64,9 @@ export const goldenAgeProducts: IndividualProduct[] = [
     name: "SE-GZ6 Series",
     tagline: "Extruder, Water Cool Main Motors",
     heroImage: "/golden age/se-gz6.webp",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "http://www.gkmotor.com" }
+    ],
     specificationGroups: [
       {
         title: "SE-GZ6 Series",
@@ -106,6 +112,9 @@ export const goldenAgeProducts: IndividualProduct[] = [
       { title: "Small Volume" },
       { title: "High Power Density" },
       { title: "Light weight" }
+    ],
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "http://www.gkmotor.com" }
     ],
     specificationGroups: [
       {

@@ -9,7 +9,10 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "FH Series",
     tagline: "AI-based automated visual inspection",
     heroImage: "/vision-system/fh-series.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/fh-series",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/fh-series" }
+    ]
   },
 {
     id: "fz5-series",
@@ -19,7 +22,10 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "FZ5 Series",
     tagline: "A range of processing items for positioning and inspection",
     heroImage: "/vision-system/fz5-series.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/fz5-series",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/fz5-series" }
+    ]
   },
 {
     id: "fhv7-series",
@@ -29,7 +35,10 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "FHV7 Series",
     tagline: "Ultimate flexibility to fit ever-changing production scene",
     heroImage: "/vision-system/smart-camera-fhv7.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/fhv7-series",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/fhv7-series" }
+    ]
   },
 {
     id: "microhawk-f430",
@@ -39,7 +48,10 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "MicroHAWK F430-F / F420-F / ...",
     tagline: "World's smallest fully-integrated vision system.",
     heroImage: "/vision-system/smart-camera-micro-hawk-f430.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/microhawk-f430-f",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/microhawk-f430-f" }
+    ]
   },
 {
     id: "fq2",
@@ -49,7 +61,10 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "FQ2",
     tagline: "Advanced inspection in a compact housing. Expanded performance and functionality.",
     heroImage: "/vision-system/smart-camera-fq2.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/fq2",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/fq2" }
+    ]
   },
 {
     id: "fq-m-series",
@@ -59,6 +74,9 @@ export const visionSystemProducts: IndividualProduct[] = [
     name: "FQ-M Series",
     tagline: "Designed for motion tracking",
     heroImage: "/vision-system/smart-camera-fq-m.webp",
-    externalUrl: "https://www.omron-ap.co.in/products/family/"
+    externalUrl: "https://industrial.omron.us/en/products/fq-m-series",
+    documents: [
+      { title: "Datasheet", type: "PDF", externalUrl: "https://industrial.omron.us/en/products/fq-m-series" }
+    ]
   }
 ];
