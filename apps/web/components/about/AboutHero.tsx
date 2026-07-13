@@ -35,7 +35,7 @@ export default function AboutHero() {
     );
   }, { scope: containerRef });
 
-  const yearsOfExperience = new Date().getFullYear() - 1997;
+  const yearsOfExperience = 27;
 
   return (
     <section className="relative w-full h-[85vh] md:h-screen min-h-[600px] flex flex-col justify-end pb-12 md:pb-24 pt-32 overflow-hidden bg-background">

@@ -106,7 +106,7 @@ const Section = ({
 export default function WhyChooseUs() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const yearsOfExperience = new Date().getFullYear() - 1997;
+  const yearsOfExperience = 27;
 
   return (
     <section ref={containerRef} className="relative bg-background -mt-24 md:-mt-16  overflow-hidden ">

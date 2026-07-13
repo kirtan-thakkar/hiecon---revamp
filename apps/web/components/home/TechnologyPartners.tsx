@@ -94,7 +94,7 @@ export default function TechnologyPartners() {
                   ))}
                 </div>
                 <Link 
-                  href={`/partners/${partner.name.toLowerCase().replace(/\s+/g, '-')}`} 
+                  href="/products"
                   className="inline-flex items-center text-sm font-medium text-foreground transition-opacity lg:opacity-0 lg:group-hover:opacity-100"
                 >
                   Explore Products <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

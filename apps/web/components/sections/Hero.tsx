@@ -69,13 +69,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-6xl font-medium leading-[1.02] tracking-tighter text-foreground md:text-8xl lg:text-[6.5rem]"
+              className="text-5xl sm:text-6xl font-medium leading-[1.02] tracking-tighter text-foreground md:text-8xl lg:text-[6.5rem] w-full"
             >
               Engineering Smarter
               <br />
-              <span className="text-muted-foreground">Industrial</span>
-              <br />
-              Automation Systems
+              <span className="text-muted-foreground">Industrial</span> Automation Systems
             </motion.h1>
 
             <motion.p
