@@ -8,10 +8,13 @@ export const metadata = {
   description: "Review your selected products and submit your enquiry to Hiecon.",
 };
 
+import CTASection from "@/components/about/CTASection";
+
 export default function EnquiryPage() {
   return (
-    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0">
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0 overflow-x-hidden">
       <EnquiryClient />
+      <CTASection />
     </main>
   );
 }
