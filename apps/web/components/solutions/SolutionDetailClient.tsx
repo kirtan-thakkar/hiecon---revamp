@@ -78,6 +78,7 @@ export default function SolutionDetailClient({ slug, data }: { slug: string; dat
             src={data.image} 
             alt={data.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 1200px"
             loading="lazy"
             className="object-cover"
           />
