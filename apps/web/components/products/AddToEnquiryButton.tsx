@@ -17,7 +17,7 @@ export default function AddToEnquiryButton({ product }: { product: EnquiryItem }
           className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 shadow-sm bg-muted text-foreground border-2 border-primary/20 hover:bg-muted"
         >
           <ClipboardCheck className="w-5 h-5 mr-2 text-primary" />
-          Added to Enquiry
+          Go to Enquiry
         </Button>
       </Link>
     );

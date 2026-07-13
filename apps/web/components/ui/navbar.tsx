@@ -105,7 +105,7 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* <NavbarEnquiryButton /> */}
+          <NavbarEnquiryButton />
         </div>
 
         {/* Mobile View Toggle & Menu Button */}
@@ -163,9 +163,9 @@ const Navbar = () => {
 
           <div className="my-2 h-px bg-neutral-200 dark:bg-white/10" />
 
-          {/* <div onClick={() => setMobileMenuOpen(false)}>
+          <div onClick={() => setMobileMenuOpen(false)}>
             <NavbarEnquiryButton className="w-full flex" />
-          </div> */}
+          </div>
         </div>
       )}
 

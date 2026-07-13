@@ -1,6 +1,4 @@
-"use client";
-
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { create } from 'zustand';
 
 export type EnquiryItem = {
   id: string;
@@ -9,7 +7,7 @@ export type EnquiryItem = {
   image: string;
 };
 
-type EnquiryContextType = {
+type EnquiryStore = {
   items: EnquiryItem[];
   addItem: (item: EnquiryItem) => void;
   removeItem: (id: string) => void;
@@ -17,44 +15,15 @@ type EnquiryContextType = {
   isInEnquiry: (id: string) => boolean;
 };
 
-const EnquiryContext = createContext<EnquiryContextType | undefined>(undefined);
-
-export function EnquiryProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<EnquiryItem[]>([]);
-
-  // We are NOT using localStorage to persist the cart per the user's request: 
-  // "no need for keeping track of what was in the cart btw... inquiry list is lost if the website is closed"
-  
-  const addItem = (item: EnquiryItem) => {
-    setItems((prev) => {
-      if (prev.find((i) => i.id === item.id)) return prev;
-      return [...prev, item];
-    });
-  };
-
-  const removeItem = (id: string) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const clearEnquiry = () => {
-    setItems([]);
-  };
-
-  const isInEnquiry = (id: string) => {
-    return items.some((item) => item.id === id);
-  };
-
-  return (
-    <EnquiryContext.Provider value={{ items, addItem, removeItem, clearEnquiry, isInEnquiry }}>
-      {children}
-    </EnquiryContext.Provider>
-  );
-}
-
-export function useEnquiry() {
-  const context = useContext(EnquiryContext);
-  if (context === undefined) {
-    throw new Error('useEnquiry must be used within an EnquiryProvider');
-  }
-  return context;
-}
+export const useEnquiry = create<EnquiryStore>((set, get) => ({
+  items: [],
+  addItem: (item) => set((state) => {
+    if (state.items.find((i) => i.id === item.id)) return state;
+    return { items: [...state.items, item] };
+  }),
+  removeItem: (id) => set((state) => ({
+    items: state.items.filter((item) => item.id !== id)
+  })),
+  clearEnquiry: () => set({ items: [] }),
+  isInEnquiry: (id) => get().items.some((item) => item.id === id),
+}));

@@ -8,7 +8,6 @@ import { cn } from "@workspace/ui/lib/utils";
 
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import BackToTop from "@/components/ui/BackToTop";
-import { EnquiryProvider } from "@/components/providers/EnquiryProvider";
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -35,14 +34,12 @@ export default function RootLayout({
           <ThemeProvider>
             <Navbar />
             <SmoothScrollProvider>
-              <EnquiryProvider>
-                <div className="flex flex-col min-h-screen">
-                  <main className="grow flex flex-col">
-                    {children}
-                  </main>
-                  <Footer />
-                </div>
-              </EnquiryProvider>
+              <div className="flex flex-col min-h-screen">
+                <main className="grow flex flex-col">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </SmoothScrollProvider>
             <BackToTop />
           </ThemeProvider>
