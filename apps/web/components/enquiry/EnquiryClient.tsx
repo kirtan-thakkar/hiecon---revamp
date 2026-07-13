@@ -87,7 +87,7 @@ ${formData.message}
                   src={item.image} 
                   alt={item.title} 
                   fill 
-                  className="object-cover mix-blend-multiply"
+                  className="object-cover"
                 />
               </div>
               <div className="flex flex-col flex-grow justify-center">
