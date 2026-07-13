@@ -56,7 +56,7 @@ export default function OurStory() {
 
   }, { scope: containerRef, dependencies: [mounted] });
 
-  const yearsOfExperience = 27;
+  const yearsOfExperience = new Date().getFullYear() - 1997;
 
   return (
     <section ref={containerRef} className="relative w-full py-24 md:py-32 bg-background border-t border-border">
