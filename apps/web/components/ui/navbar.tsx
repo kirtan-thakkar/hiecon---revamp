@@ -7,6 +7,7 @@ import Image from "next/image"
 import { useTheme } from "next-themes"
 import { Sun, Moon, Menu, X, Search } from "lucide-react"
 import GlobalSearch from "./GlobalSearch"
+import NavbarEnquiryButton from "./NavbarEnquiryButton"
 
 import {
   NavigationMenu,
@@ -104,11 +105,7 @@ const Navbar = () => {
             )}
           </button>
 
-          <Link href="/contact">
-            <button className="cursor-pointer rounded-xl bg-zinc-900 px-5 py-2 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-black dark:bg-white dark:text-black dark:hover:bg-neutral-200">
-              Contact Us
-            </button>
-          </Link>
+          <NavbarEnquiryButton />
         </div>
 
         {/* Mobile View Toggle & Menu Button */}
@@ -166,11 +163,9 @@ const Navbar = () => {
 
           <div className="my-2 h-px bg-neutral-200 dark:bg-white/10" />
 
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-            <button className="w-full rounded-xl bg-zinc-900 py-3 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-black dark:bg-white dark:text-black dark:hover:bg-neutral-200">
-              Contact Us
-            </button>
-          </Link>
+          <div onClick={() => setMobileMenuOpen(false)}>
+            <NavbarEnquiryButton className="w-full flex" />
+          </div>
         </div>
       )}
 

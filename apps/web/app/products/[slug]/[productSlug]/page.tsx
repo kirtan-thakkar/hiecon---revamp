@@ -12,6 +12,7 @@ import CTASection from "@/components/about/CTASection";
 import ExpandableProductGrid from "@/components/products/ExpandableProductGrid";
 import ProductImageWithLightbox from "@/components/products/ProductImageWithLightbox";
 import ScrollToDocumentsButton from "@/components/products/ScrollToDocumentsButton";
+import AddToEnquiryButton from "@/components/products/AddToEnquiryButton";
 
 type Props = {
   params: Promise<{ slug: string; productSlug: string }>;
@@ -70,9 +71,12 @@ export default async function IndividualProductPage({ params }: Props) {
           )}
 
           <div className="flex flex-wrap gap-4 mt-12">
-            <Link href="/contact">
-              <Button size="lg" className="rounded-full h-14 px-10 text-lg font-medium transition-transform hover:scale-105 shadow-sm">Request Quote</Button>
-            </Link>
+            <AddToEnquiryButton product={{
+              id: product.id,
+              title: product.name,
+              category: category.title,
+              image: product.heroImage
+            }} />
             {product.documents && product.documents.length > 0 && (
               <ScrollToDocumentsButton />
             )}
