@@ -35,7 +35,7 @@ export default function AboutHero() {
     );
   }, { scope: containerRef });
 
-  const yearsOfExperience = new Date().getFullYear() - 1997;
+
 
   return (
     <section className="relative w-full h-[85vh] md:h-screen min-h-[600px] flex flex-col justify-end pb-12 md:pb-24 pt-32 overflow-hidden bg-background">
@@ -67,7 +67,7 @@ export default function AboutHero() {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             className="max-w-[45ch] text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            For over {yearsOfExperience} years, Hiecon has been at the forefront of industrial innovation, architecting systems that define precision and reliability.
+            Architecting automation systems that define precision and reliability in modern manufacturing.
           </motion.p>
         </div>
       </Container>
