@@ -1,3 +1,18 @@
+/**
+ * PRODUCT LIST DATA
+ * 
+ * This file contains the data for specific products in this category.
+ * 
+ * HOW TO ADD A NEW PRODUCT:
+ * 1. Scroll to the bottom of the array.
+ * 2. Copy an existing product block (everything from { to }, ).
+ * 3. Paste it at the end.
+ * 4. Update the values inside the quotes (name, tagline, heroImage, etc.).
+ * 
+ * IMPORTANT:
+ * - Do NOT change the 'id' or 'slug' of an existing product as it will break links.
+ * - 'groupName' is used to group similar products together at the bottom of the page.
+ */
 import type { IndividualProduct } from "./types";
 
 export const goldenAgeProducts: IndividualProduct[] = [
@@ -144,3 +159,4 @@ export const goldenAgeProducts: IndividualProduct[] = [
     ]
   }
 ];
+
