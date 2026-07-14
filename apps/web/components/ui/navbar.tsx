@@ -65,8 +65,6 @@ const Navbar = () => {
             HIECON
           </span>
         </Link>
-
-        {/* Center: Desktop Navigation Menu */}
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="gap-1">
@@ -81,8 +79,6 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-
-        {/* Right: Desktop Actions & Theme Toggle */}
         <div className="hidden items-center justify-end gap-2 pr-2 md:flex">
           <button
             onClick={() => setIsSearchOpen(true)}
@@ -92,7 +88,6 @@ const Navbar = () => {
             <Search className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
           </button>
 
-          {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
@@ -107,8 +102,6 @@ const Navbar = () => {
 
           <NavbarEnquiryButton />
         </div>
-
-        {/* Mobile View Toggle & Menu Button */}
         <div className="flex items-center gap-1 pr-2 md:hidden">
           <button
             onClick={() => setIsSearchOpen(true)}
@@ -118,7 +111,6 @@ const Navbar = () => {
             <Search className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
           </button>
 
-          {/* Mobile Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
@@ -131,7 +123,6 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* Hamburger Menu Icon */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-white/10"
