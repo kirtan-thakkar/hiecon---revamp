@@ -12,14 +12,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background selection:bg-brand-primary selection:text-primary-foreground">
-      <div className="relative pt-[80px]">
-        <AboutHero />
-        <ProcessScroll />
-        <ScaleReveal />
-        <EngineeringHorizontal />
-        <CTASection />
-      </div>
+    <main className="min-h-screen bg-background pt-24 md:pt-28 pb-0 selection:bg-brand-primary selection:text-primary-foreground">
+      <AboutHero />
+      <ProcessScroll />
+      <ScaleReveal />
+      <EngineeringHorizontal />
+      <CTASection />
     </main>
   );
 }
