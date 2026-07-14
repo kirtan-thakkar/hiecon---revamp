@@ -39,16 +39,30 @@ export default function EnquiryClient() {
 
     const subject = `Sales Enquiry from ${formData.name} at ${formData.company}`
     const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
+Dear Hiecon Sales Team,
 
-Requested Products:
-${items.length > 0 ? items.map((item) => `- ${item.title} (${item.category})`).join("\n") : "No specific products selected."}
+You have received a new product inquiry from the website portal. Please find the details of the request below:
 
-Message:
-${formData.message}
+--------------------------------------------------
+CONTACT INFORMATION
+--------------------------------------------------
+Full Name:    ${formData.name}
+Company:      ${formData.company ? formData.company : "N/A"}
+Email:        ${formData.email}
+Phone Number: ${formData.phone ? formData.phone : "N/A"}
+
+--------------------------------------------------
+SELECTED PRODUCTS
+--------------------------------------------------
+${items.length > 0 ? items.map((item, index) => `${index + 1}. ${item.title}\n   Category: ${item.category}`).join("\n\n") : "No specific products selected."}
+
+--------------------------------------------------
+ADDITIONAL REQUIREMENTS / MESSAGE
+--------------------------------------------------
+${formData.message ? formData.message : "No additional notes provided."}
+
+--------------------------------------------------
+End of Inquiry
     `
       .trim()
       .replace(/\n/g, "%0D%0A") // Convert newlines to URL-encoded newlines for mailto:
