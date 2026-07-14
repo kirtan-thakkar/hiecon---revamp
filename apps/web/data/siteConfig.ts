@@ -12,6 +12,8 @@ export const siteConfig = {
   logoText: "HIECON",
   // The global description used for SEO and default social sharing
   description: "Engineering Smarter Industrial Automation Systems",
+  // The primary domain for the website (used for SEO, sitemap, robots.txt)
+  url: "https://www.hiecon.com",
   // The copyright text shown at the very bottom of the footer
   copyright: "©2026 Hiecon. All rights reserved.",
   
