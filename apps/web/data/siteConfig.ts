@@ -17,6 +17,27 @@ export const siteConfig = {
   // The copyright text shown at the very bottom of the footer
   copyright: "©2026 Hiecon. All rights reserved.",
   
+  // Local SEO Information (Optional but recommended for LocalBusiness schema)
+  contact: {
+    // /* TODO: exact phone number */
+    phone: "+91-0000000000",
+    // /* TODO: exact email */
+    email: "info@hiecon.com",
+  },
+  address: {
+    // /* TODO: exact street address */
+    streetAddress: "Industrial Area",
+    addressLocality: "Ahmedabad",
+    addressRegion: "Gujarat",
+    // /* TODO: exact postal code */
+    postalCode: "380001",
+    addressCountry: "IN"
+  },
+  geo: {
+    // /* TODO: exact coordinates */
+    latitude: "23.022505", 
+    longitude: "72.571362"
+  },
   // The links shown in the top navigation bar
   navItems: [
     { name: "About", href: "/about" },

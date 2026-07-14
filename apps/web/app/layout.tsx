@@ -1,5 +1,7 @@
 import { DM_Sans } from 'next/font/google';
-
+import type { Metadata } from 'next';
+import { siteConfig } from '@/data/siteConfig';
+import { getOrganizationSchema } from '@/data/organizationSchema';
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/ui/navbar"
@@ -18,6 +20,18 @@ const dmSans = DM_Sans({
 
 import { ViewTransitions } from 'next-view-transitions'
 
+export const metadata: Metadata = {
+  title: siteConfig.name,
+  description: siteConfig.description,
+  other: {
+    // Basic Geo tags
+    'geo.region': 'IN-GJ',
+    'geo.placename': siteConfig.address.addressLocality,
+    'geo.position': `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+    'ICBM': `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +44,12 @@ export default function RootLayout({
         suppressHydrationWarning
         className={cn("antialiased", dmSans.className)}
       >
+        <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }}
+          />
+        </head>
         <body className="tracking-tight bg-transparent text-neutral-700 dark:bg-transparent dark:text-neutral-50 min-h-screen">
           <ThemeProvider>
             <Navbar />
