@@ -60,8 +60,8 @@ export const productFamilies = [
   },
   {
     id: 7,
-    title: "HMI",
-    slug: "hmi",
+    title: "Weintek HMI",
+    slug: "weintek-hmi",
     description:
       "Human Machine Interface solutions that provide intuitive visualization, monitoring, and machine operation.",
     image: "/Weintek-HMI-hero.webp",
@@ -69,7 +69,7 @@ export const productFamilies = [
   {
     id: 8,
     title: "SCADA",
-    slug: "scada",
+    slug: "/",
     description:
       "Supervisory Control and Data Acquisition systems for real-time industrial monitoring and process management.",
     image: "/vision-system-hero.webp",
@@ -77,7 +77,7 @@ export const productFamilies = [
   {
     id: 9,
     title: "Industrial PC",
-    slug: "industrial-pc",
+    slug: "weintek-hmi",
     description:
       "Industrial-grade computing solutions built for continuous operation in harsh manufacturing environments.",
     image: "/iiot-products-hero.webp",
@@ -85,7 +85,7 @@ export const productFamilies = [
   {
     id: 10,
     title: "Remote I/O",
-    slug: "remote-io",
+    slug: "weintek-remote-io",
     description:
       "Distributed remote I/O modules enabling flexible connectivity and scalable industrial automation systems.",
     image: "/weintek-remote-io-hero.webp",

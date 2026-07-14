@@ -1,10 +1,10 @@
 # Hiecon Web Application
 
-This repository contains the source code and content for the Hiecon marketing website.
+This repository contains the source code and content for the Hiecon site.
 
-## 📝 Editing Website Content (No Coding Required!)
+## 📝 Editing Website Content
 
-We have designed this website so that **anyone** can easily edit the text, images, links, and products **without needing to know how to code**. 
+I have designed this website so that **anyone** can easily edit the text, images, links, and products **without needing to know how to code**. 
 
 All the data that powers the website is stored in simple text files located in the `apps/web/data/` folder. The actual website code reads from these files, meaning you never have to touch the complex React code.
 
