@@ -46,7 +46,7 @@ export default function ProcessScroll() {
       if (gridRef.current && imageRef.current) {
         ScrollTrigger.create({
           trigger: imageRef.current,
-          start: "top center",
+          start: "top 128px",
           end: () => `+=${gridRef.current!.offsetHeight - imageRef.current!.offsetHeight}`,
           pin: true,
           scrub: true,

@@ -67,7 +67,7 @@ export default function EngineeringHorizontal() {
           >
             <Container className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <div className="flex flex-col gap-6 max-w-xl">
-                <span className="text-8xl md:text-9xl font-bold text-muted/50 tracking-tighter -ml-2">
+                <span className="text-8xl md:text-9xl font-bold dark:text-muted text-black/40 tracking-tighter -ml-2">
                   {value.id}
                 </span>
                 <h2 className="text-5xl md:text-7xl font-medium tracking-tight text-foreground">
