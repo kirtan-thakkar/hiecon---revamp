@@ -5,39 +5,9 @@ import Container from "../ui/Container";
 import { Link } from 'next-view-transitions';
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@workspace/ui/components/badge";
+import { homeData } from "../../data/homeData";
 
-const partners = [
-  {
-    name: "ABB",
-    description: "Global leader in power and automation technologies.",
-    solutions: ["AC Drives", "AC Motors", "PLC"],
-  },
-  {
-    name: "Omron",
-    description: "Advanced sensing and control technology for factory automation.",
-    solutions: ["Automation Components", "Motion Controllers", "Industrial Robots", "Vision Systems"],
-  },
-  {
-    name: "Weintek",
-    description: "Specialized human-machine interfaces for industrial environments.",
-    solutions: ["Standard HMI", "Advanced HMI", "Remote I/O", "IIoT Products"],
-  },
-  {
-    name: "SERAD",
-    description: "Precision motion control and high-performance servo systems.",
-    solutions: ["Servo Drives & Motors"],
-  },
-  {
-    name: "Golden Age",
-    description: "Reliable servo motor solutions for dynamic industrial applications.",
-    solutions: ["Servo Motors"],
-  },
-  {
-    name: "WEG",
-    description: "Leading manufacturer of robust electric motors and drive technology.",
-    solutions: ["AC Motors"],
-  },
-];
+const partners = homeData.technologyPartners.partners;
 
 export default function TechnologyPartners() {
   return (
@@ -52,14 +22,14 @@ export default function TechnologyPartners() {
         >
           <div className="max-w-2xl">
             <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-6">
-              Our Network
+              {homeData.technologyPartners.label}
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground leading-[1.05]">
-              Technology Partners
+              {homeData.technologyPartners.title}
             </h2>
           </div>
           <p className="text-lg text-muted-foreground max-w-md pb-2">
-            Authorized integrations with the world's most trusted manufacturing brands.
+            {homeData.technologyPartners.description}
           </p>
         </motion.div>
 

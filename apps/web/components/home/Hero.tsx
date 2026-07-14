@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import React, { useRef } from "react"
 
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
@@ -11,6 +11,7 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "motion/react"
 
 import Container from "../ui/Container"
+import { homeData } from "../../data/homeData"
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLDivElement>(null)
@@ -49,7 +50,7 @@ const HeroSection = () => {
         >
           <Image
           fill
-            src="https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?q=80&w=2000&auto=format&fit=crop"
+            src={homeData.hero.bgImageUrl}
             alt="Industrial Machinery"
             className="h-full w-full object-cover mix-blend-luminosity grayscale md:-ml-15 md:-mt-15"
           />
@@ -62,7 +63,7 @@ const HeroSection = () => {
         <div className="relative z-10 w-full pt-16 md:pt-24 lg:pt-28">
           <div className="flex h-full w-full max-w-5xl flex-col items-start justify-center gap-6 text-left">
             <p className="mb-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-              Industrial Automation
+              {homeData.hero.label}
             </p>
 
             <motion.h1
@@ -71,9 +72,9 @@ const HeroSection = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-5xl sm:text-6xl font-medium leading-[1.02] tracking-tighter text-foreground md:text-8xl lg:text-[6.5rem] w-full"
             >
-              Engineering Smarter
+              {homeData.hero.titleLine1}
               <br />
-              <span className="text-muted-foreground">Industrial</span> Automation Systems
+              <span className="text-muted-foreground">{homeData.hero.titleHighlight}</span> {homeData.hero.titleLine2}
             </motion.h1>
 
             <motion.p
@@ -82,7 +83,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="mt-4 max-w-[60ch] text-lg leading-relaxed text-muted-foreground md:text-xl"
             >
-              We architect, deploy, and scale state-of-the-art automation solutions for modern manufacturing&mdash;driving precision, reliability, and long-term performance.
+              {homeData.hero.description}
             </motion.p>
           </div>
 
@@ -102,17 +103,16 @@ const HeroSection = () => {
             </div>
 
             <div className="flex items-center gap-6 border-t border-border pt-6 opacity-80">
-              <span className="text-sm font-medium text-foreground">
-                ISO 9001:2015 <span className="ml-1 text-muted-foreground">Certified</span>
-              </span>
-              <div className="h-3 w-px bg-border" />
-              <span className="text-sm font-medium text-foreground">
-                Industry 4.0 <span className="ml-1 text-muted-foreground">Ready</span>
-              </span>
-              <div className="h-3 w-px bg-border" />
-              <span className="text-sm font-medium text-foreground">
-                Global <span className="ml-1 text-muted-foreground">Support</span>
-              </span>
+              {homeData.hero.stats.map((stat, idx) => (
+                <React.Fragment key={idx}>
+                  <span className="text-sm font-medium text-foreground">
+                    {stat.label} <span className="ml-1 text-muted-foreground">{stat.highlight}</span>
+                  </span>
+                  {idx < homeData.hero.stats.length - 1 && (
+                    <div className="h-3 w-px bg-border" />
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </motion.div>
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
               className="relative flex h-[60vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.05)] md:h-[80vh] md:rounded-[3rem] after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]"
             >
               <video
-                src="/heicon-main.mov"
+                src={homeData.hero.videoUrl}
                 autoPlay
                 loop
                 muted

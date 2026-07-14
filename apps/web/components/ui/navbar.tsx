@@ -16,15 +16,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@workspace/ui/components/navigation-menu"
+import { siteConfig } from "../../data/siteConfig"
 
 const Navbar = () => {
-  // update this items whenver you want to add any new item in the navbar
-  const navItems = [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "Products", href: "/products" },
-    { name: "Solutions", href: "/solutions" },
-  ]
+  const navItems = siteConfig.navItems
 
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

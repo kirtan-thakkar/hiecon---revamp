@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
+import { homeData } from "../../data/homeData";
 
 export const productFamilies = [
   {
@@ -36,7 +37,7 @@ export const productFamilies = [
   {
     id: 4,
     title: "Golden Age Servo Motors",
-    slug: "golden-age-servo-motors",
+    slug: "golden-age",
     description:
       "Reliable servo motor solutions for high-performance motion control applications across multiple industries.",
     image: "/golden-age-hero.webp",
@@ -124,9 +125,7 @@ export const productFamilies = [
 ];
 
 export default function ProductFamilies() {
-  // 1 large, 2 medium, rest in grid. So 3 are featured. We load 6 of the remaining at a time.
   const [visibleRemaining, setVisibleRemaining] = useState(6);
-
   const featuredLarge = productFamilies[0];
   const featuredMedium = productFamilies.slice(1, 3);
   const remainingProducts = productFamilies.slice(3);
@@ -140,7 +139,6 @@ export default function ProductFamilies() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <Container>
-        {/* Header */}
         <div className="mb-16 md:mb-24 max-w-4xl">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -149,7 +147,7 @@ export default function ProductFamilies() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-[1.05] mb-8"
           >
-            Explore Our Solutions.
+            {homeData.productFamilies.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -158,13 +156,11 @@ export default function ProductFamilies() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl"
           >
-            From motion control and PLCs to industrial robotics and IIoT, discover automation solutions engineered for precision, reliability, and long-term performance.
+            {homeData.productFamilies.description}
           </motion.p>
         </div>
 
         <div className="flex flex-col gap-24 md:gap-32">
-          
-          {/* Large Featured Solution */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +169,6 @@ export default function ProductFamilies() {
           >
             <Link href={`/products/${featuredLarge.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
               <div className="relative lg:col-span-7 h-[400px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-muted">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <Image src={featuredLarge.image} alt={featuredLarge.title} fill sizes="(max-width: 1024px) 100vw, 60vw" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="lg:col-span-5 flex flex-col justify-center">
@@ -190,7 +185,6 @@ export default function ProductFamilies() {
             </Link>
           </motion.div>
 
-          {/* Medium Featured Solutions */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {featuredMedium.map((product, index) => (
               <motion.div

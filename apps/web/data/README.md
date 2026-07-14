@@ -1,61 +1,72 @@
-# Managing Solutions Data
+# Content Editing Guide
 
-This guide explains how to easily add, edit, or remove the content for your Industries/Solutions pages on the live website.
+Welcome! This folder (`apps/web/data/`) contains all the text, images, and data that power the Hiecon website. 
 
-## Where is the data?
+By editing the files in this folder, you can update the website's content **without needing to know any React code or web development**. 
 
-All the data for the 14 Industries (which power the `/solutions` route) is securely stored in a single file:
-**`apps/web/data/solutions.ts`**
+---
 
-## How to Edit an Industry
+## ⚠️ Important Rules for Editing
 
-Open `apps/web/data/solutions.ts`. Inside this file, you will see a list of objects that look like this:
+Before you open any file, please keep these three rules in mind:
 
+1. **Only edit the text inside the quotes (`" "`).** 
+   You will see structures like `title: "Some Text"`. You should change `"Some Text"` to `"New Text"`. **Do not** change the word `title:` or delete the quotes.
+   
+2. **Do not change the `slug`.**
+   Many items have a `slug` (e.g., `slug: "ac-drives"`). This is used for the URL of the page (e.g., `hiecon.com/products/ac-drives`). Changing this will break links that point to that page.
+
+3. **Images.**
+   When replacing an image URL, ensure the link is a direct link to the image (ending in `.jpg`, `.png`, `.webp`, or using an image service like Unsplash).
+
+---
+
+## Where to find the data
+
+Here is a breakdown of what each file controls:
+
+### 1. Global Settings (`siteConfig.ts`)
+Controls things that appear on every page.
+- **Top Navigation Menu:** Add or remove links in the `navItems` array.
+- **Footer:** Update the links in the bottom footer in the `footerLinks` array.
+- **Copyright:** Update the copyright text.
+
+### 2. Home Page (`homeData.ts`)
+Controls all the sections on the main landing page.
+- **Hero Section:** The big video background area. You can change the large text (`titleLine1`, `titleLine2`) and the video link (`videoUrl`).
+- **Technology Partners:** Update the list of partners and the badges they show.
+- **Why Choose Us:** Update the 4 core steps and the statistics at the bottom of the page.
+
+### 3. Products Data (`products.ts`)
+Controls the entire `/products` page and the individual product pages.
+- Each product is an object in the `products` list.
+- You can add a new product by copying an existing block (from `{` to `},`) and pasting it at the end of the list.
+- You can update `title`, `description`, `image`, and the technical `specs` for each product.
+
+### 4. Solutions / Industries Data (`solutions.ts`)
+Controls the `/solutions` page and individual industry pages.
+- Works exactly like the `products.ts` file. 
+- You can update the `implementationStages` for each industry to show the exact machines used in the manufacturing process.
+
+---
+
+## Example: How to edit
+
+Let's say you want to change the main headline on the Home page.
+
+1. Open `homeData.ts`.
+2. Find this section:
 ```typescript
-{
-  title: "Pharmaceutical",
-  slug: "pharmaceutical", // Do NOT change the slug once it is live!
-  description: "Short introductory description.",
-  content: "Detailed overview paragraph...",
-  image: "https://images.unsplash.com/...", // Premium 4K image link
-  implementationStages: [
-    {
-      stage: "Granulation",
-      machines: ["Roll Compactor", "Octagonal Machine", "Fluid bed Dryer Machine"]
-    },
-    {
-      stage: "Compression",
-      machines: ["Amplus Machine", "Giga Press Machine"]
-    }
-  ]
-}
+  hero: {
+    label: "Industrial Automation",
+    titleLine1: "Engineering Smarter",
+    // ...
 ```
-
-### 1. Changing Text & Images
-You can freely change the text inside the `" "` quotes for `title`, `description`, `content`, and `image`. 
-
-**Tip on Images:** We highly recommend using premium, high-resolution 4K images from Unsplash or a similar service. Ensure your image URLs end with `?q=80&w=3840&auto=format&fit=crop` to guarantee they stretch perfectly across large monitors without losing quality.
-
-### 2. Editing the Staged Layout (implementationStages)
-The website features a beautiful typography layout where machines/solutions are grouped into numbered stages (e.g., `01 Granulation`, `02 Compression`). 
-
-To modify these:
-- Simply add or remove machines inside the `machines: [...]` arrays. Be sure to wrap the machine names in quotes.
-- To add a completely new stage, add a new block inside `implementationStages`:
-  ```typescript
-  {
-    stage: "New Awesome Stage",
-    machines: ["Machine A", "Machine B"]
-  }
-  ```
-
-### What if I don't want stages?
-If a certain industry doesn't make sense to divide into stages, you can simply use the `implementations` fallback array instead of `implementationStages`. 
+3. Change it to:
 ```typescript
-{
-  title: "Simple Industry",
-  // ...
-  implementations: ["Machine 1", "Machine 2", "Machine 3"]
-}
+  hero: {
+    label: "Factory Automation",
+    titleLine1: "Building Smarter",
+    // ...
 ```
-If you do this, the website will automatically fall back to rendering a neat grid of grey boxes with bullets instead of the staged layout.
+4. Save the file. The website will instantly reflect the change!

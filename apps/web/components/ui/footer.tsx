@@ -2,35 +2,9 @@ import { Link } from 'next-view-transitions';
 import Container from './Container';
 import { FooterStarsBackground } from './FooterStarsBackground';
 
-const footerLinks = [
-  {
-    title: "Company",
-    links: [
-      { name: "About Us", href: "/about" },
-      { name: "Contact", href: "/contact" },
-    ]
-  },
-  {
-    title: "Legal",
-    links: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Use", href: "/terms" },
-    ]
-  },
-  {
-    title: "Solutions",
-    links: [
-      { name: "Industrial Automation", href: "/solutions" },
-      { name: "Products", href: "/products" },
-    ]
-  },
-  {
-    title: "Social",
-    links: [
-      { name: "LinkedIn", href: "https://www.linkedin.com/company/hiecon/" },
-    ]
-  }
-];
+import { siteConfig } from '../../data/siteConfig';
+
+const footerLinks = siteConfig.footerLinks;
 
 export default function Footer() {
   return (
@@ -72,7 +46,7 @@ export default function Footer() {
 
         {/* Bottom Legal Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t text-xs text-[#888888]">
-          <p>&copy;2026 Hiecon. All rights reserved.</p>
+          <p>{siteConfig.copyright}</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link href="/legal" className="hover:text-white transition-colors">
               <p className="text-sm">Legal disclosures</p>

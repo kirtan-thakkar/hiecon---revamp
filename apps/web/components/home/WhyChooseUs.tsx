@@ -8,6 +8,7 @@ import { TextAnimate } from "@workspace/ui/components/text-animate";
 
 const MotionImage = motion.create(Image);
 import { cn } from "@workspace/ui/lib/utils";
+import { homeData } from "../../data/homeData";
 
 const Section = ({ 
   label, 
@@ -106,39 +107,20 @@ const Section = ({
 export default function WhyChooseUs() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const yearsOfExperience = new Date().getFullYear() - 1997;
+  const yearsOfExperience = new Date().getFullYear() - homeData.whyChooseUs.support.startYear;
 
   return (
     <section ref={containerRef} className="relative bg-background -mt-24 md:-mt-16  overflow-hidden ">
-      <Section 
-        label="01 / The Challenge"
-        title={"Every factory has\na bottleneck"}
-        description="Before we write a single line of PLC code, we analyze your production line to find the exact point of friction costing you throughput."
-        image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
-      />
-      
-      <Section 
-        label="02 / Engineering"
-        title={"Architecting\nthe solution"}
-        description="We engineer complete hardware topologies. From specifying high-torque servo drives to designing distributed I/O networks that guarantee microsecond synchronization."
-        image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop"
-        reverse
-      />
-
-      <Section 
-        label="03 / Partners"
-        title={"Global Components\nOne Integrated Solution"}
-        description="We aren't tied to a single vendor. Our engineers select the ideal combination of ABB, Siemens, Yaskawa, and Weintek technologies to build automation solutions tailored to your manufacturing requirements."
-        image="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop"
-      />
-
-      <Section 
-        label="04 / Deployment"
-        title={"Commission on\nthe factory floor"}
-        description="Our involvement doesn't end with a schematic. Our engineers deploy to your facility, wiring cabinets, tuning servo loops, and rigorously testing safety zones until the line runs flawlessly."
-        image="/factory_commissioning.jpg"
-        reverse
-      />
+      {homeData.whyChooseUs.sections.map((section, idx) => (
+        <Section 
+          key={idx}
+          label={section.label}
+          title={section.title}
+          description={section.description}
+          image={section.image}
+          reverse={section.reverse}
+        />
+      ))}
 
       <div className="relative py-32 md:py-48 flex items-center justify-center text-center">
         <Container className="w-full">
@@ -157,7 +139,7 @@ export default function WhyChooseUs() {
               viewport={{ once: false }}
               className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-12"
             >
-              05 / Support
+              {homeData.whyChooseUs.support.label}
             </motion.p>
             <div className="max-w-4xl mx-auto mb-24">
               <TextAnimate 
@@ -176,16 +158,14 @@ export default function WhyChooseUs() {
                 viewport={{ once: false }}
                 className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
               >
-                We don't just engineer systems—we partner with you for the lifecycle of your facility. Our dedicated support teams ensure your operations never miss a beat.
+                {homeData.whyChooseUs.support.description}
               </motion.p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-border/50 pt-16 max-w-5xl mx-auto">
               {[
                 { v: yearsOfExperience.toString(), l: "Years Active" },
-                { v: "750+", l: "Facilities" },
-                { v: "36", l: "Engineers" },
-                { v: "4hr", l: "Avg. Response" }
+                ...homeData.whyChooseUs.support.stats
               ].map((m, i) => (
                 <motion.div 
                   key={m.l}

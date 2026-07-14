@@ -1,21 +1,56 @@
-# shadcn/ui monorepo template
+# Hiecon Web Application
 
-This is a Next.js monorepo template with shadcn/ui.
+This repository contains the source code and content for the Hiecon marketing website.
 
-## Adding components
+## 📝 Editing Website Content (No Coding Required!)
 
-To add components to your app, run the following command at the root of your `web` app:
+We have designed this website so that **anyone** can easily edit the text, images, links, and products **without needing to know how to code**. 
 
+All the data that powers the website is stored in simple text files located in the `apps/web/data/` folder. The actual website code reads from these files, meaning you never have to touch the complex React code.
+
+### Where to go to edit content:
+
+1. **Global Site Settings (Navigation, Footer, Copyright):**
+   Open `apps/web/data/siteConfig.ts`
+   
+2. **Home Page (Hero, Partners, Stats):**
+   Open `apps/web/data/homeData.ts`
+   
+3. **Products Page:**
+   Open `apps/web/data/products.ts`
+   
+4. **Solutions/Industries Page:**
+   Open `apps/web/data/solutions.ts`
+
+### 📖 Step-by-Step Guide
+
+For detailed instructions on exactly how to open these files, what to edit (and what NOT to edit), and tips on choosing the right images, please read the **[Comprehensive Content Editing Guide](./apps/web/data/README.md)**.
+
+---
+
+## 💻 Developer Section
+
+If you are a developer looking to run, build, or extend the platform, please see the instructions below.
+
+### Setup
+
+Install dependencies:
 ```bash
-pnpm dlx shadcn@latest add button -c apps/web
+npm install
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+### Development Server
 
-## Using components
+Run the development server:
+```bash
+npm run dev
+```
 
-To use the components in your app, import them from the `ui` package.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```tsx
-import { Button } from "@workspace/ui/components/button";
+### Build
+
+To build the application for production:
+```bash
+npm run build
 ```
