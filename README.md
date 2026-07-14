@@ -1,34 +1,85 @@
 # Hiecon Web Application
 
-This repository contains the source code and configuration for the Hiecon site.
+This repository contains the source code, configuration, and content database for the Hiecon site.
 
 ## Content Management Architecture
 
-I have designed the architecture of this application to completely decouple the content from the underlying React codebase. This ensures that future content updates—such as modifying text, swapping images, or adding new products—can be executed quickly and safely without requiring any web development expertise.
+I have designed the architecture of this application to completely decouple the content from the underlying React codebase. This ensures that future content updates—such as modifying text, swapping images, updating statistics, or adding new hardware products—can be executed quickly and safely without requiring any web development expertise.
 
 All static content is centralized in the `apps/web/data/` directory.
 
-### Configuration Files Overview
+---
 
-1. **Global Site Settings:**
-   Location: `apps/web/data/siteConfig.ts`
-   Controls globally shared elements, including the navigation menu, footer links, and copyright information.
-   
-2. **Home Page Data:**
-   Location: `apps/web/data/homeData.ts`
-   Controls the structural content of the landing page, including the hero section, statistics, technology partners, and the "Why Choose Us" sections.
-   
-3. **Products Data:**
-   Location: `apps/web/data/products.ts` and `apps/web/data/productsPageData.ts`
-   Controls the catalog of hardware products, specifications, and the static labels rendered on the products routing pages.
-   
-4. **Solutions Data:**
-   Location: `apps/web/data/solutions.ts` and `apps/web/data/solutionsPageData.ts`
-   Controls the industry-specific solutions, implementation stages, and the static labels rendered on the solutions routing pages.
+## Technical Constraints for Editing Content
 
-### Content Editing Guide
+When modifying the files in the data directory, strict adherence to the following rules is required to prevent compilation errors and broken routing:
 
-For detailed instructions on modifying these configuration files, please refer to the **[Content Editing Guide](./apps/web/data/README.md)**.
+1. **Modify Values Only:** 
+   Only modify the string values enclosed within quotation marks (`" "`). For example, in the key-value pair `title: "Industrial Automation"`, you may change `"Industrial Automation"` to `"Factory Automation"`. Do not alter the key name (`title:`) or remove the surrounding quotes.
+   
+2. **Preserve Slugs:**
+   The `slug` property (e.g., `slug: "ac-drives"`) dictates the URL path for that specific entity. Modifying a slug after the application has been indexed by search engines will result in broken external links and 404 errors. Do not change existing slugs.
+
+3. **Image Assets:**
+   Ensure image URLs point directly to the media asset (typically ending in `.jpg`, `.png`, or `.webp`). When utilizing external image delivery services (e.g., Unsplash), maintain the appended query parameters that control resolution and cropping (e.g., `?q=80&w=2000&auto=format&fit=crop`) to ensure optimal performance and visual fidelity.
+
+4. **Follow Inline Comments:**
+   I have added comprehensive inline documentation directly inside every `.ts` configuration file. Refer to the comments immediately preceding a block of data for specific instructions on how to safely edit it.
+
+---
+
+## Content Directory Structure & Responsibilities
+
+The responsibilities of each configuration file located in `apps/web/data/` are delineated below:
+
+### 1. Global Settings (`siteConfig.ts`)
+Manages properties that persist across all views in the application.
+- **Top Navigation:** Managed via the `navItems` array.
+- **Footer:** Managed via the `footerLinks` array.
+- **Metadata:** Company name, copyright text, and centralized social links.
+
+### 2. Home Page Configuration (`homeData.ts`)
+Manages the structural text, media assets, and numerical statistics rendered on the index page.
+- **Hero Section:** Primary headlines, secondary descriptions, and the background video asset URI.
+- **Technology Partners:** The array of affiliated brands and their respective badges.
+- **Why Choose Us:** The staged informational sections and the company statistics block.
+
+### 3. Products Catalog (`products/` & `productsPageData.ts`)
+Manages the `/products` routing tree.
+- **`productsPageData.ts`**: Static UI labels and headers specific to the product views (e.g., "Hardware Portfolio", "Technical Specifications").
+- **`products/` Directory**: Contains individual TypeScript files for specific product categories (e.g., `industrial-robots.ts`, `ac-drives.ts`). Each product is a discreet object detailing its title, specifications, and documentation links. To add a new product, duplicate an existing block within the relevant category file.
+
+### 4. Solutions Catalog (`solutions.ts` & `solutionsPageData.ts`)
+Manages the `/solutions` routing tree.
+- **`solutionsPageData.ts`**: Static UI labels and headers specific to the solution views.
+- **`solutions.ts`**: The database of industry-specific automation solutions. This includes the defined `implementationStages`, detailing the exact machinery deployed at each stage of a manufacturing process.
+
+### 5. Legal & Policies (`legalData.ts`)
+Manages the textual content for standard legal pages.
+- Update the `title`, `lastUpdated` date, and main `content` paragraphs for the Privacy Policy, Terms of Use, and Legal Disclosures here.
+
+---
+
+## Modification Example
+
+To update the primary headline on the index page, follow this procedure:
+
+1. Open `apps/web/data/homeData.ts`.
+2. Locate the `hero` object:
+```typescript
+  hero: {
+    label: "Industrial Automation",
+    titleLine1: "Engineering Smarter",
+    // ...
+```
+3. Update the required string value:
+```typescript
+  hero: {
+    label: "Factory Automation",
+    titleLine1: "Building Smarter",
+    // ...
+```
+4. Save the file. The changes will propagate to the application immediately during local development, or upon the next production build.
 
 ---
 
