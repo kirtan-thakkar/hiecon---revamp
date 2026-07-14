@@ -1,9 +1,21 @@
+/**
+ * GLOBAL SITE CONFIGURATION
+ * 
+ * This file controls the main settings that appear across every page of the website.
+ * - To change text, modify only the content inside the " " quotes.
+ * - Do not change the keys (like 'name:' or 'navItems:').
+ */
 export const siteConfig = {
+  // The global name of the company used in metadata and titles
   name: "HIECON",
+  // The text shown next to the logo in the navigation bar
   logoText: "HIECON",
+  // The global description used for SEO and default social sharing
   description: "Engineering Smarter Industrial Automation Systems",
+  // The copyright text shown at the very bottom of the footer
   copyright: "©2026 Hiecon. All rights reserved.",
   
+  // The links shown in the top navigation bar
   navItems: [
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
@@ -11,6 +23,7 @@ export const siteConfig = {
     { name: "Solutions", href: "/solutions" },
   ],
 
+  // The columns and links shown in the footer
   footerLinks: [
     {
       title: "Company",
@@ -36,6 +49,7 @@ export const siteConfig = {
     {
       title: "Social",
       links: [
+        // Ensure this link is a full URL starting with https://
         { name: "LinkedIn", href: "https://www.linkedin.com/company/hiecon/" },
       ]
     }

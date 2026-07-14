@@ -1,3 +1,17 @@
+/**
+ * SOLUTIONS DATABASE
+ * 
+ * This file contains the data for every industry solution on the website.
+ * 
+ * HOW TO ADD A NEW SOLUTION:
+ * 1. Scroll to the bottom of the 'solutions' array.
+ * 2. Copy an existing solution block (everything from `{` to `},`).
+ * 3. Paste it at the end.
+ * 4. Update the values inside the quotes (title, slug, image, etc.).
+ * 
+ * IMPORTANT:
+ * - Do NOT change the 'slug' of an existing solution as it will break links.
+ */
 export type SolutionStage = {
   stage: string;
   machines: string[];

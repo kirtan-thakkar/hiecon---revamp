@@ -1,56 +1,62 @@
 # Hiecon Web Application
 
-This repository contains the source code and content for the Hiecon site.
+This repository contains the source code and configuration for the Hiecon site.
 
-## 📝 Editing Website Content
+## Content Management Architecture
 
-I have designed this website so that **anyone** can easily edit the text, images, links, and products **without needing to know how to code**. 
+I have designed the architecture of this application to completely decouple the content from the underlying React codebase. This ensures that future content updates—such as modifying text, swapping images, or adding new products—can be executed quickly and safely without requiring any web development expertise.
 
-All the data that powers the website is stored in simple text files located in the `apps/web/data/` folder. The actual website code reads from these files, meaning you never have to touch the complex React code.
+All static content is centralized in the `apps/web/data/` directory.
 
-### Where to go to edit content:
+### Configuration Files Overview
 
-1. **Global Site Settings (Navigation, Footer, Copyright):**
-   Open `apps/web/data/siteConfig.ts`
+1. **Global Site Settings:**
+   Location: `apps/web/data/siteConfig.ts`
+   Controls globally shared elements, including the navigation menu, footer links, and copyright information.
    
-2. **Home Page (Hero, Partners, Stats):**
-   Open `apps/web/data/homeData.ts`
+2. **Home Page Data:**
+   Location: `apps/web/data/homeData.ts`
+   Controls the structural content of the landing page, including the hero section, statistics, technology partners, and the "Why Choose Us" sections.
    
-3. **Products Page:**
-   Open `apps/web/data/products.ts`
+3. **Products Data:**
+   Location: `apps/web/data/products.ts` and `apps/web/data/productsPageData.ts`
+   Controls the catalog of hardware products, specifications, and the static labels rendered on the products routing pages.
    
-4. **Solutions/Industries Page:**
-   Open `apps/web/data/solutions.ts`
+4. **Solutions Data:**
+   Location: `apps/web/data/solutions.ts` and `apps/web/data/solutionsPageData.ts`
+   Controls the industry-specific solutions, implementation stages, and the static labels rendered on the solutions routing pages.
 
-### 📖 Step-by-Step Guide
+### Content Editing Guide
 
-For detailed instructions on exactly how to open these files, what to edit (and what NOT to edit), and tips on choosing the right images, please read the **[Comprehensive Content Editing Guide](./apps/web/data/README.md)**.
+For detailed instructions on modifying these configuration files, please refer to the **[Content Editing Guide](./apps/web/data/README.md)**.
 
 ---
 
-## 💻 Developer Section
+## Technical Documentation
 
-If you are a developer looking to run, build, or extend the platform, please see the instructions below.
+The following instructions are intended for developers modifying the core application code or managing the deployment pipeline.
 
-### Setup
+### Prerequisites
 
-Install dependencies:
-```bash
-npm install
-```
+Ensure you have Node.js installed. This project uses `npm` as the package manager.
 
-### Development Server
+### Local Development
 
-Run the development server:
-```bash
-npm run dev
-```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Build
+3. Access the application at [http://localhost:3000](http://localhost:3000).
 
-To build the application for production:
+### Production Build
+
+To compile the application for production deployment:
 ```bash
 npm run build
 ```

@@ -1,3 +1,18 @@
+/**
+ * PRODUCT DATABASE
+ * 
+ * This file contains the data for every hardware product on the website.
+ * 
+ * HOW TO ADD A NEW PRODUCT:
+ * 1. Scroll to the bottom of the 'products' array.
+ * 2. Copy an existing product block (everything from `{` to `},`).
+ * 3. Paste it at the end.
+ * 4. Update the values inside the quotes (title, slug, image, etc.).
+ * 
+ * IMPORTANT:
+ * - Do NOT change the 'slug' of an existing product as it will break links.
+ * - 'groupName' is used to group similar products together at the bottom of the page.
+ */
 import { ProductSpecTable } from "./productDetails";
 
 export interface LinkGroup {

@@ -29,16 +29,15 @@ export const plcProducts: IndividualProduct[] = [
           { key: "model", label: "Model No" },
           { key: "ios", label: "Number of I/Os" },
           { key: "features", label: "Features" },
-          { key: "datasheet", label: "Data Sheet" }
         ],
         rows: [
-          { model: "DI524", ios: "32 DI", features: "24 V DC", datasheet: "Download" },
-          { model: "DC522", ios: "16 DC", features: "Configurable, Transistor 0.5 A, fast counter", datasheet: "Download" },
-          { model: "DC523", ios: "24 DC", features: "Configurable, Transistor 0.5 A, fast counter", datasheet: "Download" },
-          { model: "DC532", ios: "16 DI 16 DC", features: "16 Configurable, Transistor 0.5 A, fast counter", datasheet: "Download" },
-          { model: "DX522", ios: "8 DI 8 DO", features: "Relay", datasheet: "Download" },
-          { model: "DX531", ios: "8 DI 4 DO", features: "Relay", datasheet: "Download" },
-          { model: "DO524", ios: "32 DO", features: "Transistor 0.5 A", datasheet: "Download" }
+          { model: "DI524", ios: "32 DI", features: "24 V DC", },
+          { model: "DC522", ios: "16 DC", features: "Configurable, Transistor 0.5 A, fast counter",  },
+          { model: "DC523", ios: "24 DC", features: "Configurable, Transistor 0.5 A, fast counter", },
+          { model: "DC532", ios: "16 DI 16 DC", features: "16 Configurable, Transistor 0.5 A, fast counter",},
+          { model: "DX522", ios: "8 DI 8 DO", features: "Rela" },
+          { model: "DX531", ios: "8 DI 4 DO", features: "Rela "},
+          { model: "DO524", ios: "32 DO", features: "Transistor 0.5 A",  }
         ]
       },
       {
@@ -48,14 +47,13 @@ export const plcProducts: IndividualProduct[] = [
           { key: "model", label: "Model No" },
           { key: "ios", label: "Number of I/Os" },
           { key: "features", label: "Features" },
-          { key: "datasheet", label: "Data sheet" }
         ],
         rows: [
-          { model: "AI523", ios: "16 AI", features: "V,mA,pt100,pt1000,ni1000", datasheet: "Download" },
-          { model: "AX521", ios: "4 AI 4 AO", features: "V,mA,pt100,pt1000,ni1000", datasheet: "Download" },
-          { model: "AX522", ios: "8 AI 8 AO", features: "V,mA,pt100,pt1000,ni1000", datasheet: "Download" },
-          { model: "AO523", ios: "16 AO", features: "-", datasheet: "Download" },
-          { model: "AI531", ios: "8 AI", features: "V,mA,pt100,pt1000,ni1000,Thermocouple", datasheet: "Download" }
+          { model: "AI523", ios: "16 AI", features: "V,mA,pt100,pt1000,ni1000",  },
+          { model: "AX521", ios: "4 AI 4 AO", features: "V,mA,pt100,pt1000,ni1000",  },
+          { model: "AX522", ios: "8 AI 8 AO", features: "V,mA,pt100,pt1000,ni1000",  },
+          { model: "AO523", ios: "16 AO", features: "-",  },
+          { model: "AI531", ios: "8 AI", features: "V,mA,pt100,pt1000,ni1000,Thermocouple", }
         ]
       }
     ]
@@ -90,11 +88,10 @@ export const plcProducts: IndividualProduct[] = [
           { key: "model", label: "Model No." },
           { key: "ios", label: "Onboard I/Os" },
           { key: "power", label: "Power Supply" },
-          { key: "datasheet", label: "Data Sheet" }
         ],
         rows: [
-          { model: "PM554-TP-ETH", ios: "8DI 6DO Transistor", power: "24 V DC", datasheet: "Download" },
-          { model: "PM556-TP-ETH", ios: "8DI 6DO Transistor", power: "24 V DC", datasheet: "Download" }
+          { model: "PM554-TP-ETH", ios: "8DI 6DO Transistor", power: "24 V DC", },
+          { model: "PM556-TP-ETH", ios: "8DI 6DO Transistor", power: "24 V DC", }
         ]
       },
       {
@@ -104,20 +101,19 @@ export const plcProducts: IndividualProduct[] = [
           { key: "model", label: "Model No" },
           { key: "ios", label: "Number of I/Os" },
           { key: "features", label: "Features" },
-          { key: "datasheet", label: "Data Sheet" }
         ],
         rows: [
-          { model: "DI561", ios: "8DI", features: "24 V DC", datasheet: "Download" },
-          { model: "DI562", ios: "16DI", features: "24 V DC", datasheet: "Download" },
-          { model: "DI571", ios: "8DI", features: "100-240 V AC", datasheet: "Download" },
-          { model: "DI572", ios: "16DI", features: "100-240 V AC", datasheet: "Download" },
-          { model: "DO561", ios: "8DO", features: "Transistor", datasheet: "Download" },
-          { model: "DO562", ios: "16DO", features: "Transistor", datasheet: "Download" },
-          { model: "DO571", ios: "8DO", features: "Relay", datasheet: "Download" },
-          { model: "DO572", ios: "8DO", features: "Triac", datasheet: "Download" },
-          { model: "DO573", ios: "16DO", features: "Relay", datasheet: "Download" },
-          { model: "DX561", ios: "8DI / 8DO", features: "24 V DC / Transistor", datasheet: "Download" },
-          { model: "DX571", ios: "8DI / 8DO", features: "24 V AC / Relay", datasheet: "Download" }
+          { model: "DI561", ios: "8DI", features: "24 V DC", },
+          { model: "DI562", ios: "16DI", features: "24 V DC", },
+          { model: "DI571", ios: "8DI", features: "100-240 V AC", },
+          { model: "DI572", ios: "16DI", features: "100-240 V AC", },
+          { model: "DO561", ios: "8DO", features: "Transistor", },
+          { model: "DO562", ios: "16DO", features: "Transistor", },
+          { model: "DO571", ios: "8DO", features: "Relay", },
+          { model: "DO572", ios: "8DO", features: "Triac", },
+          { model: "DO573", ios: "16DO", features: "Relay", },
+          { model: "DX561", ios: "8DI / 8DO", features: "24 V DC / Transistor", },
+          { model: "DX571", ios: "8DI / 8DO", features: "24 V AC / Relay", }
         ]
       },
       {
@@ -127,14 +123,13 @@ export const plcProducts: IndividualProduct[] = [
           { key: "model", label: "Model No" },
           { key: "ios", label: "Number of I/Os" },
           { key: "features", label: "Features" },
-          { key: "datasheet", label: "Data Sheet" }
         ],
         rows: [
-          { model: "AI561", ios: "4AI", features: "24 V DC", datasheet: "Download" },
-          { model: "AI562", ios: "2AI", features: "24 V DC", datasheet: "Download" },
-          { model: "AI563", ios: "4AI", features: "100-240 V AC", datasheet: "Download" },
-          { model: "AO561", ios: "2AO", features: "100-240 V AC", datasheet: "Download" },
-          { model: "AX561", ios: "4AI / 2AO", features: "Transistor", datasheet: "Download" }
+          { model: "AI561", ios: "4AI", features: "24 V DC",  },
+          { model: "AI562", ios: "2AI", features: "24 V DC",  },
+          { model: "AI563", ios: "4AI", features: "100-240 V AC",  },
+          { model: "AO561", ios: "2AO", features: "100-240 V AC",  },
+          { model: "AX561", ios: "4AI / 2AO", features: "Transistor",  }
         ]
       }
     ]

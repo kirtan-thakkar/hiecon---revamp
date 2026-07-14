@@ -1,71 +1,75 @@
 # Content Editing Guide
 
-Welcome! This folder (`apps/web/data/`) contains all the text, images, and data that power the Hiecon website. 
+This directory (`apps/web/data/`) contains the configuration files that manage the static content and data for the Hiecon web application. 
 
-By editing the files in this folder, you can update the website's content **without needing to know any React code or web development**. 
+I have structured this data layer to ensure that content updates can be performed safely and efficiently without requiring any modifications to the core React components.
 
 ---
 
-## ⚠️ Important Rules for Editing
+## Technical Constraints for Editing
 
-Before you open any file, please keep these three rules in mind:
+When modifying the files in this directory, strict adherence to the following rules is required to prevent compilation errors and broken routing:
 
-1. **Only edit the text inside the quotes (`" "`).** 
-   You will see structures like `title: "Some Text"`. You should change `"Some Text"` to `"New Text"`. **Do not** change the word `title:` or delete the quotes.
+1. **Modify Values Only:** 
+   Only modify the string values enclosed within quotation marks (`" "`). For example, in the key-value pair `title: "Industrial Automation"`, you may change `"Industrial Automation"` to `"Factory Automation"`. Do not alter the key name (`title:`) or remove the surrounding quotes.
    
-2. **Do not change the `slug`.**
-   Many items have a `slug` (e.g., `slug: "ac-drives"`). This is used for the URL of the page (e.g., `hiecon.com/products/ac-drives`). Changing this will break links that point to that page.
+2. **Preserve Slugs:**
+   The `slug` property (e.g., `slug: "ac-drives"`) dictates the URL path for that specific entity. Modifying a slug after the application has been indexed by search engines will result in broken external links and 404 errors. Do not change existing slugs.
 
-3. **Images.**
-   When replacing an image URL, ensure the link is a direct link to the image (ending in `.jpg`, `.png`, `.webp`, or using an image service like Unsplash).
+3. **Image Assets:**
+   Ensure image URLs point directly to the media asset (typically ending in `.jpg`, `.png`, or `.webp`). When utilizing external image delivery services (e.g., Unsplash), maintain the appended query parameters that control resolution and cropping (e.g., `?q=80&w=2000&auto=format&fit=crop`) to ensure optimal performance and visual fidelity.
 
 ---
 
-## Where to find the data
+## Directory Structure & Responsibilities
 
-Here is a breakdown of what each file controls:
+The responsibilities of each configuration file are delineated below:
 
 ### 1. Global Settings (`siteConfig.ts`)
-Controls things that appear on every page.
-- **Top Navigation Menu:** Add or remove links in the `navItems` array.
-- **Footer:** Update the links in the bottom footer in the `footerLinks` array.
-- **Copyright:** Update the copyright text.
+Manages properties that persist across all views in the application.
+- **Top Navigation:** Managed via the `navItems` array.
+- **Footer:** Managed via the `footerLinks` array.
+- **Metadata:** Company name, copyright text, and centralized social links.
 
-### 2. Home Page (`homeData.ts`)
-Controls all the sections on the main landing page.
-- **Hero Section:** The big video background area. You can change the large text (`titleLine1`, `titleLine2`) and the video link (`videoUrl`).
-- **Technology Partners:** Update the list of partners and the badges they show.
-- **Why Choose Us:** Update the 4 core steps and the statistics at the bottom of the page.
+### 2. Home Page Configuration (`homeData.ts`)
+Manages the structural text, media assets, and numerical statistics rendered on the index page.
+- **Hero Section:** Primary headlines, secondary descriptions, and the background video asset URI.
+- **Technology Partners:** The array of affiliated brands and their respective badges.
+- **Why Choose Us:** The staged informational sections and the company statistics block.
 
-### 3. Products Data (`products.ts` & `productsPageData.ts`)
-Controls the entire `/products` page and the individual product pages.
-- **`productsPageData.ts`**: Contains the main headlines and labels for the Products area (e.g., "Hardware Portfolio", "Product Detail").
-- **`products.ts`**: Each product is an object in the `products` list. You can add a new product by copying an existing block (from `{` to `},`) and pasting it at the end of the list. Update `title`, `description`, `image`, and the technical `specs` here.
+### 3. Products Catalog (`products.ts` & `productsPageData.ts`)
+Manages the `/products` routing tree.
+- **`productsPageData.ts`**: Static UI labels and headers specific to the product views (e.g., "Hardware Portfolio", "Technical Specifications").
+- **`products.ts`**: The primary database of hardware offerings. Each product is a discreet object in the array containing its title, description, technical specifications, and associated documentation links. To add a new product, append a new object to this array matching the existing schema.
 
-### 4. Solutions / Industries Data (`solutions.ts` & `solutionsPageData.ts`)
-Controls the `/solutions` page and individual industry pages.
-- **`solutionsPageData.ts`**: Contains the main headlines and labels for the Solutions area (e.g., "Industry Solutions", "Implementation Stages").
-- **`solutions.ts`**: Works exactly like the `products.ts` file. You can update the `implementationStages` for each industry to show the exact machines used in the manufacturing process.
+### 4. Solutions Catalog (`solutions.ts` & `solutionsPageData.ts`)
+Manages the `/solutions` routing tree.
+- **`solutionsPageData.ts`**: Static UI labels and headers specific to the solution views.
+- **`solutions.ts`**: The database of industry-specific automation solutions. This includes the defined `implementationStages`, detailing the exact machinery deployed at each stage of a manufacturing process.
+
+### 5. Legal & Policies (`legalData.ts`)
+Manages the textual content for pages like Privacy Policy, Terms of Use, and Legal Disclosures that will be built later.
+- Update the `title`, `lastUpdated` date, and main `content` paragraphs for each legal page here.
 
 ---
 
-## Example: How to edit
+## Modification Example
 
-Let's say you want to change the main headline on the Home page.
+To update the primary headline on the index page, follow this procedure:
 
 1. Open `homeData.ts`.
-2. Find this section:
+2. Locate the `hero` object:
 ```typescript
   hero: {
     label: "Industrial Automation",
     titleLine1: "Engineering Smarter",
     // ...
 ```
-3. Change it to:
+3. Update the required string value:
 ```typescript
   hero: {
     label: "Factory Automation",
     titleLine1: "Building Smarter",
     // ...
 ```
-4. Save the file. The website will instantly reflect the change!
+4. Save the file. The changes will propagate to the application immediately during local development, or upon the next production build.
