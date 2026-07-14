@@ -10,6 +10,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Lightbox from "@/components/ui/Lightbox";
 
 import { products } from "@/data/products";
+import { productsPageData } from "@/data/productsPageData";
 
 export default function ProductsClient() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
@@ -31,7 +32,7 @@ export default function ProductsClient() {
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
           >
-            Hardware Portfolio
+            {productsPageData.header.label}
           </motion.p>
           <TextAnimate 
             animation="blurInUp" 
@@ -39,7 +40,7 @@ export default function ProductsClient() {
             by="word"
             className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-[1.05] mb-8"
           >
-            Industrial grade hardware.
+            {productsPageData.header.title}
           </TextAnimate>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -47,7 +48,7 @@ export default function ProductsClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl"
           >
-            From edge controllers to heavy-duty servo motors. We partner with the world's leading manufacturers to provide reliable, scalable hardware for your factory.
+            {productsPageData.header.description}
           </motion.p>
           </div>
         </Container>
@@ -88,7 +89,7 @@ export default function ProductsClient() {
                     {product.description}
                   </p>
                   <Link href={`/products/${product.slug}`} className="inline-flex items-center gap-2 text-brand-primary font-medium mt-1 text-sm">
-                    View Specifications
+                    {productsPageData.detailLabels.viewSpecifications}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

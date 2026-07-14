@@ -10,6 +10,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Lightbox from "@/components/ui/Lightbox";
 
 import { solutions } from "@/data/solutions";
+import { solutionsPageData } from "@/data/solutionsPageData";
 
 export default function SolutionsClient() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
@@ -30,7 +31,7 @@ export default function SolutionsClient() {
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
           >
-            Industry Solutions
+            {solutionsPageData.header.label}
           </motion.p>
           <TextAnimate 
             animation="blurInUp" 
@@ -38,7 +39,7 @@ export default function SolutionsClient() {
             by="word"
             className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-[1.05] mb-8"
           >
-            Engineered for your industry.
+            {solutionsPageData.header.title}
           </TextAnimate>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -46,7 +47,7 @@ export default function SolutionsClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl"
           >
-            We don't build generic systems. We engineer deep, domain-specific automation architectures tailored to the physics of your production line.
+            {solutionsPageData.header.description}
           </motion.p>
           </div>
         </Container>
@@ -86,7 +87,7 @@ export default function SolutionsClient() {
                     {solution.description}
                   </p>
                   <Link href={`/solutions/${solution.slug}`} className="inline-flex items-center gap-2 text-brand-primary font-medium mt-1 text-sm">
-                    Explore Solution
+                    {solutionsPageData.detailLabels.exploreSolution}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

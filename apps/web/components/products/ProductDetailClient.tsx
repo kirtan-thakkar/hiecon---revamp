@@ -28,6 +28,7 @@ import { IndividualProduct, ProductSpecTable } from "@/data/productDetails";
 import { Link } from "next-view-transitions";
 import { Button } from "@workspace/ui/components/button";
 import ExpandableProductGrid from "./ExpandableProductGrid";
+import { productsPageData } from "@/data/productsPageData";
 
 export default function ProductDetailClient({ data, familyProducts }: { data: ProductData, familyProducts?: IndividualProduct[] }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -47,7 +48,7 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
           >
-            Product Detail
+            {productsPageData.detailLabels.productDetail}
           </motion.p>
           <TextAnimate 
             animation="blurInUp" 
@@ -86,13 +87,13 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
 
         <div className="max-w-6xl mb-32 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl font-medium mb-6">Overview</h2>
+            <h2 className="text-3xl font-medium mb-6">{productsPageData.detailLabels.overview}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {data.content}
             </p>
           </div>
           <div>
-            <h2 className="text-3xl font-medium mb-6">Specifications</h2>
+            <h2 className="text-3xl font-medium mb-6">{productsPageData.detailLabels.specifications}</h2>
             <div className="flex flex-col border-t border-border/50">
               {data.specs.map((spec, i) => (
                 <div key={i} className="flex justify-between py-4 border-b border-border/50">
@@ -106,7 +107,7 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
 
         {data.specificationGroups && data.specificationGroups.length > 0 && (
           <div className="max-w-6xl mb-32 border-t border-border/50 pt-16">
-            <h2 className="text-3xl font-medium mb-12">Technical Specifications</h2>
+            <h2 className="text-3xl font-medium mb-12">{productsPageData.detailLabels.technicalSpecifications}</h2>
             <div className="space-y-16">
               {data.specificationGroups.map((group, idx) => (
                 <div key={idx} className="flex flex-col">
@@ -146,7 +147,7 @@ export default function ProductDetailClient({ data, familyProducts }: { data: Pr
 
         {data.documents && data.documents.length > 0 && (
           <div id="documents" className="max-w-6xl mb-32 border-t border-border/50 pt-16">
-            <h2 className="text-3xl font-medium mb-10">Technical Documents</h2>
+            <h2 className="text-3xl font-medium mb-10">{productsPageData.detailLabels.technicalDocuments}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {data.documents.map((doc, idx) => (
                 <a 

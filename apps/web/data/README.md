@@ -37,16 +37,15 @@ Controls all the sections on the main landing page.
 - **Technology Partners:** Update the list of partners and the badges they show.
 - **Why Choose Us:** Update the 4 core steps and the statistics at the bottom of the page.
 
-### 3. Products Data (`products.ts`)
+### 3. Products Data (`products.ts` & `productsPageData.ts`)
 Controls the entire `/products` page and the individual product pages.
-- Each product is an object in the `products` list.
-- You can add a new product by copying an existing block (from `{` to `},`) and pasting it at the end of the list.
-- You can update `title`, `description`, `image`, and the technical `specs` for each product.
+- **`productsPageData.ts`**: Contains the main headlines and labels for the Products area (e.g., "Hardware Portfolio", "Product Detail").
+- **`products.ts`**: Each product is an object in the `products` list. You can add a new product by copying an existing block (from `{` to `},`) and pasting it at the end of the list. Update `title`, `description`, `image`, and the technical `specs` here.
 
-### 4. Solutions / Industries Data (`solutions.ts`)
+### 4. Solutions / Industries Data (`solutions.ts` & `solutionsPageData.ts`)
 Controls the `/solutions` page and individual industry pages.
-- Works exactly like the `products.ts` file. 
-- You can update the `implementationStages` for each industry to show the exact machines used in the manufacturing process.
+- **`solutionsPageData.ts`**: Contains the main headlines and labels for the Solutions area (e.g., "Industry Solutions", "Implementation Stages").
+- **`solutions.ts`**: Works exactly like the `products.ts` file. You can update the `implementationStages` for each industry to show the exact machines used in the manufacturing process.
 
 ---
 

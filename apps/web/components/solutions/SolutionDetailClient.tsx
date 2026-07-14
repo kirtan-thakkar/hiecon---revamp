@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import { TextAnimate } from "@workspace/ui/components/text-animate";
 import Image from "next/image";
 import AddToEnquiryButton from "@/components/products/AddToEnquiryButton";
+import { solutionsPageData } from "@/data/solutionsPageData";
 
 type SolutionStage = {
   stage: string;
@@ -36,7 +37,7 @@ export default function SolutionDetailClient({ slug, data }: { slug: string; dat
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest uppercase text-brand-primary mb-6"
           >
-            Solution Detail
+            {solutionsPageData.detailLabels.solutionDetail}
           </motion.p>
           <TextAnimate 
             animation="blurInUp" 
@@ -85,14 +86,14 @@ export default function SolutionDetailClient({ slug, data }: { slug: string; dat
         </motion.div>
 
         <div className="w-full max-w-5xl mb-12">
-          <h2 className="text-3xl font-medium mb-6">Overview</h2>
+          <h2 className="text-3xl font-medium mb-6">{solutionsPageData.detailLabels.overview}</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-16 max-w-3xl">
             {data.content}
           </p>
 
           {(data.implementationStages && data.implementationStages.length > 0) || (data.implementations && data.implementations.length > 0) ? (
             <div>
-              <h3 className="text-2xl font-medium mb-8">Solutions Implemented</h3>
+              <h3 className="text-2xl font-medium mb-8">{solutionsPageData.detailLabels.implementationStages}</h3>
               {data.implementationStages && data.implementationStages.length > 0 ? (
                 <div className="w-full pt-4">
                   <div className="w-full flex flex-col">
