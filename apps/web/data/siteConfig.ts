@@ -1,6 +1,6 @@
 /**
  * GLOBAL SITE CONFIGURATION
- * 
+ *
  * This file controls the main settings that appear across every page of the website.
  * - To change text, modify only the content inside the " " quotes.
  * - Do not change the keys (like 'name:' or 'navItems:').
@@ -16,7 +16,7 @@ export const siteConfig = {
   url: "https://www.hiecon.com",
   // The copyright text shown at the very bottom of the footer
   copyright: "©2026 Hiecon. All rights reserved.",
-  
+
   // Local SEO Information (Optional but recommended for LocalBusiness schema)
   contact: {
     // /* TODO: exact phone number */
@@ -25,18 +25,15 @@ export const siteConfig = {
     email: "info@hiecon.com",
   },
   address: {
-    // /* TODO: exact street address */
-    streetAddress: "Industrial Area",
+    streetAddress:"152, Lane 3, Azad Society, Acharya Narendradev Nagar, Ambawadi",
     addressLocality: "Ahmedabad",
     addressRegion: "Gujarat",
-    // /* TODO: exact postal code */
-    postalCode: "380001",
-    addressCountry: "IN"
+    postalCode: "380015",
+    addressCountry: "IN",
   },
   geo: {
-    // /* TODO: exact coordinates */
-    latitude: "23.022505", 
-    longitude: "72.571362"
+    latitude: "23.0241",
+    longitude: "72.534081",
   },
   // The links shown in the top navigation bar
   navItems: [
@@ -53,28 +50,28 @@ export const siteConfig = {
       links: [
         { name: "About Us", href: "/about" },
         { name: "Contact", href: "/contact" },
-      ]
+      ],
     },
     {
       title: "Legal",
       links: [
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Use", href: "/terms" },
-      ]
+      ],
     },
     {
       title: "Solutions",
       links: [
         { name: "Industrial Automation", href: "/solutions" },
         { name: "Products", href: "/products" },
-      ]
+      ],
     },
     {
       title: "Social",
       links: [
         // Ensure this link is a full URL starting with https://
         { name: "LinkedIn", href: "https://www.linkedin.com/company/hiecon/" },
-      ]
-    }
-  ]
-};
+      ],
+    },
+  ],
+}
