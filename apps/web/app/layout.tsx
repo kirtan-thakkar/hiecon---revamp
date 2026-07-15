@@ -21,8 +21,29 @@ const dmSans = DM_Sans({
 import { ViewTransitions } from 'next-view-transitions'
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  keywords: ["Industrial Automation", "Robotics", "PLC", "Motion Control", "Hiecon"],
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    // Add a default image to the public folder later if needed
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og-image.jpg"],
+  },
   other: {
     // Basic Geo tags
     'geo.region': 'IN-GJ',
