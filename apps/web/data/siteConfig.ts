@@ -19,13 +19,12 @@ export const siteConfig = {
 
   // Local SEO Information (Optional but recommended for LocalBusiness schema)
   contact: {
-    // /* TODO: exact phone number */
-    phone: "+91-0000000000",
-    // /* TODO: exact email */
-    email: "info@hiecon.com",
+    phone: "+91 9974707600",
+    email: "sales@hiecon.com",
   },
   address: {
-    streetAddress:"152, Lane 3, Azad Society, Acharya Narendradev Nagar, Ambawadi",
+    streetAddress:
+      "152, Lane 3, Azad Society, Acharya Narendradev Nagar, Ambawadi",
     addressLocality: "Ahmedabad",
     addressRegion: "Gujarat",
     postalCode: "380015",
