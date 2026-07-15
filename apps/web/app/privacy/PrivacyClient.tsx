@@ -139,8 +139,8 @@ export default function PrivacyClient() {
                 Depending on your jurisdiction, you have the right to request access to, modification of, or deletion of the personal data we hold about you. To exercise these rights, or if you have any questions regarding this Privacy Policy, please contact our Data Protection Officer at:
               </p>
               <p className="mt-2">
-                <strong className="text-foreground">Email:</strong> privacy@hiecon.com<br />
-                <strong className="text-foreground">Phone:</strong> +[PLACEHOLDER_PHONE]
+                <strong className="text-foreground">Email:</strong> sales@hiecon.com<br />
+                <strong className="text-foreground">Phone:</strong> +91 9974707600
               </p>
             </div>
           </motion.section>
