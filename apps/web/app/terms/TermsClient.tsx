@@ -9,7 +9,6 @@ import { TextAnimate } from "@workspace/ui/components/text-animate";
 export default function TermsClient() {
   return (
     <>
-      {/* Header Section */}
       <div className="relative pt-12 pb-16 md:pb-24 overflow-hidden border-b border-border/20 mb-16">
         <Container className="relative z-10">
           <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
@@ -46,7 +45,6 @@ export default function TermsClient() {
         </Container>
       </div>
 
-      {/* Content Section */}
       <Container>
         <div className="max-w-3xl grid grid-cols-1 gap-12 md:gap-16">
           
@@ -125,7 +123,7 @@ export default function TermsClient() {
             </div>
           </motion.section>
 
-          <motion.section 
+          {/* <motion.section 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
@@ -139,7 +137,7 @@ export default function TermsClient() {
                 Any claim relating to Hiecon's website shall be governed by the laws of <strong className="text-foreground">[PLACEHOLDER_JURISDICTION]</strong> without regard to its conflict of law provisions.
               </p>
             </div>
-          </motion.section>
+          </motion.section> */}
 
         </div>
       </Container>
