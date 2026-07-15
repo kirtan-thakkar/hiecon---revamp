@@ -116,7 +116,7 @@ export const homeData = {
         label: "04 / Deployment",
         title: "Commission on\nthe factory floor",
         description: "Our involvement doesn't end with a schematic. Our engineers deploy to your facility, wiring cabinets, tuning servo loops, and rigorously testing safety zones until the line runs flawlessly.",
-        image: "/https://images.unsplash.com/photo-1716643863806-989dd76ae093?q=80&w=1974&auto=format&fit=crop",
+        image: https://images.unsplash.com/photo-1716643863806-989dd76ae093?q=80&w=1974&auto=format&fit=crop",
         reverse: true
       }
     ],
